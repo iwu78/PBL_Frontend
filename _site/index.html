@@ -435,6 +435,65 @@
             <div id="tableContainer" style="display: flex; flex-direction: column; overflow: hidden; height: 400px; overflow-y: auto;"></div>
         </div>
       </div>
+      <div class="panel settingsPanel" id="titanic" onmousedown="FocusWindow('titanic')" style="display:none;">
+        <div class="header noselect">
+          <span class="lightText"><img class="headerTitleIcon" src="./titanic.png" width="20" height="20"></img><span class="headerTitleText">Titanic</span></span>
+          <div class="headerIcons">
+              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('titanic')"></img>
+              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('titanic')"></img>
+          </div>
+        </div>
+        <div class="panel-body settingsPanelBody noselect" id="panelBody">
+          <form action="javascript:titanic_user()">
+            <p><label>
+                Name:
+                <input type="text" name="name" id="name" required="" />
+            </label></p>
+            <p><label>
+                Class:
+                <select id="pclass" name="pclass">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+            </label></p>
+            <p><label>
+                Sex:
+                <select id="sex" name="sex">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+            </label></p>
+            <p><label>
+                Age:
+                <input type="text" name="age" id="age" required="" />
+            </label></p>
+            <p><label>
+                Family Members:
+                <input type="text" name="fmem" id="fmem" required="" />
+            </label></p>
+            <p><label>
+                Fare:
+                <input type="text" name="fare" id="fare" required="" />
+            </label></p>
+            <p><label>
+                Embarkment Port:
+                <select id="embark" name="embark">
+                  <option value="S">Southampton</option>
+                  <option value="Q">Queenstown</option>
+                  <option value="C">Cherbourg</option>
+                </select>
+            </label></p>
+            <p>
+                <button>Go!</button>
+            </p>
+            <p id="display">
+              Survival Chance:
+              
+            </p>
+        </div>
+      </div>
   </div>
   
   <div class="taskbar noselect">
@@ -456,6 +515,10 @@
     <div class="taskbarIconWrapper" id="buttondatabaseTaskbarIcon" onClick="TaskbarIconClick('buttondatabase')">
         <img src="./logo.png" width="35" height="35" class="taskbarItem" alt="Button Database Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="buttondatabaseTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="titanicTaskbarIcon" onClick="TaskbarIconClick('titanic')">
+        <img src="./titanic.png" width="35" height="35" class="taskbarItem" alt="Titanic Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="titanicTaskbarIndicator"></div>
       </div>
     <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
       <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
@@ -510,6 +573,15 @@
     taskbarid: "#buttondatabaseTaskbarIcon",
     taskbarindicator: "#buttondatabaseTaskbarIndicator",
     windowid: "#buttondatabase"
+  },
+  {
+    name: "titanic",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#titanicTaskbarIcon",
+    taskbarindicator: "#titanicTaskbarIndicator",
+    windowid: "#titanic"
   },
   {
     name: "weather",
@@ -1235,4 +1307,60 @@ updateTime();
                 console.error(err);
             });
         }
+  function titanic_user(){
+      // Set Authenticate endpoint
+      const url = 'http://127.0.0.1:8086/api/titanic/';
+
+      // Set the body of the request to include login data from the DOM
+      const body = {
+          name: document.getElementById("name").value,
+          pclass: parseInt(document.getElementById("pclass").value),
+          sex: document.getElementById("sex").value,
+          age: parseInt(document.getElementById("age").value),
+          fmem: parseInt(document.getElementById("fmem").value),
+          fare: parseInt(document.getElementById("fare").value),
+          embark: parseInt(document.getElementById("embark").value)
+      };
+
+      if (parseInt(document.getElementById("fmem").value) == 0) {
+        body.alone = true
+      } else {
+        body.alone = false
+      }
+
+      // Change options according to Authentication requirements
+      const authOptions = {
+          mode: 'cors', // no-cors, *cors, same-origin
+          credentials: 'include', // include, same-origin, omit
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          method: 'POST', // Override the method property
+          cache: 'no-cache', // Set the cache property
+          body: JSON.stringify(body)
+      };
+
+      // Fetch JWT
+      fetch(url, authOptions)
+      .then(response => {
+          // Check if response is successful
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          // Parse the JSON content from the response
+          return response.json();
+      })
+      .then(data => {
+          // Now 'data' contains the parsed JSON content
+          console.log(data);
+          document.getElementById("display").innerHTML = "Death Chance: " + data[0] * 100 + "%.";
+      })
+      .catch(error => {
+          // Handle errors here
+          console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+
+  // Attach login_user to the window object, allowing access to form action
+  window.titanic_user = titanic_user;
 </script>
