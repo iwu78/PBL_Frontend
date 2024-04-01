@@ -772,4 +772,85 @@ textarea {
 .toggle-buttons .button2.active {
   background-color: #007bff;
   color: white;
+}
+
+.cookie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+.cookie {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #7f2d74; /* Added border */
+  transition: transform 0.2s;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 39%;
+  top: 225px;
+}
+
+.cookie:hover {
+  transform: scale(1.1);
+}
+
+.points {
+  font-size: 1.5em;
+  color: #000000;
+  margin: auto;
+  text-align: center;
+}
+
+.shop {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: absolute;
+  top: 530px;
+}
+
+.shop {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: #575757;
+}
+
+.shop-item {
+  margin: 15px 0;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.shop-item,
+.shop-item .button3 {
+  margin: 10px 0;
+  color: #575757;
+}
+
+.shop-item .button3 {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shop-item .button3:hover {
+  background-color: #45a049;
+}
+
+.shop-item .button3:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
 }/*# sourceMappingURL=css.css.map */

@@ -416,7 +416,7 @@
       </div>
       <div class="panel settingsPanel" id="buttondatabase" onmousedown="FocusWindow('buttondatabase')" style="display:none;">
         <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./logo.png" width="20" height="20"></img><span class="headerTitleText">Login</span></span>
+          <span class="lightText"><img class="headerTitleIcon" src="./logo.png" width="20" height="20"></img><span class="headerTitleText">Button Database</span></span>
           <div class="headerIcons">
               <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('buttondatabase')"></img>
               <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
@@ -494,6 +494,55 @@
             </p>
         </div>
       </div>
+      <div class="panel settingsPanel" id="cookie" onmousedown="FocusWindow('cookie')" style="display:none;width:1000px;height:850px;">
+        <div class="header noselect">
+          <span class="lightText"><img class="headerTitleIcon" src="./cookie.png" width="20" height="20"></img><span class="headerTitleText">Cookie Clicker</span></span>
+          <div class="headerIcons">
+              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('cookie')"></img>
+              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('cookie')"></img>
+          </div>
+        </div>
+        <div class="panel-body settingsPanelBody noselect" id="panelBody" >
+          <h1 style="text-align: center;">Cookie Clicker</h1>
+          <p style="text-align: center;">Click the cookie to earn points!</p>
+          <img class="cookie" id="cookieimg" src="https://www.realsimple.com/thmb/uwmEcWtairipZTGavdWVbkV_dqw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chocolatechip-cookies_300-d6a402fc30814fdf87af28be97b5fcdc.jpg" alt="Cookie Image" height="200px" width="200px">
+          <p class="points">Points: <span id="points">0</span></p>
+        
+          <div class="shop" style="display: flex; flex-direction: column; overflow: hidden; height: 250px; overflow-y: auto; width: 90%">
+            <h2 padding="5px">Shop</h2>
+            <div class="shop-item">
+              <p>Upgrade Click Power (+1 per click) - Cost: <span id="upgradeClickCost">25</span> points - Purchased: <span id="upgradeClickCount">0</span></p>
+              <button id="upgradeClick" class="button3">Buy</button>
+            </div>
+            <div class="shop-item">
+              <p>Auto Click (1 click per second) - Cost: <span id="autoClickCost">100</span> points - Purchased: <span id="autoClickCount">0</span></p>
+              <button id="autoClick" class="button3">Buy</button>
+            </div>
+            <div class="shop-item">
+              <p>Double Click Power (2x per click) - Cost: <span id="doubleClickCost">500</span> points - Purchased: <span id="doubleClickCount">0</span></p>
+              <button id="doubleClick" class="button3">Buy</button>
+            </div>
+            <div class="shop-item">
+              <p>Auto Double Click (2 clicks per second) - Cost: <span id="autoDoubleClickCost">1000</span> points - Purchased: <span id="autoDoubleClickCount">0</span></p>
+              <button id="autoDoubleClick" class="button3">Buy</button>
+            </div>
+            <div class="shop-item">
+              <p>New Skin for Clicker - Cost: <span id="newSkinCost">100</span> points</p>
+              <button id="buyNewSkin" class="button3">Buy New Skin</button>
+            </div>
+            <div class="minigames" style="display: none;" id="miniGamesSection">
+              <h2>Mini Games</h2>
+              <p>Guess the number between 1 and 2:</p>
+              <input type="number" id="guessInput" min="1" max="2">
+              <p>Enter the amount of points you want to pay to play:</p>
+              <input type="number" id="gameCostInput" min="1">
+              <button onclick="playGuessingGame()">Play</button>
+              <p id="guessResult"></p>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   
   <div class="taskbar noselect">
@@ -519,6 +568,10 @@
     <div class="taskbarIconWrapper" id="titanicTaskbarIcon" onClick="TaskbarIconClick('titanic')">
         <img src="./titanic.png" width="35" height="35" class="taskbarItem" alt="Titanic Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="titanicTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="cookieTaskbarIcon" onClick="TaskbarIconClick('cookie')">
+        <img src="./cookie.png" width="35" height="35" class="taskbarItem" alt="Cookie Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="cookieTaskbarIndicator"></div>
       </div>
     <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
       <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
@@ -582,6 +635,15 @@
     taskbarid: "#titanicTaskbarIcon",
     taskbarindicator: "#titanicTaskbarIndicator",
     windowid: "#titanic"
+  },
+  {
+    name: "cookie",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#cookieTaskbarIcon",
+    taskbarindicator: "#cookieTaskbarIndicator",
+    windowid: "#cookie"
   },
   {
     name: "weather",
@@ -1363,4 +1425,247 @@ updateTime();
 
   // Attach login_user to the window object, allowing access to form action
   window.titanic_user = titanic_user;
+
+  let points = 0;
+    let clickPower = 1;
+    let autoClickEnabled = false;
+    let autoClickInterval;
+    let upgradeClickCount = 0;
+    let autoClickCount = 0;
+    let doubleClickCount = 0;
+    let autoDoubleClickCount = 0;
+    let upgradeClickCost = 25;
+    let autoClickCost = 100;
+    let doubleClickCost = 500;
+    let autoDoubleClickCost = 1000;
+
+    const pointsDisplay = document.getElementById('points');
+    const upgradeClickCostDisplay = document.getElementById('upgradeClickCost');
+    const autoClickCostDisplay = document.getElementById('autoClickCost');
+    const doubleClickCostDisplay = document.getElementById('doubleClickCost');
+    const autoDoubleClickCostDisplay = document.getElementById('autoDoubleClickCost');
+    const upgradeClickCountDisplay = document.getElementById('upgradeClickCount');
+    const autoClickCountDisplay = document.getElementById('autoClickCount');
+    const doubleClickCountDisplay = document.getElementById('doubleClickCount');
+    const autoDoubleClickCountDisplay = document.getElementById('autoDoubleClickCount');
+    const cookie = document.getElementById('cookieimg');
+    const upgradeClickButton = document.getElementById('upgradeClick');
+    const autoClickButton = document.getElementById('autoClick');
+    const doubleClickButton = document.getElementById('doubleClick');
+    const autoDoubleClickButton = document.getElementById('autoDoubleClick');
+    const miniGamesSection = document.getElementById('miniGamesSection');
+
+    let newSkinCost = 100;
+    let newSkinPurchased = false;
+        
+    const buyNewSkinButton = document.getElementById('buyNewSkin');
+    const newSkinCostDisplay = document.getElementById('newSkinCost');
+    function updatePointsDisplay() {
+            pointsDisplay.textContent = points;
+            buyNewSkinButton.disabled = newSkinPurchased || points < newSkinCost; // Disable new skin button if already purchased or not enough points
+    }
+    function updateShopDisplay() {
+      newSkinCostDisplay.textContent = newSkinCost;
+      // Update other shop item displays as needed
+    }
+
+    buyNewSkinButton.addEventListener('click', () => {
+      if (points >= newSkinCost && !newSkinPurchased) {
+        points -= newSkinCost;
+        cookie.src = "https://as2.ftcdn.net/v2/jpg/02/47/71/45/1000_F_247714590_52fGc5te3Duvupq9ztw8S1ncji7z99S5.jpg"; // URL of the new skin
+        cookie.style.maxWidth = "200px"; // Adjust size as needed
+        cookie.style.height = "200px"; // Adjust if a specific height is desired
+        newSkinPurchased = true;
+        updatePointsDisplay();
+      } else {
+        alert('Not enough points or skin already purchased.');
+      }
+    });
+
+    // Call updateShopDisplay at the end of your script to ensure shop item statuses are correctly initialized
+    updateShopDisplay();
+      
+    cookie.addEventListener('click', () => {
+      points += clickPower;
+      updatePointsDisplay();
+      update_user()
+
+    });
+
+    upgradeClickButton.addEventListener('click', () => {
+      if (points >= upgradeClickCost) {
+        points -= upgradeClickCost;
+        clickPower++;
+        upgradeClickCount++;
+        upgradeClickCost = Math.floor(10 * Math.pow(1.1, upgradeClickCount)); // Exponential increase in cost
+        updateShopDisplay();
+        updatePointsDisplay();
+      } else {
+        alert('Not enough points!');
+      }
+    });
+
+    autoClickButton.addEventListener('click', () => {
+      if (points >= autoClickCost && !autoClickEnabled) {
+        points -= autoClickCost;
+        autoClickEnabled = true;
+        autoClickInterval = setInterval(() => {
+          points += clickPower;
+          updatePointsDisplay();
+        }, 1000);
+        autoClickCount++;
+        autoClickCost = Math.floor(50 * Math.pow(1.1, autoClickCount)); // Exponential increase in cost
+        autoClickButton.disabled = true;
+        updateShopDisplay();
+        updatePointsDisplay();
+      } else if (autoClickEnabled) {
+        alert('Auto Click already enabled!');
+      } else {
+        alert('Not enough points!');
+      }
+    });
+
+    doubleClickButton.addEventListener('click', () => {
+      if (points >= doubleClickCost) {
+        points -= doubleClickCost;
+        clickPower *= 2;
+        doubleClickCount++;
+        doubleClickCost = Math.floor(100 * Math.pow(1.1, doubleClickCount)); // Exponential increase in cost
+        updateShopDisplay();
+        updatePointsDisplay();
+      } else {
+        alert('Not enough points!');
+      }
+    });
+
+    autoDoubleClickButton.addEventListener('click', () => {
+      if (points >= autoDoubleClickCost && !autoClickEnabled) {
+        points -= autoDoubleClickCost;
+        autoClickEnabled = true;
+        autoClickInterval = setInterval(() => {
+          points += clickPower * 2;
+          updatePointsDisplay();
+        }, 500); // Execute every 0.5 seconds for double click
+        autoDoubleClickCount++;
+        autoDoubleClickCost = Math.floor(200000 * Math.pow(1.1, autoDoubleClickCount)); // Exponential increase in cost
+        autoDoubleClickButton.disabled = true;
+        updateShopDisplay();
+        updatePointsDisplay();
+      } else if (autoClickEnabled) {
+        alert('Auto Double Click already enabled!');
+      } else {
+        alert('Not enough points!');
+      }
+    });
+
+    function updatePointsDisplay() {
+      pointsDisplay.textContent = points;
+      if (points >= 200) {
+        miniGamesSection.style.display = 'block'; // Display the mini-games section when the player has at least 200 points
+      }
+    }
+
+    function updateShopDisplay() {
+      upgradeClickCostDisplay.textContent = upgradeClickCost;
+      autoClickCostDisplay.textContent = autoClickCost;
+      doubleClickCostDisplay.textContent = doubleClickCost;
+      autoDoubleClickCostDisplay.textContent = autoDoubleClickCost;
+      upgradeClickCountDisplay.textContent = upgradeClickCount;
+      autoClickCountDisplay.textContent = autoClickCount;
+      doubleClickCountDisplay.textContent = doubleClickCount;
+      autoDoubleClickCountDisplay.textContent = autoDoubleClickCount;
+    }
+
+    function playGuessingGame() {
+      const guessInput = document.getElementById('guessInput');
+      const gameCostInput = document.getElementById('gameCostInput');
+      const guessResult = document.getElementById('guessResult');
+
+      // Check if the player has enough points to play the game
+      if (points >= gameCostInput.value) {
+        points -= gameCostInput.value; // Deduct the chosen points for playing the game
+
+        const randomNumber = Math.floor(Math.random() * 2) + 1; // Generate a random number between 1 and 2
+
+        if (parseInt(guessInput.value) === randomNumber) {
+          points += parseInt(gameCostInput.value) * 2; // Double the points if the guess is correct
+          guessResult.textContent = 'Congratulations! You won and doubled your points!';
+        } else {
+          guessResult.textContent = 'Sorry, try again!';
+        }
+        
+        updatePointsDisplay(); // Update the points display after playing the game
+      } else {
+        guessResult.textContent = 'Not enough points to play the game!';
+      }
+    }
+
+   
+
+
+
+
+    function update_user(){
+
+      const currentUrl = window.location.href;
+    //  const uid_temp = localStorage.getItem('uid'); // Retrieve the JWT from local storage
+      //if (!uid_temp) {
+      //  console.log('No UID found in local storage.');
+      //  return;
+   // }
+   // console.log(uid_temp)
+// Create a URLSearchParams instance with the query string part of the URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+// Retrieve the value of the 'uid' parameter
+      const temp_uid = urlParams.get('uid');
+      const temp_password = urlParams.get('password');
+      console.log(temp_uid+"  "+ temp_password)
+
+    if (typeof points === 'number' && !isNaN(points)) {
+        const url = 'http://127.0.0.1:8086/api/users/';
+        const body = {
+            uid: temp_uid,
+            password: temp_password,
+            score: points
+        };
+        const authOptions = {
+        mode: 'cors', // no-cors, *cors, same-origin
+        credentials: 'include', // include, same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'POST', // Override the method property
+        cache: 'no-cache', // Set the cache property
+        body: JSON.stringify(body)
+    };
+        const requestOptions = {
+            method: 'PUT',
+            mode: 'cors',
+            credentials: 'include',
+            headers: {
+              
+             // 'Authorization': `Bearer ${uid_temp}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        };
+
+        fetch(url, requestOptions)
+            .then(response => {
+                if (response.status !== 200) {
+                }
+
+                response.json().then(data => {
+                  console.log(data)
+                    // Handle the response data if needed
+                });
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    } else {
+        console.error('Invalid integer value.');
+    }
+}
 </script>
