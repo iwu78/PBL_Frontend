@@ -348,11 +348,11 @@
         <form action="javascript:login_user()" class="form">
             <p><label>
                 User ID:
-                <input type="text" name="uid" id="uid" required="" class="input"/>
+                <input type="text" name="uid" id="uid" class="input"/>
             </label></p>
             <p><label>
                 Password:
-                <input type="password" name="password" id="password" required="" class="input"/>
+                <input type="password" name="password" id="password" class="input"/>
             </label></p>
             <p>
                 <button class="button">Login</button>
@@ -448,7 +448,7 @@
           <form action="javascript:titanic_user()">
             <p><label>
                 Name:
-                <input type="text" name="name" id="name" required="" />
+                <input type="text" name="name" id="name" />
             </label></p>
             <p><label>
                 Class:
@@ -467,15 +467,15 @@
             </label></p>
             <p><label>
                 Age:
-                <input type="text" name="age" id="age" required="" />
+                <input type="text" name="age" id="age" />
             </label></p>
             <p><label>
                 Family Members:
-                <input type="text" name="fmem" id="fmem" required="" />
+                <input type="text" name="fmem" id="fmem" />
             </label></p>
             <p><label>
                 Fare:
-                <input type="text" name="fare" id="fare" required="" />
+                <input type="text" name="fare" id="fare" />
             </label></p>
             <p><label>
                 Embarkment Port:
@@ -543,6 +543,67 @@
           </div>
         </div>
       </div>
+      <div class="panel settingsPanel" id="asksearch" onmousedown="FocusWindow('asksearch')" style="display:none;">
+        <div class="header noselect">
+          <span class="lightText"><img class="headerTitleIcon" src="./asksearch.png" width="20" height="20"></img><span class="headerTitleText">Collabora Searcher</span></span>
+          <div class="headerIcons">
+              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('asksearch')"></img>
+              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('asksearch')"></img>
+          </div>
+        </div>
+        <div class="panel-body settingsPanelBody noselect" id="panelBody">
+          <div class="container1">
+            <span style="font-size:3em;">Welcome to Collabora</span>
+            <!-- <div class="question-box">
+                <div class="user-info">
+                    <span>Name: </span><span id="name-span"></span><br>
+                    <span>Username: </span><span id="uid-span"></span>
+                </div>
+                <div class="date" id="post-date"></div>
+            </div> -->
+                <div id="search1">
+                    <span>Search for a question?</span><br>
+                    <input type="text" id="search-input" placeholder="Search a topic" class="search-input">
+                    <button id="search-button" class="search-button" onclick="topicSearch()">Search</button>
+                </div>
+            <div id="errorMessage"></div>
+            <div id="tableContainer1" class="tableContainer1" style="display: flex; flex-direction: column; overflow: hidden; height: 100px; overflow-y: auto;"></div>
+            <form action="javascript:createPost()">
+                <label for="ask-question-input" class="ask-question-label">Want to ask a question?</label>
+                <input type="text" id="ask-question-input" placeholder="Enter your question here" class="ask-question-input">
+                <button id="submit-button" class="submit-button">Submit</button>
+            </form>
+          </div>        
+        </div>
+      </div>
+
+      <div class="panel settingsPanel" id="answer" onmousedown="FocusWindow('answer')" style="display: none; flex-direction: column; overflow: hidden; height: 600px; overflow-y: auto;">
+        <div class="header noselect">
+          <span class="lightText"><img class="headerTitleIcon" src="./answer.png" width="20" height="20"></img><span class="headerTitleText">Collabora Answers</span></span>
+          <div class="headerIcons">
+              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('answer')"></img>
+              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('answer')"></img>
+          </div>
+        </div>
+        <div class="panel-body settingsPanelBody noselect" id="panelBody">
+          <div id="question-container" class="question-container">
+            <h3>Question:</h3>
+                <!-- Question will be inserted here -->
+            </div>
+            <div id="comments-container">
+                <h3>Comments:</h3>
+                <!-- Comments will be inserted here -->
+            </div>   
+          <form action= "javascript:reply_api()">
+              <div id="answer-question-box">
+                  <span>Answer this Question</span><br>
+                  <input type="text" id="answer-question-input" placeholder="Enter your response here">
+                  <button id="response-button" style="background-color: #C5000C; color: white;" >Reply</button>
+              </div>     
+        </div>
+      </div>
   </div>
   
   <div class="taskbar noselect">
@@ -572,6 +633,14 @@
     <div class="taskbarIconWrapper" id="cookieTaskbarIcon" onClick="TaskbarIconClick('cookie')">
         <img src="./cookie.png" width="35" height="35" class="taskbarItem" alt="Cookie Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="cookieTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="asksearchTaskbarIcon" onClick="TaskbarIconClick('asksearch')">
+        <img src="./asksearch.png" width="35" height="35" class="taskbarItem" alt="Forum Ask/Search Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="asksearchTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="answerTaskbarIcon" onClick="TaskbarIconClick('answer')">
+        <img src="./answer.png" width="35" height="35" class="taskbarItem" alt="Forum Response Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="answerTaskbarIndicator"></div>
       </div>
     <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
       <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
@@ -644,6 +713,24 @@
     taskbarid: "#cookieTaskbarIcon",
     taskbarindicator: "#cookieTaskbarIndicator",
     windowid: "#cookie"
+  },
+  {
+    name: "asksearch",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#asksearchTaskbarIcon",
+    taskbarindicator: "#asksearchTaskbarIndicator",
+    windowid: "#asksearch"
+  },
+  {
+    name: "answer",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#answerTaskbarIcon",
+    taskbarindicator: "#answerTaskbarIndicator",
+    windowid: "#answer"
   },
   {
     name: "weather",
@@ -1668,4 +1755,204 @@ updateTime();
         console.error('Invalid integer value.');
     }
 }
+
+function createTableFromJSON(jsonData) {
+    // Create a table
+    var table = document.createElement("table");
+    var tr = table.insertRow(-1); // Table Row
+    // Add table headers
+    var headers = ["Questions"];
+    for(var i = 0; i < headers.length; i++) {
+        var th = document.createElement("th"); // Table Header
+        th.innerHTML = headers[i];
+        tr.appendChild(th);
+    }
+    // Add JSON data to the table as rows
+    for(var i = 0; i < jsonData.length; i++) {
+        tr = table.insertRow(-1);
+        for(var j = 0; j < headers.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = "<a href='?questionId="+jsonData[i]['id']+"'>"+jsonData[i]['note']+"</a>";
+        }
+    }
+    // Finally, add the newly created table with JSON data to a container
+    var divContainer = document.getElementById("tableContainer1");
+    divContainer.innerHTML = "";
+    divContainer.appendChild(table);
+}
+function topicSearch() {
+    const enteredTopic = document.getElementById("search-input").value;
+    console.log(enteredTopic)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+    fetch("http://127.0.0.1:8086/api/post/?searchString=" + enteredTopic, requestOptions)
+        .then(response => {
+            if (response.ok) {
+                console.log(enteredTopic + " has been searched");
+                return response.json(); // Parse the JSON in the response body
+            } else {
+                console.error("Search failed");
+                const errorMessageDiv = document.getElementById('errorMessage');
+                errorMessageDiv.innerHTML = '<label style="color: red;">Search Failed</label>';
+                throw new Error('Search failed');
+            }
+        })
+        .then(data => {
+            // Here 'data' is the parsed JSON object from the response body
+            console.log(data); // You can see your fetched data here
+            createTableFromJSON(data); // Assuming 'createTableFromJSON' expects the JSON data as parameter
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the fetch() or in the promise chain
+            console.error('Error:', error);
+        });
+}
+window.topicSearch = topicSearch;
+function getTodaysDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    const formattedToday = yyyy+ "-" + mm + '-'+ dd;
+    return formattedToday;
+}
+const formattedToday = getTodaysDate();
+//document.getElementById('post-date').innerHTML = "Posted on: " + formattedToday;
+function createPost() {
+    const enteredPost = document.getElementById("ask-question-input").value;
+    const enteredDOQ = getTodaysDate()
+    const enteredUid = localStorage.getItem("userUid") || "defaultUid"; // Use a default or handle case where uid is not set
+    const enteredId = "10" //to be set dynamically (figure out later)
+    post_api(enteredId, enteredPost, enteredUid, enteredDOQ)
+}
+function post_api(id, post, uid, doq) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+    "id": id,
+    "note": post,
+    "uid": uid,
+    "doq": doq,
+    "parentPostId": "|"
+    });
+    console.log(raw)
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+    fetch("http://127.0.0.1:8086/api/post/", requestOptions)
+        .then(response => {
+            if (response.ok) {
+                console.log("Question Received");
+                alert("Question has been sent, you will receive a response soon.");
+              } else {
+                console.error("Question creation failed");
+                // You can handle failed login attempts here
+                const errorMessageDiv = document.getElementById('errorMessage');
+                errorMessageDiv.innerHTML = '<label style="color: red;">Question Creation Failed</label>';
+              }
+          })
+          .then(result => {
+            console.log(result);
+            })
+          .catch(error => console.log('error', error));
+}
+
+function reply_api(){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        const questionId = new URLSearchParams(window.location.search).get('questionId');
+        const replyText = document.getElementById('answer-question-input').value;
+        const uid = localStorage.getItem("userUid") || "defaultUid"; // Use a default UID or handle this case as needed
+        var raw = JSON.stringify({
+            "parentPostId": questionId,
+            "note": replyText,
+            "uid": uid
+            });
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+              fetch("http://127.0.0.1:8086/api/post/", requestOptions)
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Reply Received");
+                        alert("Your reply has been received.");
+                        window.location.reload();
+                    } else {
+                        console.error("Reply failed");
+                        // You can handle failed login attempts here
+                        const errorMessageDiv = document.getElementById('errorMessage');
+                        errorMessageDiv.innerHTML = '<label style="color: red;">Reply Failed</label>';
+                    }
+                })
+     }
+    async function fetchQuestion(questionId) {
+        try {
+            const response = await fetch(`http://127.0.0.1:8086/api/post?id=${questionId}`);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+            const data = await response.json();
+            return data.note; // Assuming the API returns an object with a 'note' property
+        } catch (error) {
+            console.error('Fetching question failed:', error);
+            return "Question not found or there was an error fetching the question. Try <button onclick=TaskbarIconClick('asksearch') class=button5>searching</button> for one!";
+        }
+    }
+    async function fetchAndDisplayComments(questionId) {
+        const commentsContainer = document.getElementById('comments-container');
+        try {
+            const response = await fetch(`http://127.0.0.1:8086/api/post?parentPostId=${questionId}`);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+            const comments = await response.json();
+            if (comments.length > 0) {
+                const loggedInUid = localStorage.getItem("userUid"); // Get the UID of the logged-in user
+                const commentsHTML = comments.map(comment => {
+                    // Check if the comment UID matches the logged-in UID and set the display name accordingly
+                    const commenterUid = comment.userID === loggedInUid ? "You" : comment.userID;
+                    return `
+                        <div class="comment">
+                            <p>${comment.note}</p>
+                            <small>By: ${commenterUid}</small>
+                        </div>
+                    `;
+                }).join('');
+                commentsContainer.innerHTML = commentsHTML;
+            } else {
+                commentsContainer.innerHTML = '<p>No comments found.</p>';
+            }
+        } catch (error) {
+            console.error('Fetching comments failed:', error);
+            commentsContainer.innerHTML = '<p>Error fetching comments.</p>';
+        }
+    }
+    async function displayQuestion() {
+        // Extracting questionId from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const questionId = urlParams.get('questionId');
+        if (questionId) {
+          TaskbarIconClick("answer")
+        }
+        // Fetch the question based on questionId and display it
+        const questionText = await fetchQuestion(questionId);
+        document.getElementById('question-container').innerHTML += questionText;
+        // Fetch and display comments for the question
+        await fetchAndDisplayComments(questionId);
+    }
+    // Call displayQuestion when the page loads
+    window.onload = displayQuestion;
 </script>

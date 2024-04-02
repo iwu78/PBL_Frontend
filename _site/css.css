@@ -853,4 +853,113 @@ textarea {
 .shop-item .button3:disabled {
   background-color: #ddd;
   cursor: not-allowed;
+}
+
+.container1 {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a max-width for larger screens */
+  margin: auto;
+}
+
+.search-input, .ask-question-input {
+  width: 100%; /* Make the input take the full width of its parent */
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* Include padding in the width calculation */
+  margin-bottom: 10px; /* Adds some space below the input */
+}
+
+.search-button, .submit-button {
+  width: 100%; /* Align the button width with the input */
+  background-color: #C5000C;
+  color: white;
+  padding: 10px 0; /* Adjust padding as needed */
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px; /* Adds some space below the button */
+}
+
+.tableContainer1 {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-box, #ask-question-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left; /* Aligns text to the left inside the centered container */
+}
+
+.question-box .user-info, .date {
+  margin-bottom: 10px;
+}
+
+/* This is for the "Want to ask a question?" text */
+.ask-question-label {
+  text-align: left; /* Center the label text */
+  display: block; /* Make the label a block element to take full width */
+  margin-bottom: 5px; /* Space before the input box */
+}
+
+/* Login and Sign Up links */
+.auth-links {
+  text-align: right; /* Aligns the links to the right */
+  padding: 10px 20px; /* Padding to position the links */
+  background: none;
+}
+
+.question-container, #answer-question-box {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#answer-question-input {
+  width: 100%; /* Adjusted to 100% for consistency */
+  height: 100px;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+#comments-container {
+  margin: 20px;
+  padding: 20px;
+}
+
+.comment {
+  background-color: #F0F8FF; /* Soft Alice Blue */
+  border-left: 5px solid #6495ED; /* Cornflower Blue for contrast */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.comment {
+  margin: 0;
+  color: #333; /* Darker text for readability */
+}
+
+.comment {
+  display: block;
+  margin-top: 10px;
+  color: #666; /* Lighter text for metadata */
+}
+
+#question-container {
+  font-size: 1.5em; /* Increase the size */
+  font-weight: bold; /* Make the text bold */
+}
+
+.button5 {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }/*# sourceMappingURL=css.css.map */
