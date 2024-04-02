@@ -1,858 +1,928 @@
 <link rel="stylesheet" href="css.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link
-  rel="stylesheet"
-  href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
-/>
+<link rel="stylesheet"
+  href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
 
-<link
-  rel="stylesheet"
-  href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
-/>
+<link rel="stylesheet"
+  href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
 <div class="container">
-    <div class="panel weatherPanel" onmousedown="FocusWindow('weather')" style="display:none;" id="weatherPanel">
-      <div class="header noselect">
-        <div class="headerIcons">
-            <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('weather')"></img>
-            <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-            <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('weather')"></img>
-          </div>
-      </div>
-      <div class="panel-inner">
-        <div class="panel-left">
-          <div class="panel-left-highlow-text">
-            High 74° F <br />
-            Low 57° F<br />
-          </div>
-          <div class="panel-left-locationdate-text">
-            Ann Arbor, <br />Michigan<br /><br />
-          </div>
-          <div class="panel-left-day">
-            Tomorrow 74° <i class="ms-Icon ms-Icon--Sunny" aria-hidden="true"></i>
-          </div>
-          <div class="panel-left-day">
-            Wednesday 72° <i class="ms-Icon ms-Icon--Rain" aria-hidden="true"></i>
-          </div>
-          <div class="panel-left-day">
-            Thursday 72° <i class="ms-Icon ms-Icon--Fog" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-      <div class="panel-right">
-        <div class="weatherTemperature">65° F<br /><small>Cloudy</small></div>
-      </div>
-      <div class="cloud">
+  <div class="panel weatherPanel" onmousedown="FocusWindow('weather')" style="display:none;" id="weatherPanel">
+    <div class="header noselect">
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('weather')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('weather')"></img>
       </div>
     </div>
-    <div class="panel startMenuPanel noselect" style="display:none" id="startMenuPanel">
-      <div class="startMenuContainer">
-        Pinned
-        <div class="allAppsButton">
-          <small style="opacity: .8">All apps ></small>
+    <div class="panel-inner">
+      <div class="panel-left">
+        <div class="panel-left-highlow-text">
+          High 74° F <br />
+          Low 57° F<br />
+        </div>
+        <div class="panel-left-locationdate-text">
+          Ann Arbor, <br />Michigan<br /><br />
+        </div>
+        <div class="panel-left-day">
+          Tomorrow 74° <i class="ms-Icon ms-Icon--Sunny" aria-hidden="true"></i>
+        </div>
+        <div class="panel-left-day">
+          Wednesday 72° <i class="ms-Icon ms-Icon--Rain" aria-hidden="true"></i>
+        </div>
+        <div class="panel-left-day">
+          Thursday 72° <i class="ms-Icon ms-Icon--Fog" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="iconRow">
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Edge
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Word
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/excel_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Excel
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/powerpoint_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            PowerPoint
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Outlook
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="35px" height="35px">
-            <path fill="#1976d2" d="M28,13h14.533C43.343,13,44,13.657,44,14.467v19.066C44,34.343,43.343,35,42.533,35H28V13z" />
-            <rect width="14" height="15.542" x="28" y="17.958" fill="#fff" />
-            <polygon fill="#1976d2" points="27,44 4,39.5 4,8.5 27,4" />
-            <path fill="#fff" d="M15.25,16.5c-3.176,0-5.75,3.358-5.75,7.5s2.574,7.5,5.75,7.5S21,28.142,21,24	S18.426,16.5,15.25,16.5z M15,28.5c-1.657,0-3-2.015-3-4.5s1.343-4.5,3-4.5s3,2.015,3,4.5S16.657,28.5,15,28.5z" />
-            <rect width="2.7" height="2.9" x="28.047" y="29.737" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="31.448" y="29.737" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="34.849" y="29.737" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="28.047" y="26.159" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="31.448" y="26.159" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="34.849" y="26.159" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="38.25" y="26.159" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="28.047" y="22.706" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="31.448" y="22.706" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="34.849" y="22.706" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="38.25" y="22.706" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="31.448" y="19.112" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="34.849" y="19.112" fill="#1976d2" />
-            <rect width="2.7" height="2.9" x="38.25" y="19.112" fill="#1976d2" />
-          </svg>
-          <div class="startMenuIconText">
-            Calendar
-          </div>
+    </div>
+    <div class="panel-right">
+      <div class="weatherTemperature">65° F<br /><small>Cloudy</small></div>
+    </div>
+    <div class="cloud">
+    </div>
+  </div>
+  <div class="panel startMenuPanel noselect" style="display:none" id="startMenuPanel">
+    <div class="startMenuContainer">
+      Pinned
+      <div class="allAppsButton">
+        <small style="opacity: .8">All apps ></small>
+      </div>
+    </div>
+    <div class="iconRow">
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Edge
         </div>
       </div>
-      <div class="iconRow mt50">
-        <div class="startMenuIcon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="40px">
-            <radialGradient id="2Jwv7LuZrao5GsFL~0k11a" cx="24" cy="18.435" r="40.735" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#dfe9f2" />
-              <stop offset=".543" stop-color="#d6e0e9" />
-              <stop offset="1" stop-color="#bfc8d1" />
-            </radialGradient>
-            <path fill="url(#2Jwv7LuZrao5GsFL~0k11a)" d="M44,24c0,4.37-1.4,8.41-3.79,11.7c-0.66,0.93-1.41,1.8-2.23,2.59C34.37,41.82,29.44,44,24,44	s-10.37-2.18-13.98-5.71C9.2,37.5,8.45,36.63,7.79,35.7C5.4,32.41,4,28.37,4,24c0-5.69,2.37-10.81,6.18-14.45	c1-0.96,2.1-1.81,3.28-2.54C16.52,5.1,20.13,4,24,4s7.48,1.1,10.54,3.01c1.18,0.73,2.28,1.58,3.28,2.54C41.63,13.19,44,18.31,44,24z" />
-            <radialGradient id="2Jwv7LuZrao5GsFL~0k11b" cx="23.891" cy="14.717" r="19.79" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#4caf50" />
-              <stop offset=".489" stop-color="#4aaf50" />
-              <stop offset=".665" stop-color="#43ad50" />
-              <stop offset=".79" stop-color="#38aa50" />
-              <stop offset=".892" stop-color="#27a550" />
-              <stop offset=".978" stop-color="#11a050" />
-              <stop offset="1" stop-color="#0a9e50" />
-            </radialGradient>
-            <path fill="url(#2Jwv7LuZrao5GsFL~0k11b)" d="M40.21,35.7c-0.66,0.93-1.41,1.8-2.23,2.59c-0.07-0.61-0.31-2.47-0.98-3.79	c-1.5-3-8-11-13-14.5c-5,3.5-11.5,11.5-13,14.5c-0.67,1.32-0.91,3.18-0.98,3.79C9.2,37.5,8.45,36.63,7.79,35.7	C7.76,35.08,7.8,34.2,8,33c0.74-4.47,8.5-16,11-18c-3.4-3.4-6.8-4.91-8.82-5.45c1-0.96,2.1-1.81,3.28-2.54	C19.15,7.1,22.05,9.03,24,10c1.95-0.97,4.85-2.9,10.54-2.99c1.18,0.73,2.28,1.58,3.28,2.54C35.8,10.09,32.4,11.6,29,15	c2.5,2,10.26,13.53,11,18C40.2,34.2,40.24,35.08,40.21,35.7z" />
-          </svg>
-          <div class="startMenuIconText">
-            Xbox
-          </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Word
         </div>
-        <div class="startMenuIcon">
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/excel_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Excel
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/powerpoint_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          PowerPoint
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Outlook
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="35px" height="35px">
+          <path fill="#1976d2"
+            d="M28,13h14.533C43.343,13,44,13.657,44,14.467v19.066C44,34.343,43.343,35,42.533,35H28V13z" />
+          <rect width="14" height="15.542" x="28" y="17.958" fill="#fff" />
+          <polygon fill="#1976d2" points="27,44 4,39.5 4,8.5 27,4" />
+          <path fill="#fff"
+            d="M15.25,16.5c-3.176,0-5.75,3.358-5.75,7.5s2.574,7.5,5.75,7.5S21,28.142,21,24	S18.426,16.5,15.25,16.5z M15,28.5c-1.657,0-3-2.015-3-4.5s1.343-4.5,3-4.5s3,2.015,3,4.5S16.657,28.5,15,28.5z" />
+          <rect width="2.7" height="2.9" x="28.047" y="29.737" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="31.448" y="29.737" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="34.849" y="29.737" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="28.047" y="26.159" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="31.448" y="26.159" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="34.849" y="26.159" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="38.25" y="26.159" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="28.047" y="22.706" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="31.448" y="22.706" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="34.849" y="22.706" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="38.25" y="22.706" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="31.448" y="19.112" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="34.849" y="19.112" fill="#1976d2" />
+          <rect width="2.7" height="2.9" x="38.25" y="19.112" fill="#1976d2" />
+        </svg>
+        <div class="startMenuIconText">
+          Calendar
+        </div>
+      </div>
+    </div>
+    <div class="iconRow mt50">
+      <div class="startMenuIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="40px">
+          <radialGradient id="2Jwv7LuZrao5GsFL~0k11a" cx="24" cy="18.435" r="40.735" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#dfe9f2" />
+            <stop offset=".543" stop-color="#d6e0e9" />
+            <stop offset="1" stop-color="#bfc8d1" />
+          </radialGradient>
+          <path fill="url(#2Jwv7LuZrao5GsFL~0k11a)"
+            d="M44,24c0,4.37-1.4,8.41-3.79,11.7c-0.66,0.93-1.41,1.8-2.23,2.59C34.37,41.82,29.44,44,24,44	s-10.37-2.18-13.98-5.71C9.2,37.5,8.45,36.63,7.79,35.7C5.4,32.41,4,28.37,4,24c0-5.69,2.37-10.81,6.18-14.45	c1-0.96,2.1-1.81,3.28-2.54C16.52,5.1,20.13,4,24,4s7.48,1.1,10.54,3.01c1.18,0.73,2.28,1.58,3.28,2.54C41.63,13.19,44,18.31,44,24z" />
+          <radialGradient id="2Jwv7LuZrao5GsFL~0k11b" cx="23.891" cy="14.717" r="19.79" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4caf50" />
+            <stop offset=".489" stop-color="#4aaf50" />
+            <stop offset=".665" stop-color="#43ad50" />
+            <stop offset=".79" stop-color="#38aa50" />
+            <stop offset=".892" stop-color="#27a550" />
+            <stop offset=".978" stop-color="#11a050" />
+            <stop offset="1" stop-color="#0a9e50" />
+          </radialGradient>
+          <path fill="url(#2Jwv7LuZrao5GsFL~0k11b)"
+            d="M40.21,35.7c-0.66,0.93-1.41,1.8-2.23,2.59c-0.07-0.61-0.31-2.47-0.98-3.79	c-1.5-3-8-11-13-14.5c-5,3.5-11.5,11.5-13,14.5c-0.67,1.32-0.91,3.18-0.98,3.79C9.2,37.5,8.45,36.63,7.79,35.7	C7.76,35.08,7.8,34.2,8,33c0.74-4.47,8.5-16,11-18c-3.4-3.4-6.8-4.91-8.82-5.45c1-0.96,2.1-1.81,3.28-2.54	C19.15,7.1,22.05,9.03,24,10c1.95-0.97,4.85-2.9,10.54-2.99c1.18,0.73,2.28,1.58,3.28,2.54C35.8,10.09,32.4,11.6,29,15	c2.5,2,10.26,13.53,11,18C40.2,34.2,40.24,35.08,40.21,35.7z" />
+        </svg>
+        <div class="startMenuIconText">
+          Xbox
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px">
+          <path
+            d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z" />
+        </svg>
+        <div class="startMenuIconText">
+          CodePen
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
+          <path fill="#424242"
+            d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z" />
+          <path fill="#b71c1c" d="M31,12h-5v23.5c2.5,0,4.986,0.512,5,0.5S31,12,31,12z" />
+          <path fill="#b71c1c" d="M17,12h5v23.5c-2.5,0-4.986,0.512-5,0.5S17,12,17,12z" />
+          <path fill="#e53935" d="M22,12h-5l9,23.5c2.5,0,4.986,0.512,5,0.5S22,12,22,12z" />
+        </svg>
+        <div class="startMenuIconText">
+          Netflix
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/teams_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Teams
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/access_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Access
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/office_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Office
+        </div>
+      </div>
+    </div>
+    <div class="iconRow mt50">
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/onedrive_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          OneDrive
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/onenote_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          OneNote
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/project_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          Project
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/sharepoint_48x1.svg"
+          width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        <div class="startMenuIconText">
+          SharePoint
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="38px" height="38px">
+          <linearGradient id="tS~Tu1dsT5kMXF2Lct~HUa" x1="24.001" x2="24.001" y1="-4.765" y2="56.31"
+            gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4caf50" />
+            <stop offset=".489" stop-color="#4aaf50" />
+            <stop offset=".665" stop-color="#43ad50" />
+            <stop offset=".79" stop-color="#38aa50" />
+            <stop offset=".892" stop-color="#27a550" />
+            <stop offset=".978" stop-color="#11a050" />
+            <stop offset="1" stop-color="#0a9e50" />
+          </linearGradient>
+          <path fill="url(#tS~Tu1dsT5kMXF2Lct~HUa)"
+            d="M24.001,4c-11.077,0-20,8.923-20,20s8.923,20,20,20c11.076,0,20-8.923,20-20	S35.077,4,24.001,4z" />
+          <path
+            d="M21.224,15.938c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 c-0.145,1.023-0.877,1.755-1.899,1.755c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217 c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146c-0.075,0.011-0.149,0.016-0.221,0.016 c-0.905,0-1.533-0.821-1.533-1.77c0-1.023,0.585-1.607,1.315-1.754C14.939,16.231,17.862,15.938,21.224,15.938 M20.785,22.369 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461c0,0.878-0.585,1.608-1.462,1.608 c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733 c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607 C15.523,22.808,17.716,22.369,20.785,22.369 M21.223,28.654c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314c-0.146,0.586-0.731,1.023-1.315,1.023c-0.292,0-0.585-0.145-0.877-0.292 c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146 c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314C16.4,28.945,18.739,28.654,21.223,28.654 M21.224,14.938 c-3.789,0-6.666,0.371-9.317,1.202c-1.254,0.279-2.06,1.341-2.06,2.722c0,1.553,1.112,2.77,2.533,2.77 c0.095,0,0.192-0.005,0.291-0.017c0.319-0.007,0.574-0.065,0.764-0.107c0.068-0.015,0.13-0.035,0.193-0.038h0.123l0.116-0.03 c2.219-0.554,4.763-0.847,7.358-0.847c5.073,0,10.075,1.152,13.381,3.081l0.09,0.053l0.099,0.033 c0.109,0.036,0.195,0.073,0.273,0.105c0.251,0.105,0.563,0.236,1.065,0.236c1.483,0,2.671-1.075,2.889-2.615l0.01-0.07v-0.071 c0-1.171-0.564-2.13-1.549-2.635C33.238,16.313,27.314,14.938,21.224,14.938L21.224,14.938z M20.785,21.369 c-3.291,0-5.651,0.508-7.711,1.057l-0.058,0.015l-0.055,0.022c-1.194,0.476-1.799,1.329-1.799,2.536 c0,1.357,1.104,2.461,2.462,2.461c0.371,0,0.626-0.009,1.189-0.194c1.572-0.429,3.714-0.683,5.827-0.683 c4.441,0,8.562,1.037,11.603,2.921l0.038,0.024l0.04,0.02c0.334,0.168,0.792,0.397,1.471,0.397c1.404,0,2.462-1.121,2.462-2.608 c0-0.996-0.53-1.886-1.387-2.334C31.04,22.659,26.04,21.369,20.785,21.369L20.785,21.369z M21.223,27.654 c-2.547,0-4.969,0.297-7.404,0.907c-1.096,0.27-1.78,1.145-1.78,2.284c0,1.217,0.953,2.17,2.169,2.17 c0.172,0,0.334-0.037,0.522-0.079c0.101-0.023,0.288-0.065,0.357-0.067l0.101-0.003l0.122-0.023 c2.023-0.467,3.963-0.704,5.768-0.704c3.422,0,6.635,0.812,9.291,2.35l0.025,0.015l0.026,0.013 c0.334,0.168,0.792,0.399,1.327,0.399c1.05,0,2.032-0.766,2.285-1.781l0.03-0.119v-0.123c0-1.202-0.595-1.76-1.178-2.147 l-0.022-0.014l-0.022-0.013C29.455,28.713,25.437,27.654,21.223,27.654L21.223,27.654z"
+            opacity=".05" />
+          <path
+            d="M21.224,15.938c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 c-0.145,1.023-0.877,1.755-1.899,1.755c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217 c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146c-0.075,0.011-0.149,0.016-0.221,0.016 c-0.905,0-1.533-0.821-1.533-1.77c0-1.023,0.585-1.607,1.315-1.754C14.939,16.231,17.862,15.938,21.224,15.938 M20.785,22.369 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461c0,0.878-0.585,1.608-1.462,1.608 c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733 c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607 C15.523,22.808,17.716,22.369,20.785,22.369 M21.223,28.654c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314c-0.146,0.586-0.731,1.023-1.315,1.023c-0.292,0-0.585-0.145-0.877-0.292 c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146 c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314C16.4,28.945,18.739,28.654,21.223,28.654 M21.224,15.438 c-3.747,0-6.582,0.366-9.188,1.186c-1.042,0.222-1.689,1.078-1.689,2.238c0,1.273,0.893,2.27,2.033,2.27 c0.084,0,0.169-0.005,0.257-0.016c0.28-0.004,0.506-0.055,0.689-0.096c0.119-0.027,0.222-0.05,0.299-0.05h0.061l0.06-0.015 c2.258-0.564,4.844-0.862,7.479-0.862c5.158,0,10.254,1.177,13.633,3.149l0.045,0.026l0.05,0.016 c0.123,0.041,0.221,0.082,0.309,0.119c0.231,0.097,0.47,0.197,0.871,0.197c1.247,0,2.209-0.878,2.394-2.185l0.005-0.035v-0.035 c0-0.985-0.473-1.787-1.298-2.201C33.083,16.794,27.24,15.438,21.224,15.438L21.224,15.438z M20.785,21.869 c-3.054,0-5.24,0.416-7.583,1.04l-0.029,0.008l-0.028,0.011c-0.637,0.254-1.484,0.745-1.484,2.071c0,0.943,0.75,1.961,1.962,1.961 c0.34,0,0.541-0.008,1.033-0.169c1.637-0.447,3.827-0.708,5.983-0.708c4.533,0,8.747,1.064,11.867,2.996 c0.345,0.175,0.725,0.366,1.286,0.366c1.119,0,1.962-0.906,1.962-2.108c0-0.823-0.442-1.554-1.154-1.909 C30.885,23.141,25.965,21.869,20.785,21.869L20.785,21.869z M21.223,28.154c-2.506,0-4.888,0.292-7.283,0.892 c-0.864,0.213-1.401,0.902-1.401,1.799c0,0.821,0.624,1.67,1.669,1.67c0.116,0,0.246-0.029,0.411-0.067 c0.148-0.033,0.351-0.079,0.466-0.079h0.057l0.056-0.013c2.06-0.476,4.038-0.717,5.88-0.717c3.51,0,6.809,0.836,9.542,2.417 c0.331,0.168,0.712,0.359,1.127,0.359c0.827,0,1.601-0.603,1.8-1.402l0.015-0.06v-0.061c0-1.012-0.493-1.424-0.954-1.73 C29.277,29.189,25.348,28.154,21.223,28.154L21.223,28.154z"
+            opacity=".07" />
+          <path fill="#fff"
+            d="M31.747,33.915c-0.292,0-0.585-0.145-0.877-0.292c-2.777-1.607-6.139-2.484-9.792-2.484 c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146c-0.731,0-1.169-0.586-1.169-1.17 c0-0.73,0.438-1.17,1.023-1.314c2.338-0.586,4.677-0.877,7.161-0.877c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314C32.916,33.478,32.331,33.915,31.747,33.915z M33.793,28.945c-0.438,0-0.73-0.144-1.023-0.291 c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733c-0.439,0.144-0.585,0.144-0.877,0.144 c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607c2.192-0.584,4.385-1.023,7.454-1.023 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461C35.255,28.215,34.67,28.945,33.793,28.945z M36.132,23.101 c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217c-2.631,0-5.262,0.293-7.6,0.877 c-0.293,0-0.585,0.146-1.023,0.146c-1.023,0.146-1.754-0.73-1.754-1.754c0-1.023,0.585-1.607,1.315-1.754 c2.777-0.877,5.7-1.17,9.062-1.17c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 C37.886,22.369,37.154,23.101,36.132,23.101z" />
+        </svg>
+        <div class="startMenuIconText">
+          Spotify
+        </div>
+      </div>
+      <div class="startMenuIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
+          <path fill="#03A9F4"
+            d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4V10z" />
+          <path fill="#020F16"
+            d="M20.016,19.174h-2.002v4.434h1.973c0.547,0,0.97-0.179,1.27-0.537s0.449-0.879,0.449-1.563c0-0.71-0.153-1.274-0.459-1.694S20.53,19.181,20.016,19.174z" />
+          <path fill="#020F16"
+            d="M9,9v30h30V9H9z M23.365,24.789C22.539,25.597,21.393,26,19.928,26h-1.914v5h-2.871V16.781h4.844c1.406,0,2.528,0.437,3.364,1.309s1.255,2.005,1.255,3.398S24.192,23.981,23.365,24.789z M32.682,30.336c-0.709,0.573-1.641,0.859-2.793,0.859c-0.775,0-1.459-0.151-2.051-0.454s-1.057-0.725-1.392-1.265s-0.503-1.123-0.503-1.748h2.627c0.014,0.481,0.125,0.843,0.337,1.084s0.558,0.361,1.04,0.361c0.742,0,1.113-0.335,1.113-1.006c0-0.234-0.112-0.451-0.337-0.649S30,27.052,29.225,26.713c-1.139-0.462-1.922-0.94-2.349-1.436s-0.64-1.11-0.64-1.846c0-0.925,0.334-1.688,1.001-2.29s1.552-0.903,2.651-0.903c1.158,0,2.086,0.3,2.783,0.898s1.045,1.403,1.045,2.412h-2.764c0-0.859-0.357-1.289-1.074-1.289c-0.293,0-0.533,0.091-0.723,0.273s-0.283,0.437-0.283,0.762c0,0.234,0.104,0.441,0.313,0.62s0.699,0.435,1.475,0.767c1.127,0.417,1.922,0.881,2.388,1.392s0.698,1.174,0.698,1.987C33.746,29.005,33.391,29.763,32.682,30.336z" />
+        </svg>
+        <div class="startMenuIconText">
+          Photoshop
+        </div>
+      </div>
+    </div>
+    <div class="startMenuContainer mt50">
+      Recommended
+      <div class="moreButton">
+        <small style="opacity: .8">More ></small>
+      </div>
+    </div>
+    <div class="iconRow">
+      <div class="startMenuRecommended">
+        <div class="startMenuRecommended-Icon ml25">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
+            <path fill="#03A9F4"
+              d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4V10z" />
+            <path fill="#020F16"
+              d="M20.016,19.174h-2.002v4.434h1.973c0.547,0,0.97-0.179,1.27-0.537s0.449-0.879,0.449-1.563c0-0.71-0.153-1.274-0.459-1.694S20.53,19.181,20.016,19.174z" />
+            <path fill="#020F16"
+              d="M9,9v30h30V9H9z M23.365,24.789C22.539,25.597,21.393,26,19.928,26h-1.914v5h-2.871V16.781h4.844c1.406,0,2.528,0.437,3.364,1.309s1.255,2.005,1.255,3.398S24.192,23.981,23.365,24.789z M32.682,30.336c-0.709,0.573-1.641,0.859-2.793,0.859c-0.775,0-1.459-0.151-2.051-0.454s-1.057-0.725-1.392-1.265s-0.503-1.123-0.503-1.748h2.627c0.014,0.481,0.125,0.843,0.337,1.084s0.558,0.361,1.04,0.361c0.742,0,1.113-0.335,1.113-1.006c0-0.234-0.112-0.451-0.337-0.649S30,27.052,29.225,26.713c-1.139-0.462-1.922-0.94-2.349-1.436s-0.64-1.11-0.64-1.846c0-0.925,0.334-1.688,1.001-2.29s1.552-0.903,2.651-0.903c1.158,0,2.086,0.3,2.783,0.898s1.045,1.403,1.045,2.412h-2.764c0-0.859-0.357-1.289-1.074-1.289c-0.293,0-0.533,0.091-0.723,0.273s-0.283,0.437-0.283,0.762c0,0.234,0.104,0.441,0.313,0.62s0.699,0.435,1.475,0.767c1.127,0.417,1.922,0.881,2.388,1.392s0.698,1.174,0.698,1.987C33.746,29.005,33.391,29.763,32.682,30.336z" />
+          </svg>
+        </div>
+        <div class="startMenuRecommended-Text ml10">
+          Adobe Photoshop <br /> <span class="lightText">Recently added</span>
+        </div>
+      </div>
+      <div class="startMenuRecommended">
+        <div class="startMenuRecommended-Icon">
+          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/excel_48x1.svg"
+            width="35" height="35" class="taskbarItem" alt="Word product icon" />
+        </div>
+        <div class="startMenuRecommended-Text">
+          2021 Monthly Expenses <br /> <span class="lightText">17m ago</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="iconRow  mt20">
+      <div class="startMenuRecommended">
+        <div class="startMenuRecommended-Icon ml25">
           <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px">
-            <path d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z" />
+            <path
+              d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z" />
           </svg>
-          <div class="startMenuIconText">
-            CodePen
-          </div>
         </div>
-        <div class="startMenuIcon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
-            <path fill="#424242" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z" />
-            <path fill="#b71c1c" d="M31,12h-5v23.5c2.5,0,4.986,0.512,5,0.5S31,12,31,12z" />
-            <path fill="#b71c1c" d="M17,12h5v23.5c-2.5,0-4.986,0.512-5,0.5S17,12,17,12z" />
-            <path fill="#e53935" d="M22,12h-5l9,23.5c2.5,0,4.986,0.512,5,0.5S22,12,22,12z" />
-          </svg>
-          <div class="startMenuIconText">
-            Netflix
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/teams_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Teams
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/access_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Access
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/office_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Office
-          </div>
+        <div class="startMenuRecommended-Text ml10">
+          Windows 11 Fluent Design <br /> <span class="lightText">2h ago</span>
         </div>
       </div>
-      <div class="iconRow mt50">
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/onedrive_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            OneDrive
-          </div>
+      <div class="startMenuRecommended">
+        <div class="startMenuRecommended-Icon">
+          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg"
+            width="35" height="35" class="taskbarItem" alt="Word product icon" />
         </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/onenote_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            OneNote
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/project_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            Project
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/sharepoint_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          <div class="startMenuIconText">
-            SharePoint
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="38px" height="38px">
-            <linearGradient id="tS~Tu1dsT5kMXF2Lct~HUa" x1="24.001" x2="24.001" y1="-4.765" y2="56.31" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#4caf50" />
-              <stop offset=".489" stop-color="#4aaf50" />
-              <stop offset=".665" stop-color="#43ad50" />
-              <stop offset=".79" stop-color="#38aa50" />
-              <stop offset=".892" stop-color="#27a550" />
-              <stop offset=".978" stop-color="#11a050" />
-              <stop offset="1" stop-color="#0a9e50" />
-            </linearGradient>
-            <path fill="url(#tS~Tu1dsT5kMXF2Lct~HUa)" d="M24.001,4c-11.077,0-20,8.923-20,20s8.923,20,20,20c11.076,0,20-8.923,20-20	S35.077,4,24.001,4z" />
-            <path d="M21.224,15.938c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 c-0.145,1.023-0.877,1.755-1.899,1.755c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217 c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146c-0.075,0.011-0.149,0.016-0.221,0.016 c-0.905,0-1.533-0.821-1.533-1.77c0-1.023,0.585-1.607,1.315-1.754C14.939,16.231,17.862,15.938,21.224,15.938 M20.785,22.369 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461c0,0.878-0.585,1.608-1.462,1.608 c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733 c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607 C15.523,22.808,17.716,22.369,20.785,22.369 M21.223,28.654c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314c-0.146,0.586-0.731,1.023-1.315,1.023c-0.292,0-0.585-0.145-0.877-0.292 c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146 c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314C16.4,28.945,18.739,28.654,21.223,28.654 M21.224,14.938 c-3.789,0-6.666,0.371-9.317,1.202c-1.254,0.279-2.06,1.341-2.06,2.722c0,1.553,1.112,2.77,2.533,2.77 c0.095,0,0.192-0.005,0.291-0.017c0.319-0.007,0.574-0.065,0.764-0.107c0.068-0.015,0.13-0.035,0.193-0.038h0.123l0.116-0.03 c2.219-0.554,4.763-0.847,7.358-0.847c5.073,0,10.075,1.152,13.381,3.081l0.09,0.053l0.099,0.033 c0.109,0.036,0.195,0.073,0.273,0.105c0.251,0.105,0.563,0.236,1.065,0.236c1.483,0,2.671-1.075,2.889-2.615l0.01-0.07v-0.071 c0-1.171-0.564-2.13-1.549-2.635C33.238,16.313,27.314,14.938,21.224,14.938L21.224,14.938z M20.785,21.369 c-3.291,0-5.651,0.508-7.711,1.057l-0.058,0.015l-0.055,0.022c-1.194,0.476-1.799,1.329-1.799,2.536 c0,1.357,1.104,2.461,2.462,2.461c0.371,0,0.626-0.009,1.189-0.194c1.572-0.429,3.714-0.683,5.827-0.683 c4.441,0,8.562,1.037,11.603,2.921l0.038,0.024l0.04,0.02c0.334,0.168,0.792,0.397,1.471,0.397c1.404,0,2.462-1.121,2.462-2.608 c0-0.996-0.53-1.886-1.387-2.334C31.04,22.659,26.04,21.369,20.785,21.369L20.785,21.369z M21.223,27.654 c-2.547,0-4.969,0.297-7.404,0.907c-1.096,0.27-1.78,1.145-1.78,2.284c0,1.217,0.953,2.17,2.169,2.17 c0.172,0,0.334-0.037,0.522-0.079c0.101-0.023,0.288-0.065,0.357-0.067l0.101-0.003l0.122-0.023 c2.023-0.467,3.963-0.704,5.768-0.704c3.422,0,6.635,0.812,9.291,2.35l0.025,0.015l0.026,0.013 c0.334,0.168,0.792,0.399,1.327,0.399c1.05,0,2.032-0.766,2.285-1.781l0.03-0.119v-0.123c0-1.202-0.595-1.76-1.178-2.147 l-0.022-0.014l-0.022-0.013C29.455,28.713,25.437,27.654,21.223,27.654L21.223,27.654z" opacity=".05" />
-            <path d="M21.224,15.938c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 c-0.145,1.023-0.877,1.755-1.899,1.755c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217 c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146c-0.075,0.011-0.149,0.016-0.221,0.016 c-0.905,0-1.533-0.821-1.533-1.77c0-1.023,0.585-1.607,1.315-1.754C14.939,16.231,17.862,15.938,21.224,15.938 M20.785,22.369 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461c0,0.878-0.585,1.608-1.462,1.608 c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733 c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607 C15.523,22.808,17.716,22.369,20.785,22.369 M21.223,28.654c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314c-0.146,0.586-0.731,1.023-1.315,1.023c-0.292,0-0.585-0.145-0.877-0.292 c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146 c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314C16.4,28.945,18.739,28.654,21.223,28.654 M21.224,15.438 c-3.747,0-6.582,0.366-9.188,1.186c-1.042,0.222-1.689,1.078-1.689,2.238c0,1.273,0.893,2.27,2.033,2.27 c0.084,0,0.169-0.005,0.257-0.016c0.28-0.004,0.506-0.055,0.689-0.096c0.119-0.027,0.222-0.05,0.299-0.05h0.061l0.06-0.015 c2.258-0.564,4.844-0.862,7.479-0.862c5.158,0,10.254,1.177,13.633,3.149l0.045,0.026l0.05,0.016 c0.123,0.041,0.221,0.082,0.309,0.119c0.231,0.097,0.47,0.197,0.871,0.197c1.247,0,2.209-0.878,2.394-2.185l0.005-0.035v-0.035 c0-0.985-0.473-1.787-1.298-2.201C33.083,16.794,27.24,15.438,21.224,15.438L21.224,15.438z M20.785,21.869 c-3.054,0-5.24,0.416-7.583,1.04l-0.029,0.008l-0.028,0.011c-0.637,0.254-1.484,0.745-1.484,2.071c0,0.943,0.75,1.961,1.962,1.961 c0.34,0,0.541-0.008,1.033-0.169c1.637-0.447,3.827-0.708,5.983-0.708c4.533,0,8.747,1.064,11.867,2.996 c0.345,0.175,0.725,0.366,1.286,0.366c1.119,0,1.962-0.906,1.962-2.108c0-0.823-0.442-1.554-1.154-1.909 C30.885,23.141,25.965,21.869,20.785,21.869L20.785,21.869z M21.223,28.154c-2.506,0-4.888,0.292-7.283,0.892 c-0.864,0.213-1.401,0.902-1.401,1.799c0,0.821,0.624,1.67,1.669,1.67c0.116,0,0.246-0.029,0.411-0.067 c0.148-0.033,0.351-0.079,0.466-0.079h0.057l0.056-0.013c2.06-0.476,4.038-0.717,5.88-0.717c3.51,0,6.809,0.836,9.542,2.417 c0.331,0.168,0.712,0.359,1.127,0.359c0.827,0,1.601-0.603,1.8-1.402l0.015-0.06v-0.061c0-1.012-0.493-1.424-0.954-1.73 C29.277,29.189,25.348,28.154,21.223,28.154L21.223,28.154z" opacity=".07" />
-            <path fill="#fff" d="M31.747,33.915c-0.292,0-0.585-0.145-0.877-0.292c-2.777-1.607-6.139-2.484-9.792-2.484 c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146c-0.731,0-1.169-0.586-1.169-1.17 c0-0.73,0.438-1.17,1.023-1.314c2.338-0.586,4.677-0.877,7.161-0.877c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314C32.916,33.478,32.331,33.915,31.747,33.915z M33.793,28.945c-0.438,0-0.73-0.144-1.023-0.291 c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733c-0.439,0.144-0.585,0.144-0.877,0.144 c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607c2.192-0.584,4.385-1.023,7.454-1.023 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461C35.255,28.215,34.67,28.945,33.793,28.945z M36.132,23.101 c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217c-2.631,0-5.262,0.293-7.6,0.877 c-0.293,0-0.585,0.146-1.023,0.146c-1.023,0.146-1.754-0.73-1.754-1.754c0-1.023,0.585-1.607,1.315-1.754 c2.777-0.877,5.7-1.17,9.062-1.17c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 C37.886,22.369,37.154,23.101,36.132,23.101z" />
-          </svg>
-          <div class="startMenuIconText">
-            Spotify
-          </div>
-        </div>
-        <div class="startMenuIcon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
-            <path fill="#03A9F4" d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4V10z" />
-            <path fill="#020F16" d="M20.016,19.174h-2.002v4.434h1.973c0.547,0,0.97-0.179,1.27-0.537s0.449-0.879,0.449-1.563c0-0.71-0.153-1.274-0.459-1.694S20.53,19.181,20.016,19.174z" />
-            <path fill="#020F16" d="M9,9v30h30V9H9z M23.365,24.789C22.539,25.597,21.393,26,19.928,26h-1.914v5h-2.871V16.781h4.844c1.406,0,2.528,0.437,3.364,1.309s1.255,2.005,1.255,3.398S24.192,23.981,23.365,24.789z M32.682,30.336c-0.709,0.573-1.641,0.859-2.793,0.859c-0.775,0-1.459-0.151-2.051-0.454s-1.057-0.725-1.392-1.265s-0.503-1.123-0.503-1.748h2.627c0.014,0.481,0.125,0.843,0.337,1.084s0.558,0.361,1.04,0.361c0.742,0,1.113-0.335,1.113-1.006c0-0.234-0.112-0.451-0.337-0.649S30,27.052,29.225,26.713c-1.139-0.462-1.922-0.94-2.349-1.436s-0.64-1.11-0.64-1.846c0-0.925,0.334-1.688,1.001-2.29s1.552-0.903,2.651-0.903c1.158,0,2.086,0.3,2.783,0.898s1.045,1.403,1.045,2.412h-2.764c0-0.859-0.357-1.289-1.074-1.289c-0.293,0-0.533,0.091-0.723,0.273s-0.283,0.437-0.283,0.762c0,0.234,0.104,0.441,0.313,0.62s0.699,0.435,1.475,0.767c1.127,0.417,1.922,0.881,2.388,1.392s0.698,1.174,0.698,1.987C33.746,29.005,33.391,29.763,32.682,30.336z" />
-          </svg>
-          <div class="startMenuIconText">
-            Photoshop
-          </div>
-        </div>
-      </div>
-      <div class="startMenuContainer mt50">
-        Recommended
-        <div class="moreButton">
-          <small style="opacity: .8">More ></small>
-        </div>
-      </div>
-      <div class="iconRow">
-        <div class="startMenuRecommended">
-          <div class="startMenuRecommended-Icon ml25">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="40px" height="40px">
-              <path fill="#03A9F4" d="M6,10c0-2.209,1.791-4,4-4h28c2.209,0,4,1.791,4,4v28c0,2.209-1.791,4-4,4H10c-2.209,0-4-1.791-4-4V10z" />
-              <path fill="#020F16" d="M20.016,19.174h-2.002v4.434h1.973c0.547,0,0.97-0.179,1.27-0.537s0.449-0.879,0.449-1.563c0-0.71-0.153-1.274-0.459-1.694S20.53,19.181,20.016,19.174z" />
-              <path fill="#020F16" d="M9,9v30h30V9H9z M23.365,24.789C22.539,25.597,21.393,26,19.928,26h-1.914v5h-2.871V16.781h4.844c1.406,0,2.528,0.437,3.364,1.309s1.255,2.005,1.255,3.398S24.192,23.981,23.365,24.789z M32.682,30.336c-0.709,0.573-1.641,0.859-2.793,0.859c-0.775,0-1.459-0.151-2.051-0.454s-1.057-0.725-1.392-1.265s-0.503-1.123-0.503-1.748h2.627c0.014,0.481,0.125,0.843,0.337,1.084s0.558,0.361,1.04,0.361c0.742,0,1.113-0.335,1.113-1.006c0-0.234-0.112-0.451-0.337-0.649S30,27.052,29.225,26.713c-1.139-0.462-1.922-0.94-2.349-1.436s-0.64-1.11-0.64-1.846c0-0.925,0.334-1.688,1.001-2.29s1.552-0.903,2.651-0.903c1.158,0,2.086,0.3,2.783,0.898s1.045,1.403,1.045,2.412h-2.764c0-0.859-0.357-1.289-1.074-1.289c-0.293,0-0.533,0.091-0.723,0.273s-0.283,0.437-0.283,0.762c0,0.234,0.104,0.441,0.313,0.62s0.699,0.435,1.475,0.767c1.127,0.417,1.922,0.881,2.388,1.392s0.698,1.174,0.698,1.987C33.746,29.005,33.391,29.763,32.682,30.336z" />
-            </svg>
-          </div>
-          <div class="startMenuRecommended-Text ml10">
-            Adobe Photoshop <br /> <span class="lightText">Recently added</span>
-          </div>
-        </div>
-        <div class="startMenuRecommended">
-          <div class="startMenuRecommended-Icon">
-            <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/excel_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          </div>
-          <div class="startMenuRecommended-Text">
-            2021 Monthly Expenses <br /> <span class="lightText">17m ago</span>
-          </div>
-        </div>
-      </div>
-  
-      <div class="iconRow  mt20">
-        <div class="startMenuRecommended">
-          <div class="startMenuRecommended-Icon ml25">
-            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px">
-              <path d="M 25 4 L 4 17.34375 L 4 32.652344 L 25 46 L 46 32.65625 L 46 17.34375 Z M 25 29.183594 L 19.066406 25.070313 L 25 21.023438 L 30.933594 25.070313 Z M 27 17.605469 L 27 9.949219 L 40.429688 18.484375 L 34.410156 22.65625 Z M 23 17.605469 L 15.589844 22.65625 L 9.570313 18.484375 L 23 9.949219 Z M 12.09375 25.042969 L 8 27.832031 L 8 22.203125 Z M 15.570313 27.453125 L 23 32.605469 L 23 40.050781 L 9.589844 31.527344 Z M 27 32.605469 L 34.429688 27.453125 L 40.410156 31.527344 L 27 40.050781 Z M 37.90625 25.042969 L 42 22.203125 L 42 27.832031 Z" />
-            </svg>
-          </div>
-          <div class="startMenuRecommended-Text ml10">
-            Windows 11 Fluent Design <br /> <span class="lightText">2h ago</span>
-          </div>
-        </div>
-        <div class="startMenuRecommended">
-          <div class="startMenuRecommended-Icon">
-            <img src="https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/word_48x1.svg" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-          </div>
-          <div class="startMenuRecommended-Text">
-            Never Gonna Give You Up<br /> <span class="lightText">12h ago</span>
-          </div>
-        </div>
-      </div>
-      <div class="shutdownRow">
-        <div class="profilePicture">
-        </div>
-        <div class="profileName">
-          Josh Salazar
-        </div>
-        <div class="powerButton">
-          <i class="ms-Icon ms-Icon--PowerButton" aria-hidden="true"></i>
+        <div class="startMenuRecommended-Text">
+          Never Gonna Give You Up<br /> <span class="lightText">12h ago</span>
         </div>
       </div>
     </div>
-    <div class="panel note-panel" id="welcomenote" onmousedown="FocusWindow('welcome')">
-      <div class="header noselect">
-        <span class="lightText"><i class="ms-Icon ms-Icon--QuickNoteSolid headerTitleIcon" aria-hidden="true"></i><span class="headerTitleText"> Welcome</span></span>
-        <div class="headerIcons">
-          <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('welcome')"></img>
-          <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-          <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('welcome')"></img>
+    <div class="shutdownRow">
+      <div class="profilePicture">
+      </div>
+      <div class="profileName">
+        Josh Salazar
+      </div>
+      <div class="powerButton">
+        <i class="ms-Icon ms-Icon--PowerButton" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <div class="panel note-panel" id="welcomenote" onmousedown="FocusWindow('welcome')">
+    <div class="header noselect">
+      <span class="lightText"><i class="ms-Icon ms-Icon--QuickNoteSolid headerTitleIcon" aria-hidden="true"></i><span
+          class="headerTitleText"> Welcome</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('welcome')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('welcome')"></img>
+      </div>
+    </div>
+    <div class="panel-body" id="panelBody">
+      <div class="headerImage parallax noselect" data-depth=".1" id="headerImage">
+        <div class="headerImageOverlay">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px"
+            viewBox="0 0 443.704 443.704" version="1.1">
+            <g id="surface1">
+              <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;"
+                d="M 227.570313 307.621094 L 227.570313 387.675781 L 387.675781 387.675781 L 387.675781 227.570313 L 227.570313 227.570313 Z M 56.03125 307.621094 L 56.03125 387.675781 L 216.132813 387.675781 L 216.132813 227.570313 L 56.03125 227.570313 Z M 227.570313 136.082031 L 227.570313 216.132813 L 387.675781 216.132813 L 387.675781 56.03125 L 227.570313 56.03125 Z M 56.03125 136.082031 L 56.03125 216.132813 L 216.132813 216.132813 L 216.132813 56.03125 L 56.03125 56.03125 Z M 56.03125 136.082031 " />
+            </g>
+          </svg>
+          &nbsp;Windows 11
         </div>
       </div>
-      <div class="panel-body" id="panelBody">
-        <div class="headerImage parallax noselect" data-depth=".1" id="headerImage">
-          <div class="headerImageOverlay">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 443.704 443.704" version="1.1">
-              <g id="surface1">
-                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 227.570313 307.621094 L 227.570313 387.675781 L 387.675781 387.675781 L 387.675781 227.570313 L 227.570313 227.570313 Z M 56.03125 307.621094 L 56.03125 387.675781 L 216.132813 387.675781 L 216.132813 227.570313 L 56.03125 227.570313 Z M 227.570313 136.082031 L 227.570313 216.132813 L 387.675781 216.132813 L 387.675781 56.03125 L 227.570313 56.03125 Z M 56.03125 136.082031 L 56.03125 216.132813 L 216.132813 216.132813 L 216.132813 56.03125 L 56.03125 56.03125 Z M 56.03125 136.082031 " />
-              </g>
-            </svg>
-            &nbsp;Windows 11
-          </div>
+      <div class="noteBodyText">
+        <p>Welcome to my build of the Windows 11 UI. I tried my best to recreate the Windows 11 UI based on the Fluent
+          Design documentation and the recently released Windows 11 preview video. At the time of making this, that's
+          all I had to go off. I'm curious to see how far I missed the mark once Windows 11 is publicly available. Have
+          fun and play around!</p>
+        <p>Here are some things you can explore:</p>
+        <ul>
+          <li>
+            Check the weather by clicking the cloud in the taskbar
+          </li>
+          <li>
+            Open the Windows start menu
+          </li>
+          <li>
+            Drag windows around, close them, minimize them. Window states will update, z-indexes will update, windows
+            will animate in and out depending on if you're restoring the window, closing the window, or minimizing the
+            window.
+          </li>
+          <li>
+            COMING SOON: Shut the computer down in the start menu
+          </li>
+          <li>
+            COMING SOON: Open the settings from the taskbar and switch to a dark theme
+          </li>
+          <li>
+            TO DO: Polish! It could use some buffing around the edges to get it more in-line with Fluent Design.
+          </li>
+          <li>
+            TO DO: Clean-up code. It's a mess. I'll need to do this before I get dark / light mode working.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel settingsPanel" id="settingswindow" onmousedown="FocusWindow('settings')" style="display:none;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon"
+          src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-1024.png" width="20"
+          height="20"></img><span class="headerTitleText">Login</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('settings')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('settings')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <form action="javascript:login_user()" class="form">
+        <p><label>
+            User ID:
+            <input type="text" name="uid" id="uid" class="input" />
+          </label></p>
+        <p><label>
+            Password:
+            <input type="password" name="password" id="password" class="input" />
+          </label></p>
+        <p>
+          <button class="button">Login</button>
+        </p>
+      </form>
+    </div>
+  </div>
+  <div class="panel settingsPanel" id="buttoneditor" onmousedown="FocusWindow('buttoneditor')"
+    style="display:none;width:1200px;height:800px;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./logo.png" width="20" height="20"></ing><span
+          class="headerTitleText">Button Editor</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('buttoneditor')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('buttoneditor')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <div id="popup">
+        <div class="popup-content" style="margin-top: 0;">
+          <h2>Create Design</h2>
+          <p>Design Name</p>
+          <input type="text" id="nameInput"><br>
+          <p>Description</p>
+          <input type="text" id="description"><br>
+          <br>
+          <label class="publicSwitch" style="font-weight: normal;">Design Type (public or private):</label><br><br>
+          <select name="Design Type (public or private):" id="publicInput"><br>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+          </select><br><br>
+          <button onclick="closePopup()">CREATE!</button>
         </div>
-        <div class="noteBodyText">
-          <p>Welcome to my build of the Windows 11 UI. I tried my best to recreate the Windows 11 UI based on the Fluent Design documentation and the recently released Windows 11 preview video. At the time of making this, that's all I had to go off. I'm curious to see how far I missed the mark once Windows 11 is publicly available. Have fun and play around!</p>
-          <p>Here are some things you can explore:</p>
-          <ul>
-            <li>
-              Check the weather by clicking the cloud in the taskbar
-            </li>
-            <li>
-              Open the Windows start menu
-            </li>
-            <li>
-              Drag windows around, close them, minimize them. Window states will update, z-indexes will update, windows will animate in and out depending on if you're restoring the window, closing the window, or minimizing the window.
-            </li>
-            <li>
-              COMING SOON: Shut the computer down in the start menu
-            </li>
-            <li>
-              COMING SOON: Open the settings from the taskbar and switch to a dark theme
-            </li>
-            <li>
-              TO DO: Polish! It could use some buffing around the edges to get it more in-line with Fluent Design.
-            </li>
-            <li>
-              TO DO: Clean-up code. It's a mess. I'll need to do this before I get dark / light mode working.
-            </li>
-          </ul>
+      </div>
+      <div id="sliderContainer" style="display:none; width:400px; height: 500px;">
+        <label for="widthSlider">Width:</label>
+        <input type="range" id="widthSlider" min="10" max="200" value="100"><br>
+        <label for="heightSlider">Height:</label>
+        <input type="range" id="heightSlider" min="10" max="200" value="50"><br>
+        <label for="buttonColorSlider">Button Color:</label>
+        <input type="color" id="buttonColorSlider" value="#ff0000"><br>
+        <label for="textColorSlider">Text Color:</label>
+        <input type="color" id="textColorSlider" value="#fff"><br>
+        <label for="borderColorSlider">Border Color:</label>
+        <input type="color" id="borderColorSlider" value="#ffffff"><br>
+        <label for="borderWidthSlider">Border Width:</label>
+        <input type="range" id="borderWidthSlider" min="1" max="30" value="5"><br>
+        <button type="button" onclick="animationClick()" id="animationButton" class="button-80">Create
+          Animation</button>
+        <textarea id="buttonCode" rows="4" cols="30"></textarea><br>
+        <label for="animationCode">Animation CSS: </label>
+        <textarea id="animationCode" rows="4" cols="30" readonly></textarea>
+        <div id="saveButton" style="display:none;">
+          <button onclick="saveButton(nameInput.value)" class="button-80">Save Design</button>
+        </div>
+      </div>
+
+      <div id="buttonContainer" style="position: relative; height: 300px; width: 400px;">
+        <canvas id="resizableCanvas" style="position: absolute; top: 0; left: 0; z-index: -1;" width="400px"
+          height="300px"></canvas>
+        <div id="buttonPreview"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel settingsPanel" id="buttondatabase" onmousedown="FocusWindow('buttondatabase')"
+    style="display:none;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./buttonsearch.png" width="20" height="20"></img><span
+          class="headerTitleText">Button Database</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('buttondatabase')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('buttondatabase')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <form action="#" method="get" onsubmit="return checkButton()">
+        <input type="text" name="search" id="search" style="width: 400px;" placeholder="Enter your search term">
+        <button type="submit">Search</button>
+        <div class="toggle-buttons">
+          <button id="publicBtn" type="button" class="button2" onclick="toggleButtons('publicBtn')">Public</button>
+          <button id="privateBtn" type="button" class="button2" onclick="toggleButtons('privateBtn')">Private</button>
+        </div>
+      </form>
+      <div id="tableContainer"
+        style="display: flex; flex-direction: column; overflow: hidden; height: 400px; overflow-y: auto;"></div>
+    </div>
+  </div>
+  <div class="panel settingsPanel" id="titanic" onmousedown="FocusWindow('titanic')" style="display:none;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./titanic.png" width="20" height="20"></img><span
+          class="headerTitleText">Titanic</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('titanic')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('titanic')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <form action="javascript:titanic_user()">
+        <p><label>
+            Name:
+            <input type="text" name="name" id="name" />
+          </label></p>
+        <p><label>
+            Class:
+            <select id="pclass" name="pclass">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </label></p>
+        <p><label>
+            Sex:
+            <select id="sex" name="sex">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label></p>
+        <p><label>
+            Age:
+            <input type="text" name="age" id="age" />
+          </label></p>
+        <p><label>
+            Family Members:
+            <input type="text" name="fmem" id="fmem" />
+          </label></p>
+        <p><label>
+            Fare:
+            <input type="text" name="fare" id="fare" />
+          </label></p>
+        <p><label>
+            Embarkment Port:
+            <select id="embark" name="embark">
+              <option value="S">Southampton</option>
+              <option value="Q">Queenstown</option>
+              <option value="C">Cherbourg</option>
+            </select>
+          </label></p>
+        <p>
+          <button>Go!</button>
+        </p>
+        <p id="display">
+          Survival Chance:
+
+        </p>
+    </div>
+  </div>
+  <div class="panel settingsPanel" id="cookie" onmousedown="FocusWindow('cookie')"
+    style="display:none;width:1000px;height:850px;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./cookie.png" width="20" height="20"></img><span
+          class="headerTitleText">Cookie Clicker</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('cookie')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('cookie')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <h1 style="text-align: center;">Cookie Clicker</h1>
+      <p style="text-align: center;">Click the cookie to earn points!</p>
+      <img class="cookie" id="cookieimg"
+        src="https://www.realsimple.com/thmb/uwmEcWtairipZTGavdWVbkV_dqw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chocolatechip-cookies_300-d6a402fc30814fdf87af28be97b5fcdc.jpg"
+        alt="Cookie Image" height="200px" width="200px">
+      <p class="points">Points: <span id="points">0</span></p>
+
+      <div class="shop"
+        style="display: flex; flex-direction: column; overflow: hidden; height: 250px; overflow-y: auto; width: 90%">
+        <h2 padding="5px">Shop</h2>
+        <div class="shop-item">
+          <p>Upgrade Click Power (+1 per click) - Cost: <span id="upgradeClickCost">25</span> points - Purchased: <span
+              id="upgradeClickCount">0</span></p>
+          <button id="upgradeClick" class="button3">Buy</button>
+        </div>
+        <div class="shop-item">
+          <p>Auto Click (1 click per second) - Cost: <span id="autoClickCost">100</span> points - Purchased: <span
+              id="autoClickCount">0</span></p>
+          <button id="autoClick" class="button3">Buy</button>
+        </div>
+        <div class="shop-item">
+          <p>Double Click Power (2x per click) - Cost: <span id="doubleClickCost">500</span> points - Purchased: <span
+              id="doubleClickCount">0</span></p>
+          <button id="doubleClick" class="button3">Buy</button>
+        </div>
+        <div class="shop-item">
+          <p>Auto Double Click (2 clicks per second) - Cost: <span id="autoDoubleClickCost">1000</span> points -
+            Purchased: <span id="autoDoubleClickCount">0</span></p>
+          <button id="autoDoubleClick" class="button3">Buy</button>
+        </div>
+        <div class="shop-item">
+          <p>New Skin for Clicker - Cost: <span id="newSkinCost">100</span> points</p>
+          <button id="buyNewSkin" class="button3">Buy New Skin</button>
+        </div>
+        <div class="minigames" style="display: none;" id="miniGamesSection">
+          <h2>Mini Games</h2>
+          <p>Guess the number between 1 and 2:</p>
+          <input type="number" id="guessInput" min="1" max="2">
+          <p>Enter the amount of points you want to pay to play:</p>
+          <input type="number" id="gameCostInput" min="1">
+          <button onclick="playGuessingGame()">Play</button>
+          <p id="guessResult"></p>
         </div>
       </div>
     </div>
-    <div class="panel settingsPanel" id="settingswindow" onmousedown="FocusWindow('settings')" style="display:none;">
-      <div class="header noselect">
-        <span class="lightText"><img class="headerTitleIcon" src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-1024.png" width="20" height="20"></img><span class="headerTitleText">Login</span></span>
-        <div class="headerIcons">
-            <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('settings')"></img>
-            <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-            <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('settings')"></img>
-        </div>
-      </div>
-      <div class="panel-body settingsPanelBody noselect" id="panelBody">
-        <form action="javascript:login_user()" class="form">
-            <p><label>
-                User ID:
-                <input type="text" name="uid" id="uid" class="input"/>
-            </label></p>
-            <p><label>
-                Password:
-                <input type="password" name="password" id="password" class="input"/>
-            </label></p>
-            <p>
-                <button class="button">Login</button>
-            </p>
-        </form>
+  </div>
+  <div class="panel settingsPanel" id="asksearch" onmousedown="FocusWindow('asksearch')" style="display:none;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./asksearch.png" width="20" height="20"></img><span
+          class="headerTitleText">Collabora Searcher</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('asksearch')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('asksearch')"></img>
       </div>
     </div>
-    <div class="panel settingsPanel" id="buttoneditor" onmousedown="FocusWindow('buttoneditor')" style="display:none;width:1200px;height:800px;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./logo.png" width="20" height="20"></ing><span class="headerTitleText">Button Editor</span></span>
-          <div class="headerIcons">
-            <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('buttoneditor')"></img>
-            <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-            <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('buttoneditor')"></img>
-          </div>
-        </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody">
-            <div id="popup">
-                <div class="popup-content" style="margin-top: 0;">
-                    <h2>Create Design</h2>
-                    <p>Design Name</p>
-                    <input type="text" id="nameInput"><br>
-                    <p>Description</p>
-                    <input type="text" id="description"><br>
-                    <br>
-                    <label class="publicSwitch" style="font-weight: normal;">Design Type (public or private):</label><br><br>
-                    <select name="Design Type (public or private):" id="publicInput"><br>
-                        <option value="public">Public</option>
-                        <option value="private">Private</option>
-                    </select><br><br>
-                    <button onclick="closePopup()">CREATE!</button>
-                </div>
-            </div>
-            <div id="sliderContainer" style="display:none; width:400px; height: 500px;">
-                <label for="widthSlider">Width:</label>
-                <input type="range" id="widthSlider" min="10" max="200" value="100"><br>
-                <label for="heightSlider">Height:</label>
-                <input type="range" id="heightSlider" min="10" max="200" value="50"><br>
-                <label for="buttonColorSlider">Button Color:</label>
-                <input type="color" id="buttonColorSlider" value="#ff0000"><br>
-                <label for="textColorSlider">Text Color:</label>
-                <input type="color" id="textColorSlider" value="#fff"><br>
-                <label for="borderColorSlider">Border Color:</label>
-                <input type="color" id="borderColorSlider" value="#ffffff"><br>
-                <label for="borderWidthSlider">Border Width:</label>
-                <input type="range" id="borderWidthSlider" min="1" max="30" value="5"><br>
-                <button type="button" onclick="animationClick()" id="animationButton" class="button-80">Create Animation</button>
-                <textarea id="buttonCode" rows="4" cols="30"></textarea><br>
-                <label for="animationCode">Animation CSS: </label>
-                <textarea id="animationCode" rows="4" cols="30" readonly></textarea>
-                <div id="saveButton" style="display:none;">
-                    <button onclick="saveButton(nameInput.value)" class="button-80">Save Design</button>
-                </div>
-            </div>
-            
-            <div id="buttonContainer" style="position: relative; height: 300px; width: 400px;">
-                <canvas id="resizableCanvas" style="position: absolute; top: 0; left: 0; z-index: -1;" width="400px" height="300px"></canvas>
-                <div id="buttonPreview"></div>
-            </div>
-        </div>
-      </div>
-      <div class="panel settingsPanel" id="buttondatabase" onmousedown="FocusWindow('buttondatabase')" style="display:none;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./buttonsearch.png" width="20" height="20"></img><span class="headerTitleText">Button Database</span></span>
-          <div class="headerIcons">
-              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('buttondatabase')"></img>
-              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('buttondatabase')"></img>
-          </div>
-        </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody">
-            <form action="#" method="get" onsubmit="return checkButton()">
-                <input type="text" name="search" id="search" style="width: 400px;" placeholder="Enter your search term">
-                <button type="submit">Search</button>
-                <div class="toggle-buttons">
-                    <button id="publicBtn" type="button" class="button2" onclick="toggleButtons('publicBtn')">Public</button>
-                    <button id="privateBtn" type="button" class="button2" onclick="toggleButtons('privateBtn')">Private</button>
-                </div>
-            </form>
-            <div id="tableContainer" style="display: flex; flex-direction: column; overflow: hidden; height: 400px; overflow-y: auto;"></div>
-        </div>
-      </div>
-      <div class="panel settingsPanel" id="titanic" onmousedown="FocusWindow('titanic')" style="display:none;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./titanic.png" width="20" height="20"></img><span class="headerTitleText">Titanic</span></span>
-          <div class="headerIcons">
-              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('titanic')"></img>
-              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('titanic')"></img>
-          </div>
-        </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody">
-          <form action="javascript:titanic_user()">
-            <p><label>
-                Name:
-                <input type="text" name="name" id="name" />
-            </label></p>
-            <p><label>
-                Class:
-                <select id="pclass" name="pclass">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-            </label></p>
-            <p><label>
-                Sex:
-                <select id="sex" name="sex">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-            </label></p>
-            <p><label>
-                Age:
-                <input type="text" name="age" id="age" />
-            </label></p>
-            <p><label>
-                Family Members:
-                <input type="text" name="fmem" id="fmem" />
-            </label></p>
-            <p><label>
-                Fare:
-                <input type="text" name="fare" id="fare" />
-            </label></p>
-            <p><label>
-                Embarkment Port:
-                <select id="embark" name="embark">
-                  <option value="S">Southampton</option>
-                  <option value="Q">Queenstown</option>
-                  <option value="C">Cherbourg</option>
-                </select>
-            </label></p>
-            <p>
-                <button>Go!</button>
-            </p>
-            <p id="display">
-              Survival Chance:
-              
-            </p>
-        </div>
-      </div>
-      <div class="panel settingsPanel" id="cookie" onmousedown="FocusWindow('cookie')" style="display:none;width:1000px;height:850px;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./cookie.png" width="20" height="20"></img><span class="headerTitleText">Cookie Clicker</span></span>
-          <div class="headerIcons">
-              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('cookie')"></img>
-              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('cookie')"></img>
-          </div>
-        </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody" >
-          <h1 style="text-align: center;">Cookie Clicker</h1>
-          <p style="text-align: center;">Click the cookie to earn points!</p>
-          <img class="cookie" id="cookieimg" src="https://www.realsimple.com/thmb/uwmEcWtairipZTGavdWVbkV_dqw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chocolatechip-cookies_300-d6a402fc30814fdf87af28be97b5fcdc.jpg" alt="Cookie Image" height="200px" width="200px">
-          <p class="points">Points: <span id="points">0</span></p>
-        
-          <div class="shop" style="display: flex; flex-direction: column; overflow: hidden; height: 250px; overflow-y: auto; width: 90%">
-            <h2 padding="5px">Shop</h2>
-            <div class="shop-item">
-              <p>Upgrade Click Power (+1 per click) - Cost: <span id="upgradeClickCost">25</span> points - Purchased: <span id="upgradeClickCount">0</span></p>
-              <button id="upgradeClick" class="button3">Buy</button>
-            </div>
-            <div class="shop-item">
-              <p>Auto Click (1 click per second) - Cost: <span id="autoClickCost">100</span> points - Purchased: <span id="autoClickCount">0</span></p>
-              <button id="autoClick" class="button3">Buy</button>
-            </div>
-            <div class="shop-item">
-              <p>Double Click Power (2x per click) - Cost: <span id="doubleClickCost">500</span> points - Purchased: <span id="doubleClickCount">0</span></p>
-              <button id="doubleClick" class="button3">Buy</button>
-            </div>
-            <div class="shop-item">
-              <p>Auto Double Click (2 clicks per second) - Cost: <span id="autoDoubleClickCost">1000</span> points - Purchased: <span id="autoDoubleClickCount">0</span></p>
-              <button id="autoDoubleClick" class="button3">Buy</button>
-            </div>
-            <div class="shop-item">
-              <p>New Skin for Clicker - Cost: <span id="newSkinCost">100</span> points</p>
-              <button id="buyNewSkin" class="button3">Buy New Skin</button>
-            </div>
-            <div class="minigames" style="display: none;" id="miniGamesSection">
-              <h2>Mini Games</h2>
-              <p>Guess the number between 1 and 2:</p>
-              <input type="number" id="guessInput" min="1" max="2">
-              <p>Enter the amount of points you want to pay to play:</p>
-              <input type="number" id="gameCostInput" min="1">
-              <button onclick="playGuessingGame()">Play</button>
-              <p id="guessResult"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel settingsPanel" id="asksearch" onmousedown="FocusWindow('asksearch')" style="display:none;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./asksearch.png" width="20" height="20"></img><span class="headerTitleText">Collabora Searcher</span></span>
-          <div class="headerIcons">
-              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('asksearch')"></img>
-              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('asksearch')"></img>
-          </div>
-        </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody">
-          <div class="container1">
-            <span style="font-size:3em;">Welcome to Collabora</span>
-            <!-- <div class="question-box">
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <div class="container1">
+        <span style="font-size:3em;">Welcome to Collabora</span>
+        <!-- <div class="question-box">
                 <div class="user-info">
                     <span>Name: </span><span id="name-span"></span><br>
                     <span>Username: </span><span id="uid-span"></span>
                 </div>
                 <div class="date" id="post-date"></div>
             </div> -->
-                <div id="search1">
-                    <span>Search for a question?</span><br>
-                    <input type="text" id="search-input" placeholder="Search a topic" class="search-input">
-                    <button id="search-button" class="search-button" onclick="topicSearch()">Search</button>
-                </div>
-            <div id="errorMessage"></div>
-            <div id="tableContainer1" class="tableContainer1" style="display: flex; flex-direction: column; overflow: hidden; height: 100px; overflow-y: auto;"></div>
-            <form>
-                <label for="ask-question-input" class="ask-question-label">Want to ask a question?</label>
-                <input type="text" id="ask-question-input" placeholder="Enter your question here" class="ask-question-input">
-                <button id="submit-button" class="submit-button" onclick="createPost()">Submit</button>
-            </form>
-          </div>        
+        <div id="search1">
+          <span>Search for a question?</span><br>
+          <input type="text" id="search-input" placeholder="Search a topic" class="search-input">
+          <button id="search-button" class="search-button" onclick="topicSearch()">Search</button>
         </div>
+        <div id="errorMessage"></div>
+        <div id="tableContainer1" class="tableContainer1"
+          style="display: flex; flex-direction: column; overflow: hidden; height: 100px; overflow-y: auto;"></div>
+        <form>
+          <label for="ask-question-input" class="ask-question-label">Want to ask a question?</label>
+          <input type="text" id="ask-question-input" placeholder="Enter your question here" class="ask-question-input">
+          <button id="submit-button" class="submit-button" onclick="createPost()">Submit</button>
+        </form>
       </div>
+    </div>
+  </div>
 
-      <div class="panel settingsPanel" id="answer" onmousedown="FocusWindow('answer')" style="display: none; flex-direction: column; overflow: hidden; height: 600px; overflow-y: auto;">
-        <div class="header noselect">
-          <span class="lightText"><img class="headerTitleIcon" src="./answer.png" width="20" height="20"></img><span class="headerTitleText">Collabora Answers</span></span>
-          <div class="headerIcons">
-              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('answer')"></img>
-              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
-              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('answer')"></img>
-          </div>
+  <div class="panel settingsPanel" id="answer" onmousedown="FocusWindow('answer')"
+    style="display: none; flex-direction: column; overflow: hidden; height: 600px; overflow-y: auto;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./answer.png" width="20" height="20"></img><span
+          class="headerTitleText">Collabora Answers</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('answer')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('answer')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <div id="question-container" class="question-container">
+        <h3>Question:</h3>
+        <!-- Question will be inserted here -->
+      </div>
+      <div id="comments-container">
+        <h3>Comments:</h3>
+        <!-- Comments will be inserted here -->
+      </div>
+      <form action="javascript:reply_api()">
+        <div id="answer-question-box">
+          <span>Answer this Question</span><br>
+          <input type="text" id="answer-question-input" placeholder="Enter your response here">
+          <button id="response-button" style="background-color: #C5000C; color: white;">Reply</button>
         </div>
-        <div class="panel-body settingsPanelBody noselect" id="panelBody">
-          <div id="question-container" class="question-container">
-            <h3>Question:</h3>
-                <!-- Question will be inserted here -->
-            </div>
-            <div id="comments-container">
-                <h3>Comments:</h3>
-                <!-- Comments will be inserted here -->
-            </div>   
-          <form action= "javascript:reply_api()">
-              <div id="answer-question-box">
-                  <span>Answer this Question</span><br>
-                  <input type="text" id="answer-question-input" placeholder="Enter your response here">
-                  <button id="response-button" style="background-color: #C5000C; color: white;" >Reply</button>
-              </div>     
-        </div>
-      </div>
-  </div>
-  
-  <div class="taskbar noselect">
-    <div class="taskbarIconWrapper" id="startmenuTaskbarIcon" onClick="TaskbarIconClick('startMenu')">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 443.704 443.704" version="1.1">
-        <g id="surface1">
-          <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,47.099304%,83.099365%);fill-opacity:1;" d="M 227.570313 307.621094 L 227.570313 387.675781 L 387.675781 387.675781 L 387.675781 227.570313 L 227.570313 227.570313 Z M 56.03125 307.621094 L 56.03125 387.675781 L 216.132813 387.675781 L 216.132813 227.570313 L 56.03125 227.570313 Z M 227.570313 136.082031 L 227.570313 216.132813 L 387.675781 216.132813 L 387.675781 56.03125 L 227.570313 56.03125 Z M 56.03125 136.082031 L 56.03125 216.132813 L 216.132813 216.132813 L 216.132813 56.03125 L 56.03125 56.03125 Z M 56.03125 136.082031 " />
-        </g>
-      </svg>
-    </div>
-    <div class="taskbarIconWrapper" id="settingsTaskbarIcon" onClick="TaskbarIconClick('settings')">
-      <img src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-1024.png" width="35" height="35" class="taskbarItem" alt="Word product icon" />
-      <div class="taskbarIconIndicator" style="display:none;" id="settingsTaskbarIndicator"></div>
-    </div>
-    <div class="taskbarIconWrapper" id="buttoneditorTaskbarIcon" onClick="TaskbarIconClick('buttoneditor')">
-        <img src="./logo.png" width="35" height="35" class="taskbarItem" alt="Button Editor Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="buttoneditorTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper" id="buttondatabaseTaskbarIcon" onClick="TaskbarIconClick('buttondatabase')">
-        <img src="./buttonsearch.png" width="35" height="35" class="taskbarItem" alt="Button Database Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="buttondatabaseTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper" id="titanicTaskbarIcon" onClick="TaskbarIconClick('titanic')">
-        <img src="./titanic.png" width="35" height="35" class="taskbarItem" alt="Titanic Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="titanicTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper" id="cookieTaskbarIcon" onClick="TaskbarIconClick('cookie')">
-        <img src="./cookie.png" width="35" height="35" class="taskbarItem" alt="Cookie Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="cookieTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper" id="asksearchTaskbarIcon" onClick="TaskbarIconClick('asksearch')">
-        <img src="./asksearch.png" width="35" height="35" class="taskbarItem" alt="Forum Ask/Search Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="asksearchTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper" id="answerTaskbarIcon" onClick="TaskbarIconClick('answer')">
-        <img src="./answer.png" width="35" height="35" class="taskbarItem" alt="Forum Response Icon" />
-        <div class="taskbarIconIndicator" style="display:none;" id="answerTaskbarIndicator"></div>
-      </div>
-    <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
-      <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
-      <div class="taskbarIconIndicator" id="noteTaskbarIndicator"></div>
-    </div>
-    <div class="taskbarIconWrapper" id="weatherTaskbarIcon" onClick="TaskbarIconClick('weather')">
-      <i class="ms-Icon ms-Icon--CloudWeather taskbarIcon taskbarItem" aria-hidden="true"></i>
-      <div class="taskbarIconIndicator" style="display:none;" id="weatherTaskbarIndicator"></div>
-    </div>
-    <div class="taskbarTemp">
-      65°
-    </div>
-    <div class="taskbarTime" id=".taskbarTime">
     </div>
   </div>
+</div>
+
+<div class="taskbar noselect">
+  <div class="taskbarIconWrapper" id="startmenuTaskbarIcon" onClick="TaskbarIconClick('startMenu')">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px"
+      viewBox="0 0 443.704 443.704" version="1.1">
+      <g id="surface1">
+        <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,47.099304%,83.099365%);fill-opacity:1;"
+          d="M 227.570313 307.621094 L 227.570313 387.675781 L 387.675781 387.675781 L 387.675781 227.570313 L 227.570313 227.570313 Z M 56.03125 307.621094 L 56.03125 387.675781 L 216.132813 387.675781 L 216.132813 227.570313 L 56.03125 227.570313 Z M 227.570313 136.082031 L 227.570313 216.132813 L 387.675781 216.132813 L 387.675781 56.03125 L 227.570313 56.03125 Z M 56.03125 136.082031 L 56.03125 216.132813 L 216.132813 216.132813 L 216.132813 56.03125 L 56.03125 56.03125 Z M 56.03125 136.082031 " />
+      </g>
+    </svg>
+  </div>
+  <div class="taskbarIconWrapper" id="settingsTaskbarIcon" onClick="TaskbarIconClick('settings')">
+    <img src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-1024.png" width="35" height="35"
+      class="taskbarItem" alt="Word product icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="settingsTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="buttoneditorTaskbarIcon" onClick="TaskbarIconClick('buttoneditor')">
+    <img src="./logo.png" width="35" height="35" class="taskbarItem" alt="Button Editor Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="buttoneditorTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="buttondatabaseTaskbarIcon" onClick="TaskbarIconClick('buttondatabase')">
+    <img src="./buttonsearch.png" width="35" height="35" class="taskbarItem" alt="Button Database Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="buttondatabaseTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="titanicTaskbarIcon" onClick="TaskbarIconClick('titanic')">
+    <img src="./titanic.png" width="35" height="35" class="taskbarItem" alt="Titanic Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="titanicTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="cookieTaskbarIcon" onClick="TaskbarIconClick('cookie')">
+    <img src="./cookie.png" width="35" height="35" class="taskbarItem" alt="Cookie Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="cookieTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="asksearchTaskbarIcon" onClick="TaskbarIconClick('asksearch')">
+    <img src="./asksearch.png" width="35" height="35" class="taskbarItem" alt="Forum Ask/Search Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="asksearchTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="answerTaskbarIcon" onClick="TaskbarIconClick('answer')">
+    <img src="./answer.png" width="35" height="35" class="taskbarItem" alt="Forum Response Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="answerTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
+    <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon"
+      style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
+    <div class="taskbarIconIndicator" id="noteTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarIconWrapper" id="weatherTaskbarIcon" onClick="TaskbarIconClick('weather')">
+    <i class="ms-Icon ms-Icon--CloudWeather taskbarIcon taskbarItem" aria-hidden="true"></i>
+    <div class="taskbarIconIndicator" style="display:none;" id="weatherTaskbarIndicator"></div>
+  </div>
+  <div class="taskbarTemp">
+    65°
+  </div>
+  <div class="taskbarTime" id=".taskbarTime">
+  </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
-    var windows = [
-  {
-    name: "welcome",
-    isOpen: true,
-    isMinimized: false,
-    hasFocus: true,
-    taskbarid: "#noteTaskbarIcon",
-    taskbarindicator: "#noteTaskbarIndicator",
-    windowid: "#welcomenote"
-  },
-  {
-    name: "settings",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#settingsTaskbarIcon",
-    taskbarindicator: "#settingsTaskbarIndicator",
-    windowid: "#settingswindow"
-  },
-  {
-    name: "buttoneditor",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#buttoneditorTaskbarIcon",
-    taskbarindicator: "#buttoneditorTaskbarIndicator",
-    windowid: "#buttoneditor"
-  },
-  {
-    name: "buttondatabase",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#buttondatabaseTaskbarIcon",
-    taskbarindicator: "#buttondatabaseTaskbarIndicator",
-    windowid: "#buttondatabase"
-  },
-  {
-    name: "titanic",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#titanicTaskbarIcon",
-    taskbarindicator: "#titanicTaskbarIndicator",
-    windowid: "#titanic"
-  },
-  {
-    name: "cookie",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#cookieTaskbarIcon",
-    taskbarindicator: "#cookieTaskbarIndicator",
-    windowid: "#cookie"
-  },
-  {
-    name: "asksearch",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#asksearchTaskbarIcon",
-    taskbarindicator: "#asksearchTaskbarIndicator",
-    windowid: "#asksearch"
-  },
-  {
-    name: "answer",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#answerTaskbarIcon",
-    taskbarindicator: "#answerTaskbarIndicator",
-    windowid: "#answer"
-  },
-  {
-    name: "weather",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#weatherTaskbarIcon",
-    taskbarindicator: "#weatherTaskbarIndicator",
-    windowid: "#weatherPanel"
-  },
-  {
-    name: "startMenu",
-    isOpen: false,
-    isMinimized: false,
-    hasFocus: false,
-    taskbarid: "#startmenuTaskbarIcon",
-    taskbarindicator: "",
-    windowid: "#startMenuPanel"
+  var windows = [
+    {
+      name: "welcome",
+      isOpen: true,
+      isMinimized: false,
+      hasFocus: true,
+      taskbarid: "#noteTaskbarIcon",
+      taskbarindicator: "#noteTaskbarIndicator",
+      windowid: "#welcomenote"
+    },
+    {
+      name: "settings",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#settingsTaskbarIcon",
+      taskbarindicator: "#settingsTaskbarIndicator",
+      windowid: "#settingswindow"
+    },
+    {
+      name: "buttoneditor",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#buttoneditorTaskbarIcon",
+      taskbarindicator: "#buttoneditorTaskbarIndicator",
+      windowid: "#buttoneditor"
+    },
+    {
+      name: "buttondatabase",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#buttondatabaseTaskbarIcon",
+      taskbarindicator: "#buttondatabaseTaskbarIndicator",
+      windowid: "#buttondatabase"
+    },
+    {
+      name: "titanic",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#titanicTaskbarIcon",
+      taskbarindicator: "#titanicTaskbarIndicator",
+      windowid: "#titanic"
+    },
+    {
+      name: "cookie",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#cookieTaskbarIcon",
+      taskbarindicator: "#cookieTaskbarIndicator",
+      windowid: "#cookie"
+    },
+    {
+      name: "asksearch",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#asksearchTaskbarIcon",
+      taskbarindicator: "#asksearchTaskbarIndicator",
+      windowid: "#asksearch"
+    },
+    {
+      name: "answer",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#answerTaskbarIcon",
+      taskbarindicator: "#answerTaskbarIndicator",
+      windowid: "#answer"
+    },
+    {
+      name: "weather",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#weatherTaskbarIcon",
+      taskbarindicator: "#weatherTaskbarIndicator",
+      windowid: "#weatherPanel"
+    },
+    {
+      name: "startMenu",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#startmenuTaskbarIcon",
+      taskbarindicator: "",
+      windowid: "#startMenuPanel"
+    }
+  ];
+
+  var openedWindows = [windows[0]];
+
+  <!-- TOGGLE PANEL STATES -->
+  function FocusWindow(windowToFocus) {
+    console.log("focus!");
+    var objectarr = windows.filter(obj => {
+      return obj.name === windowToFocus
+    });
+
+    var object = objectarr[0];
+    //Focus Window
+    object.isOpen = true;
+    object.isMinimized = false;
+    object.hasFocus = true;
+    //remove item from openedwindows array
+    openedWindows = openedWindows.filter(function (obj) {
+      return obj.name !== object.name;
+    });
+    //and puts it at the back
+    openedWindows.push(object);
+    UpdateTaskBar();
+    UpdateZIndex();
   }
-];
 
-var openedWindows = [windows[0]];
-
-<!-- TOGGLE PANEL STATES -->
-function FocusWindow(windowToFocus){
-  console.log("focus!");
-  var objectarr = windows.filter(obj => {
-    return obj.name === windowToFocus
-  });
-  
-  var object = objectarr[0];
-  //Focus Window
-  object.isOpen = true;
-  object.isMinimized = false;
-  object.hasFocus = true;
-  //remove item from openedwindows array
-  openedWindows = openedWindows.filter(function( obj ) {
-    return obj.name !== object.name;
-  });
-  //and puts it at the back
-  openedWindows.push(object);
-  UpdateTaskBar();
-  UpdateZIndex();
-}
-
-function CloseWindow(windowToClose){
-  var objectarr = windows.filter(obj => {
-    return obj.name === windowToClose
-  });
-  var object = objectarr[0];
-  //Close Window
-  $(object.windowid).toggle("fade");
-  object.isOpen = false;
-  object.isMinimized = false;
-  object.hasFocus = false;
-  //remove item from openedwindows array
-  openedWindows = openedWindows.filter(function( obj ) {
-    return obj.name !== object.name;
-  });
-  UpdateTaskBar();
-  UpdateZIndex();
-}
-
-function MinimizeWindow(windowToClose){
-  var objectarr = windows.filter(obj => {
-    return obj.name === windowToClose
-  });
-  var object = objectarr[0];
-  
-  //MinimizeWindow
-  $(object.windowid).effect("drop", { direction: "down" });
-  object.isOpen = true;
-  object.isMinimized = true;
-  object.hasFocus = false;
-  //remove item from openedwindows array
-  openedWindows = openedWindows.filter(function( obj ) {
-    return obj.name !== object.name;
-  });
-  UpdateTaskBar();
-  UpdateZIndex();
-}
-
-function TaskbarIconClick(clickedIcon){
-  var objectarr = windows.filter(obj => {
-    return obj.name === clickedIcon
-  });
-  var object = objectarr[0];
-  
-  if(object.name == "startMenu"){
-    if(object.isOpen){
-      //Close Window
-      $(object.windowid).toggle("drop", { direction: "down" });
-      object.isOpen = false;
-      object.isMinimized = false;
-      object.hasFocus = false;
-      //remove item from openedwindows array
-      openedWindows.pop();
-    }
-    else{
-      //Open window
-      $(object.windowid).toggle("drop", { direction: "down" });
-      object.isOpen = true;
-      object.isMinimized = false;
-      object.hasFocus = true;
-      //put item at end of openedwindows array
-      openedWindows.push(object);
-    }
+  function CloseWindow(windowToClose) {
+    var objectarr = windows.filter(obj => {
+      return obj.name === windowToClose
+    });
+    var object = objectarr[0];
+    //Close Window
+    $(object.windowid).toggle("fade");
+    object.isOpen = false;
+    object.isMinimized = false;
+    object.hasFocus = false;
+    //remove item from openedwindows array
+    openedWindows = openedWindows.filter(function (obj) {
+      return obj.name !== object.name;
+    });
+    UpdateTaskBar();
+    UpdateZIndex();
   }
-  else{
-    //If the start menu is open, close it
-    if(windows[3].isOpen){
-      //Close Window
-      $(windows[3].windowid).toggle("drop", { direction: "down" });
-      windows[3].isOpen = false;
-      windows[3].isMinimized = false;
-      windows[3].hasFocus = false;
-      //remove item from openedwindows array
-      openedWindows.pop();
-    }
-    if(object.isOpen){
-      if(object.isMinimized){
-        //Restore Window
+
+  function MinimizeWindow(windowToClose) {
+    var objectarr = windows.filter(obj => {
+      return obj.name === windowToClose
+    });
+    var object = objectarr[0];
+
+    //MinimizeWindow
+    $(object.windowid).effect("drop", { direction: "down" });
+    object.isOpen = true;
+    object.isMinimized = true;
+    object.hasFocus = false;
+    //remove item from openedwindows array
+    openedWindows = openedWindows.filter(function (obj) {
+      return obj.name !== object.name;
+    });
+    UpdateTaskBar();
+    UpdateZIndex();
+  }
+
+  function TaskbarIconClick(clickedIcon) {
+    var objectarr = windows.filter(obj => {
+      return obj.name === clickedIcon
+    });
+    var object = objectarr[0];
+
+    if (object.name == "startMenu") {
+      if (object.isOpen) {
+        //Close Window
+        $(object.windowid).toggle("drop", { direction: "down" });
+        object.isOpen = false;
+        object.isMinimized = false;
+        object.hasFocus = false;
+        //remove item from openedwindows array
+        openedWindows.pop();
+      }
+      else {
+        //Open window
         $(object.windowid).toggle("drop", { direction: "down" });
         object.isOpen = true;
         object.isMinimized = false;
@@ -860,653 +930,675 @@ function TaskbarIconClick(clickedIcon){
         //put item at end of openedwindows array
         openedWindows.push(object);
       }
-      else{
-        if(object.hasFocus){
-          //Minimize Window
-          $(object.windowid).effect("drop", { direction: "down" });
-          object.isOpen = true;
-          object.isMinimized = true;
-          object.hasFocus = false;
-          //remove item from openedwindows array
-          openedWindows = openedWindows.filter(function( obj ) {
-              return obj.name !== object.name;
-          });
-        }
-        else{
-          //Focus Window
+    }
+    else {
+      //If the start menu is open, close it
+      if (windows[3].isOpen) {
+        //Close Window
+        $(windows[3].windowid).toggle("drop", { direction: "down" });
+        windows[3].isOpen = false;
+        windows[3].isMinimized = false;
+        windows[3].hasFocus = false;
+        //remove item from openedwindows array
+        openedWindows.pop();
+      }
+      if (object.isOpen) {
+        if (object.isMinimized) {
+          //Restore Window
+          $(object.windowid).toggle("drop", { direction: "down" });
           object.isOpen = true;
           object.isMinimized = false;
           object.hasFocus = true;
-          //remove item from openedwindows array
-          openedWindows = openedWindows.filter(function( obj ) {
-              return obj.name !== object.name;
-          });
-          //and puts it at the back
+          //put item at end of openedwindows array
           openedWindows.push(object);
         }
+        else {
+          if (object.hasFocus) {
+            //Minimize Window
+            $(object.windowid).effect("drop", { direction: "down" });
+            object.isOpen = true;
+            object.isMinimized = true;
+            object.hasFocus = false;
+            //remove item from openedwindows array
+            openedWindows = openedWindows.filter(function (obj) {
+              return obj.name !== object.name;
+            });
+          }
+          else {
+            //Focus Window
+            object.isOpen = true;
+            object.isMinimized = false;
+            object.hasFocus = true;
+            //remove item from openedwindows array
+            openedWindows = openedWindows.filter(function (obj) {
+              return obj.name !== object.name;
+            });
+            //and puts it at the back
+            openedWindows.push(object);
+          }
+        }
       }
-    }
-    else{
-      //Open window
+      else {
+        //Open window
         $(object.windowid).toggle("fade");
         object.isOpen = true;
         object.isMinimized = false;
         object.hasFocus = true;
         //put item at end of openedwindows array
         openedWindows.push(object);
-    }
-  }
-  UpdateTaskBar();
-  UpdateZIndex();
-}
-
-function UpdateTaskBar(){
-  //Remove the focus state from all windows
-  for(var i = 0; i < windows.length; i++){
-    windows[i].hasFocus = false;
-  }
-  
-  //apply focus state on last openedwindow
-  if(openedWindows.length > 0){
-    openedWindows[openedWindows.length - 1].hasFocus = true;
-  }
-  
-  for(var i = 0; i < windows.length; i++){
-    $(windows[i].taskbarid).removeClass();
-    $(windows[i].taskbarid).addClass("taskbarIconWrapper");
-    
-    if(windows[i].isOpen){
-      $(windows[i].taskbarid).addClass("active");
-      $(windows[i].taskbarindicator).removeClass("unfocused");
-      
-      if(windows[i].hasFocus){
-        $(windows[i].taskbarindicator).show();
-        $(windows[i].taskbarid).addClass("focused");
       }
-      if(windows[i].isMinimized){
-        $(windows[i].taskbarindicator).show();
+    }
+    UpdateTaskBar();
+    UpdateZIndex();
+  }
+
+  function UpdateTaskBar() {
+    //Remove the focus state from all windows
+    for (var i = 0; i < windows.length; i++) {
+      windows[i].hasFocus = false;
+    }
+
+    //apply focus state on last openedwindow
+    if (openedWindows.length > 0) {
+      openedWindows[openedWindows.length - 1].hasFocus = true;
+    }
+
+    for (var i = 0; i < windows.length; i++) {
+      $(windows[i].taskbarid).removeClass();
+      $(windows[i].taskbarid).addClass("taskbarIconWrapper");
+
+      if (windows[i].isOpen) {
+        $(windows[i].taskbarid).addClass("active");
+        $(windows[i].taskbarindicator).removeClass("unfocused");
+
+        if (windows[i].hasFocus) {
+          $(windows[i].taskbarindicator).show();
+          $(windows[i].taskbarid).addClass("focused");
+        }
+        if (windows[i].isMinimized) {
+          $(windows[i].taskbarindicator).show();
+          $(windows[i].taskbarindicator).addClass("unfocused");
+        }
+      }
+      else {
         $(windows[i].taskbarindicator).addClass("unfocused");
+        $(windows[i].taskbarindicator).hide();
       }
     }
-    else{
-      $(windows[i].taskbarindicator).addClass("unfocused");
-      $(windows[i].taskbarindicator).hide();
-    }
   }
-}
 
-function UpdateZIndex(){
-  for(var i = 0; i < openedWindows.length; i++){
-    for(var j = 0; j < 4; j++){
-      $(openedWindows[i].windowid).removeClass("zindex" + j);
-    }
-    $(openedWindows[i].windowid).addClass("zindex" + i);
-  }
-}
-
-function GetTime(){
-  var date = new Date();
-  var today = formatAMPM(date);
-  var month = date.getMonth();
-  month += 1;
-  var calDate =
-    month.toString() +
-    "/" +
-    date.getDate().toString() +
-    "/" +
-    date.getFullYear();
-  document.getElementById(".taskbarTime").innerHTML = (today + "<br />" + calDate);
-}
-
-function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? "pm" : "am";
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  var strTime = hours + ":" + minutes + " " + ampm;
-  return strTime;
-}
-
-function updateTime() {
-  setTimeout(function () {
-    GetTime();
-    updateTime();
-  }, 60000);
-}
-
-GetTime();
-updateTime();
-    function login_user(){
-        // Set Authenticate endpoint
-        const url ='http://127.0.0.1:8086/api/users/authenticate';
-
-        // Set the body of the request to include login data from the DOM
-        const body = {
-            uid: document.getElementById("uid").value,
-            password: document.getElementById("password").value,
-        };
-
-        // Change options according to Authentication requirements
-        const authOptions = {
-            mode: 'cors', // no-cors, *cors, same-origin
-            credentials: 'include', // include, same-origin, omit
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'POST', // Override the method property
-            cache: 'no-cache', // Set the cache property
-            body: JSON.stringify(body)
-        };
-
-        // Fetch JWT
-        fetch(url, authOptions)
-        .then(response => {
-            // handle error response from Web API
-            if (!response.ok) {
-                const errorMsg = 'Login error: ' + response.status;
-                console.log(errorMsg);
-                return;
-            }
-            // Success!!!
-            // Redirect to the database page
-            CloseWindow("settings")
-            alert("Successfully Logged In!")
-        })
-        // catch fetch errors (ie ACCESS to server blocked)
-        .catch(err => {
-
-            console.error(err);
-            // window.location.href = "http://127.0.0.1:4200/student/2024/01/30/loginfailed.html";
-        });
-    }
-
-    // Attach login_user to the window object, allowing access to form action
-    window.login_user = login_user;
-
-    let dynamicStyles = null;
-        var position = [];
-        function animationClick() {
-            document.getElementById("buttonPreview").animate(
-                [{ left: "0px" },{ left: "50px" } ],
-                2000,
-            );
-            if (document.getElementById("resizableCanvas").style.zIndex == "-1") {
-                document.getElementById("resizableCanvas").style.zIndex = "1";
-                document.getElementById("animationButton").textContent = "Finish Animation";
-            } else {
-                document.getElementById("resizableCanvas").style.zIndex = "-1";
-                document.getElementById("animationButton").textContent = "Edit Animation";
-                animation = `@keyframes animation { `
-                console.log("Position List: " + position)
-                for (let coordinate of position) {
-                    if ((position.indexOf(coordinate) % 2 == 0) || (position.indexOf(coordinate)) == (position.length - 1)) {
-                        animation += ((position.indexOf(coordinate)) * (100 / (position.length - 1))).toString() + `% { `
-                        animation += `margin-left: ` + (coordinate[0] / 390 * 100).toString() + `%; margin-top: ` + (coordinate[1] / 390 * 100).toString() + `%; } `
-                    }
-                }
-                addAnimation(animation);
-                document.getElementById("animationCode").value = animation
-                document.getElementById("buttonPreview").style.animation = "4s linear 0s infinite normal animation";
-            }
-        }
-        function addAnimation(body) {
-            if (!dynamicStyles) {
-                dynamicStyles = document.createElement('style');
-                dynamicStyles.type = 'text/css';
-                document.head.appendChild(dynamicStyles);
-            }
-
-            dynamicStyles.sheet.insertRule(body, dynamicStyles.length);
-            }
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('resizableCanvas');
-            const ctx = canvas.getContext('2d');
-            let isDrawing = false;
-            let lines = [];
-
-            function drawLines() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                lines.forEach(line => {
-                    ctx.beginPath();
-                    ctx.moveTo(line.start.x, line.start.y);
-                    ctx.lineTo(line.end.x, line.end.y);
-                    ctx.strokeStyle = line.color;
-                    ctx.stroke();
-                });
-            }
-
-            function resizeCanvas() {
-                const { width, height } = canvas.getBoundingClientRect();
-                canvas.width = width;
-                canvas.height = height;
-                drawLines();
-            }
-
-            function startDrawing(e) {
-                isDrawing = true;
-                lines.push({
-                    start: getMousePosition(e),
-                    end: getMousePosition(e),
-                    color: "#000000"
-                });
-                drawLines();
-                position.push([getMousePosition(e).x, getMousePosition(e).y])
-                console.log(position)
-            }
-
-            function continueDrawing(e) {
-                if (!isDrawing) return;
-                lines[lines.length - 1].end = getMousePosition(e);
-                drawLines();
-            }
-
-            function stopDrawing(e) {
-                isDrawing = false;
-                position.push([getMousePosition(e).x, getMousePosition(e).y])
-                console.log(position)
-            }
-
-            function getMousePosition(e) {
-                const rect = canvas.getBoundingClientRect();
-                return {
-                    x: e.clientX - rect.left,
-                    y: e.clientY - rect.top
-                };
-            }
-
-            window.addEventListener('resize', resizeCanvas);
-            canvas.addEventListener('mousedown', startDrawing);
-            canvas.addEventListener('mousemove', continueDrawing);
-            canvas.addEventListener('mouseup', stopDrawing);
-
-            // Initial canvas setup
-            resizeCanvas();
-        });
-    const url ='http://127.0.0.1:8086/api/users/design';
-    // Function to display the popup
-    function openPopup() {
-        document.getElementById("popup").style.display = "block";
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        const name1 = document.getElementById("nameInput").value;
-        const publicInput1 = document.getElementById("publicInput").value;
-        const description = document.getElementById("description").value;
-        const body = {
-            name: name1,
-            content: "",
-            type: publicInput1,
-            description: description
-        }
-        console.log(name1)
-        console.log(description)
-        if (name1.trim() !== "") {
-            const authOptions = {
-                mode: 'cors', // no-cors, *cors, same-origin
-                credentials: 'include', // include, same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'POST', // Override the method property
-                cache: 'no-cache', // Set the cache property
-                body: JSON.stringify(body)
-            };
-            console.log(body)
-            fetch(url, authOptions)
-            .then(response => {
-                // handle error response from Web API
-                if (!response.ok) {
-                    alert("Please Login First!")
-                    CloseWindow("buttoneditor")
-                    TaskbarIconClick("settings")
-                }
-                document.getElementById("popup").style.display = "none";
-            })
-            // catch fetch errors (ie ACCESS to server blocked)
-            .catch(err => {
-                console.log(body);
-                console.error(err);
-            });
-        } else {
-            alert("Please enter a design name!");
-        }
-    }
-
-    // Call openPopup when the page loads
-    window.onload = openPopup;
-    const widthSlider = document.getElementById('widthSlider');
-    const heightSlider = document.getElementById('heightSlider');
-    const borderWidthSlider = document.getElementById('borderWidthSlider');
-    const buttonColorSlider = document.getElementById('buttonColorSlider');
-    const textColorSlider = document.getElementById('textColorSlider');
-    const borderColorSlider = document.getElementById('borderColorSlider');
-    const generateButton = document.getElementById('generateButton');
-    const buttonPreview = document.getElementById('buttonPreview');
-    const buttonCodeTextarea = document.getElementById('buttonCode');
-
-    function createButton(width, height, buttonColor, textColor, borderColor, borderWidth) {
-        const button = document.createElement('button');
-        button.style.width = `${width}px`;
-        button.style.height = `${height}px`;
-        button.style.backgroundColor = buttonColor;
-        button.style.color = textColor;
-        button.style.border = `${borderWidth}px solid ${borderColor}`;
-        button.textContent = 'Click Me';
-        button.addEventListener('click', function() {
-            $("#sliderContainer").toggle();
-            $('#saveButton').toggle();
-        });
-        return button;
-    }
-    
-    function generateButtonCode(width, height, buttonColor, textColor, borderColor, borderWidth) {
-        const buttonCode = `<button style="width: ${width}px; height: ${height}px; background-color: ${buttonColor}; color: ${textColor}; border: ${borderWidth}px solid ${borderColor};"></button>`;
-        buttonCodeTextarea.value = buttonCode;
-    }
-
-    function updateButtonPreview() {
-        const buttonWidth = parseInt(widthSlider.value);
-        const buttonHeight = parseInt(heightSlider.value);
-        const borderWidth = parseInt(borderWidthSlider.value);
-        const buttonColor = buttonColorSlider.value;
-        const textColor = textColorSlider.value;
-        const borderColor = borderColorSlider.value;
-        const button = createButton(buttonWidth, buttonHeight, buttonColor, textColor, borderColor, borderWidth);
-        buttonPreview.innerHTML = '';
-        buttonPreview.appendChild(button);
-        generateButtonCode(buttonWidth, buttonHeight, buttonColor, textColor, borderColor, borderWidth);
-    }
-
-    generateButtonCode();
-    updateButtonPreview();
-
-    widthSlider.addEventListener('input', updateButtonPreview);
-    heightSlider.addEventListener('input', updateButtonPreview);
-    buttonColorSlider.addEventListener('input', updateButtonPreview);
-    textColorSlider.addEventListener('input', updateButtonPreview);
-    borderColorSlider.addEventListener('input', updateButtonPreview);
-    borderWidthSlider.addEventListener('input', updateButtonPreview);
-
-    function saveButton(name) { 
-        const url ='http://127.0.0.1:8086/api/users/design';
-        const body = {
-            name: name,
-            content: buttonCode.value,
-            type: "",
-            description: description
-        }
-        console.log("body")
-        const authOptions = {
-            mode: 'cors', // no-cors, *cors, same-origin
-            credentials: 'include', // include, same-origin, omit
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'PUT', // Override the method property
-            cache: 'no-cache', // Set the cache property
-            body: JSON.stringify(body)
-        };
-        fetch(url, authOptions)
-        .then(response => {
-            // handle error response from Web API
-            if (!response.ok) {
-                const errorMsg = 'Save error: ' + response.status;
-                console.log(errorMsg);
-                return;
-            } else {
-                alert("Design Saved")
-            }
-        })
-        // catch fetch errors (ie ACCESS to server blocked)
-        .catch(err => {
-            console.log(body);
-            console.error(err);
-        });
-    }
-    function updateButtonContainer() {
-            const buttonCode = buttonCodeTextarea.value;
-            buttonContainer.innerHTML = buttonCode;
-        }
-    buttonCodeTextarea.addEventListener('input', updateButtonContainer);
-    function toggleButtons(activeButtonId) {
-            var buttons = document.querySelectorAll('.toggle-buttons button');
-            buttons.forEach(function(button) {
-                if (button.id === activeButtonId) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-        }
-        function getSearchTerm() {
-            return document.getElementById('search').value.trim();
-        }
-        function checkButton() {
-            var publicBtn = document.getElementById('publicBtn');
-            var isPublicActive = publicBtn.classList.contains('active');
-            var searchTerm = document.getElementById('search').value.trim();
-            console.log(searchTerm);
-            if (isPublicActive) {
-                ian = "public";
-                getPublic();
-            } else {
-                ian = "private";
-                getPrivate();
-            }
-        }
-        function getPublic() {
-            fetch('http://127.0.0.1:8086/api/users/search')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data); // Handle the data returned from the server
-                    displayDataInTable(data.Designs);
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-//        function getAuthToken() {
-            // Retrieve the authentication token from cookies
-//            return document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*=\s*([^;]*).*$)|^.*$/, "$1");
-//}
-        function getPrivate() {
-            // Making the GET request (public)
-            const authOptions = {
-                mode: 'cors', // no-cors, *cors, same-origin
-                credentials: 'include', // include, same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'PUT', // Override the method property
-            };
-            fetch('http://127.0.0.1:8086/api/users/search', authOptions)
-                .then(response => {
-                    if (!response.ok) {
-                        alert("Error: Please Login First!")
-                        CloseWindow("buttondatabase")
-                        TaskbarIconClick("settings")
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data); // Handle the data returned from the server
-                    displayDataInTable(data.Designs);
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-        function displayDataInTable(data) {
-            var tableContainer = document.getElementById('tableContainer');
-            var tableHTML = '<table id="table">';
-            const searchTerm = getSearchTerm();
-            tableHTML += '<tr><th>Name</th><th>Content</th><th>Description</th><th>Likes</th><th>Dislikes</th><th>Type</th></tr>';
-            data.forEach(function(item) {
-                // Check if searchTerm is a substring of Name or Content
-                if (searchTerm && (item.Name.includes(searchTerm) || (item.Content && item.Content.includes(searchTerm)))) {
-                    tableHTML += '<tr>';
-                    tableHTML += '<td class="nr">' + item.Name + '</td>';
-                    tableHTML += '<td>' + (item.Content || '') + '</td>';
-                    tableHTML += '<td>' + item.Description + '</td>';
-                    tableHTML += '<td><button onclick="toggleLike(this, this.closest(`tr`).querySelector(`.nr`).textContent)" data-item-id="' + item.id + '">Like</button><span class="likesCount">' + item.Likes + '</span></td>';
-                    tableHTML += '<td><button onclick="toggleDislike(this, this.closest(`tr`).querySelector(`.nr`).textContent)" data-item-id="' + item.id + '">Dislike</button><span class="dislikesCount">' + item.Dislikes + '</span></td>';
-                    tableHTML += '<td>' + item.Type + '</td>';
-                    tableHTML += '</tr>';
-                }
-            });
-            tableHTML += '</table>';
-            tableContainer.innerHTML = tableHTML;
-        }
-        document.getElementById('search').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkButton();
-            }
-        });
-
-        function toggleLike(button, name) {
-            console.log("toggle like")
-            var likesCount = button.parentNode.querySelector('.likesCount');
-
-            if (button.classList.contains('liked')) {
-                body = {
-                    like: "remove",
-                    name: name,
-                }
-            } else {
-                body = {
-                    like: "add",
-                    name: name,
-                }
-            }
-            const url ='http://127.0.0.1:8086/api/users/design';
-            const authOptions = {
-                mode: 'cors', // no-cors, *cors, same-origin
-                credentials: 'include', // include, same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'DELETE', // Override the method property
-                cache: 'no-cache', // Set the cache property
-                body: JSON.stringify(body)
-            };
-            fetch(url, authOptions)
-            .then(response => {
-                // handle error response from Web API
-                if (!response.ok) {
-                    const errorMsg = 'Save error: ' + response.status;
-                    console.log(errorMsg);
-                    return;
-                } else {
-                    window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + "#"
-                }
-            })
-            // catch fetch errors (ie ACCESS to server blocked)
-            .catch(err => {
-                console.log(body);
-                console.error(err);
-            });
-        }
-        function toggleDislike(button, name) {
-            var dislikesCount = button.parentNode.querySelector('.dislikesCount');
-
-            if (button.classList.contains('disliked')) {
-                body = {
-                    dislike: "remove",
-                    name: name,
-                }
-            } else {
-                body = {
-                    dislike: "add",
-                    name: name,
-                }
-            }
-            const url ='http://127.0.0.1:8086/api/users/design';
-            const authOptions = {
-                mode: 'cors', // no-cors, *cors, same-origin
-                credentials: 'include', // include, same-origin, omit
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'DELETE', // Override the method property
-                cache: 'no-cache', // Set the cache property
-                body: JSON.stringify(body)
-            };
-            fetch(url, authOptions)
-            .then(response => {
-                // handle error response from Web API
-                if (!response.ok) {
-                    const errorMsg = 'Save error: ' + response.status;
-                    console.log(errorMsg);
-                    return;
-                } else {
-                    window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + ""
-                }
-            })
-            // catch fetch errors (ie ACCESS to server blocked)
-            .catch(err => {
-                console.log(body);
-                console.error(err);
-            });
-        }
-  function titanic_user(){
-      // Set Authenticate endpoint
-      const url = 'http://127.0.0.1:8086/api/titanic/';
-
-      // Set the body of the request to include login data from the DOM
-      const body = {
-          name: document.getElementById("name").value,
-          pclass: parseInt(document.getElementById("pclass").value),
-          sex: document.getElementById("sex").value,
-          age: parseInt(document.getElementById("age").value),
-          fmem: parseInt(document.getElementById("fmem").value),
-          fare: parseInt(document.getElementById("fare").value),
-          embark: parseInt(document.getElementById("embark").value)
-      };
-
-      if (parseInt(document.getElementById("fmem").value) == 0) {
-        body.alone = true
-      } else {
-        body.alone = false
+  function UpdateZIndex() {
+    for (var i = 0; i < openedWindows.length; i++) {
+      for (var j = 0; j < 4; j++) {
+        $(openedWindows[i].windowid).removeClass("zindex" + j);
       }
+      $(openedWindows[i].windowid).addClass("zindex" + i);
+    }
+  }
 
-      // Change options according to Authentication requirements
-      const authOptions = {
-          mode: 'cors', // no-cors, *cors, same-origin
-          credentials: 'include', // include, same-origin, omit
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          method: 'POST', // Override the method property
-          cache: 'no-cache', // Set the cache property
-          body: JSON.stringify(body)
-      };
+  function GetTime() {
+    var date = new Date();
+    var today = formatAMPM(date);
+    var month = date.getMonth();
+    month += 1;
+    var calDate =
+      month.toString() +
+      "/" +
+      date.getDate().toString() +
+      "/" +
+      date.getFullYear();
+    document.getElementById(".taskbarTime").innerHTML = (today + "<br />" + calDate);
+  }
 
-      // Fetch JWT
-      fetch(url, authOptions)
+  function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
+  }
+
+  function updateTime() {
+    setTimeout(function () {
+      GetTime();
+      updateTime();
+    }, 60000);
+  }
+
+  GetTime();
+  updateTime();
+  function login_user() {
+    // Set Authenticate endpoint
+    const url = 'http://127.0.0.1:8086/api/users/authenticate';
+
+    // Set the body of the request to include login data from the DOM
+    const body = {
+      uid: document.getElementById("uid").value,
+      password: document.getElementById("password").value,
+    };
+
+    // Change options according to Authentication requirements
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST', // Override the method property
+      cache: 'no-cache', // Set the cache property
+      body: JSON.stringify(body)
+    };
+
+    // Fetch JWT
+    fetch(url, authOptions)
       .then(response => {
-          // Check if response is successful
+        // handle error response from Web API
+        if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return;
+        }
+        // Success!!!
+        // Redirect to the database page
+        CloseWindow("settings")
+        alert("Successfully Logged In!")
+      })
+      // catch fetch errors (ie ACCESS to server blocked)
+      .catch(err => {
+
+        console.error(err);
+        // window.location.href = "http://127.0.0.1:4200/student/2024/01/30/loginfailed.html";
+      });
+  }
+
+  // Attach login_user to the window object, allowing access to form action
+  window.login_user = login_user;
+
+  let dynamicStyles = null;
+  var position = [];
+  function animationClick() {
+    document.getElementById("buttonPreview").animate(
+      [{ left: "0px" }, { left: "50px" }],
+      2000,
+    );
+    if (document.getElementById("resizableCanvas").style.zIndex == "-1") {
+      document.getElementById("resizableCanvas").style.zIndex = "1";
+      document.getElementById("animationButton").textContent = "Finish Animation";
+    } else {
+      document.getElementById("resizableCanvas").style.zIndex = "-1";
+      document.getElementById("animationButton").textContent = "Edit Animation";
+      animation = `@keyframes animation { `
+      console.log("Position List: " + position)
+      for (let coordinate of position) {
+        if ((position.indexOf(coordinate) % 2 == 0) || (position.indexOf(coordinate)) == (position.length - 1)) {
+          animation += ((position.indexOf(coordinate)) * (100 / (position.length - 1))).toString() + `% { `
+          animation += `margin-left: ` + (coordinate[0] / 390 * 100).toString() + `%; margin-top: ` + (coordinate[1] / 390 * 100).toString() + `%; } `
+        }
+      }
+      addAnimation(animation);
+      document.getElementById("animationCode").value = animation
+      document.getElementById("buttonPreview").style.animation = "4s linear 0s infinite normal animation";
+    }
+  }
+  function addAnimation(body) {
+    if (!dynamicStyles) {
+      dynamicStyles = document.createElement('style');
+      dynamicStyles.type = 'text/css';
+      document.head.appendChild(dynamicStyles);
+    }
+
+    dynamicStyles.sheet.insertRule(body, dynamicStyles.length);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.getElementById('resizableCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let lines = [];
+
+    function drawLines() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      lines.forEach(line => {
+        ctx.beginPath();
+        ctx.moveTo(line.start.x, line.start.y);
+        ctx.lineTo(line.end.x, line.end.y);
+        ctx.strokeStyle = line.color;
+        ctx.stroke();
+      });
+    }
+
+    function resizeCanvas() {
+      const { width, height } = canvas.getBoundingClientRect();
+      canvas.width = width;
+      canvas.height = height;
+      drawLines();
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      lines.push({
+        start: getMousePosition(e),
+        end: getMousePosition(e),
+        color: "#000000"
+      });
+      drawLines();
+      position.push([getMousePosition(e).x, getMousePosition(e).y])
+      console.log(position)
+    }
+
+    function continueDrawing(e) {
+      if (!isDrawing) return;
+      lines[lines.length - 1].end = getMousePosition(e);
+      drawLines();
+    }
+
+    function stopDrawing(e) {
+      isDrawing = false;
+      position.push([getMousePosition(e).x, getMousePosition(e).y])
+      console.log(position)
+    }
+
+    function getMousePosition(e) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', continueDrawing);
+    canvas.addEventListener('mouseup', stopDrawing);
+
+    // Initial canvas setup
+    resizeCanvas();
+  });
+  const url = 'http://127.0.0.1:8086/api/users/design';
+  // Function to display the popup
+  function openPopup() {
+    document.getElementById("popup").style.display = "block";
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    const name1 = document.getElementById("nameInput").value;
+    const publicInput1 = document.getElementById("publicInput").value;
+    const description = document.getElementById("description").value;
+    const body = {
+      name: name1,
+      content: "",
+      type: publicInput1,
+      description: description
+    }
+    console.log(name1)
+    console.log(description)
+    if (name1.trim() !== "") {
+      const authOptions = {
+        mode: 'cors', // no-cors, *cors, same-origin
+        credentials: 'include', // include, same-origin, omit
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST', // Override the method property
+        cache: 'no-cache', // Set the cache property
+        body: JSON.stringify(body)
+      };
+      console.log(body)
+      fetch(url, authOptions)
+        .then(response => {
+          // handle error response from Web API
           if (!response.ok) {
-              throw new Error('Network response was not ok');
+            alert("Please Login First!")
+            CloseWindow("buttoneditor")
+            TaskbarIconClick("settings")
           }
-          // Parse the JSON content from the response
-          return response.json();
+          document.getElementById("popup").style.display = "none";
+        })
+        // catch fetch errors (ie ACCESS to server blocked)
+        .catch(err => {
+          console.log(body);
+          console.error(err);
+        });
+    } else {
+      alert("Please enter a design name!");
+    }
+  }
+
+  // Call openPopup when the page loads
+  window.onload = openPopup;
+  const widthSlider = document.getElementById('widthSlider');
+  const heightSlider = document.getElementById('heightSlider');
+  const borderWidthSlider = document.getElementById('borderWidthSlider');
+  const buttonColorSlider = document.getElementById('buttonColorSlider');
+  const textColorSlider = document.getElementById('textColorSlider');
+  const borderColorSlider = document.getElementById('borderColorSlider');
+  const generateButton = document.getElementById('generateButton');
+  const buttonPreview = document.getElementById('buttonPreview');
+  const buttonCodeTextarea = document.getElementById('buttonCode');
+
+  function createButton(width, height, buttonColor, textColor, borderColor, borderWidth) {
+    const button = document.createElement('button');
+    button.style.width = `${width}px`;
+    button.style.height = `${height}px`;
+    button.style.backgroundColor = buttonColor;
+    button.style.color = textColor;
+    button.style.border = `${borderWidth}px solid ${borderColor}`;
+    button.textContent = 'Click Me';
+    button.addEventListener('click', function () {
+      $("#sliderContainer").toggle();
+      $('#saveButton').toggle();
+    });
+    return button;
+  }
+
+  function generateButtonCode(width, height, buttonColor, textColor, borderColor, borderWidth) {
+    const buttonCode = `<button style="width: ${width}px; height: ${height}px; background-color: ${buttonColor}; color: ${textColor}; border: ${borderWidth}px solid ${borderColor};"></button>`;
+    buttonCodeTextarea.value = buttonCode;
+  }
+
+  function updateButtonPreview() {
+    const buttonWidth = parseInt(widthSlider.value);
+    const buttonHeight = parseInt(heightSlider.value);
+    const borderWidth = parseInt(borderWidthSlider.value);
+    const buttonColor = buttonColorSlider.value;
+    const textColor = textColorSlider.value;
+    const borderColor = borderColorSlider.value;
+    const button = createButton(buttonWidth, buttonHeight, buttonColor, textColor, borderColor, borderWidth);
+    buttonPreview.innerHTML = '';
+    buttonPreview.appendChild(button);
+    generateButtonCode(buttonWidth, buttonHeight, buttonColor, textColor, borderColor, borderWidth);
+  }
+
+  generateButtonCode();
+  updateButtonPreview();
+
+  widthSlider.addEventListener('input', updateButtonPreview);
+  heightSlider.addEventListener('input', updateButtonPreview);
+  buttonColorSlider.addEventListener('input', updateButtonPreview);
+  textColorSlider.addEventListener('input', updateButtonPreview);
+  borderColorSlider.addEventListener('input', updateButtonPreview);
+  borderWidthSlider.addEventListener('input', updateButtonPreview);
+
+  function saveButton(name) {
+    const url = 'http://127.0.0.1:8086/api/users/design';
+    const body = {
+      name: name,
+      content: buttonCode.value,
+      type: "",
+      description: description
+    }
+    console.log("body")
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT', // Override the method property
+      cache: 'no-cache', // Set the cache property
+      body: JSON.stringify(body)
+    };
+    fetch(url, authOptions)
+      .then(response => {
+        // handle error response from Web API
+        if (!response.ok) {
+          const errorMsg = 'Save error: ' + response.status;
+          console.log(errorMsg);
+          return;
+        } else {
+          alert("Design Saved")
+        }
+      })
+      // catch fetch errors (ie ACCESS to server blocked)
+      .catch(err => {
+        console.log(body);
+        console.error(err);
+      });
+  }
+  function updateButtonContainer() {
+    const buttonCode = buttonCodeTextarea.value;
+    buttonContainer.innerHTML = buttonCode;
+  }
+  buttonCodeTextarea.addEventListener('input', updateButtonContainer);
+  function toggleButtons(activeButtonId) {
+    var buttons = document.querySelectorAll('.toggle-buttons button');
+    buttons.forEach(function (button) {
+      if (button.id === activeButtonId) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
+  function getSearchTerm() {
+    return document.getElementById('search').value.trim();
+  }
+  function checkButton() {
+    var publicBtn = document.getElementById('publicBtn');
+    var isPublicActive = publicBtn.classList.contains('active');
+    var searchTerm = document.getElementById('search').value.trim();
+    console.log(searchTerm);
+    if (isPublicActive) {
+      ian = "public";
+      getPublic();
+    } else {
+      ian = "private";
+      getPrivate();
+    }
+  }
+  function getPublic() {
+    fetch('http://127.0.0.1:8086/api/users/search')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
       .then(data => {
-          // Now 'data' contains the parsed JSON content
-          console.log(data);
-          document.getElementById("display").innerHTML = "Death Chance: " + data[0] * 100 + "%.";
+        console.log(data); // Handle the data returned from the server
+        displayDataInTable(data.Designs);
       })
       .catch(error => {
-          // Handle errors here
-          console.error('There was a problem with the fetch operation:', error);
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+  //        function getAuthToken() {
+  // Retrieve the authentication token from cookies
+  //            return document.cookie.replace(/(?:(?:^|.*;\s*)jwt\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  //}
+  function getPrivate() {
+    // Making the GET request (public)
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT', // Override the method property
+    };
+    fetch('http://127.0.0.1:8086/api/users/search', authOptions)
+      .then(response => {
+        if (!response.ok) {
+          alert("Error: Please Login First!")
+          CloseWindow("buttondatabase")
+          TaskbarIconClick("settings")
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data); // Handle the data returned from the server
+        displayDataInTable(data.Designs);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+  function displayDataInTable(data) {
+    var tableContainer = document.getElementById('tableContainer');
+    var tableHTML = '<table id="table">';
+    const searchTerm = getSearchTerm();
+    tableHTML += '<tr><th>Name</th><th>Content</th><th>Description</th><th>Likes</th><th>Dislikes</th><th>Type</th></tr>';
+    data.forEach(function (item) {
+      // Check if searchTerm is a substring of Name or Content
+      if (searchTerm && (item.Name.includes(searchTerm) || (item.Content && item.Content.includes(searchTerm)))) {
+        tableHTML += '<tr>';
+        tableHTML += '<td class="nr">' + item.Name + '</td>';
+        tableHTML += '<td>' + (item.Content || '') + '</td>';
+        tableHTML += '<td>' + item.Description + '</td>';
+        tableHTML += '<td><button onclick="toggleLike(this, this.closest(`tr`).querySelector(`.nr`).textContent)" data-item-id="' + item.id + '">Like</button><span class="likesCount">' + item.Likes + '</span></td>';
+        tableHTML += '<td><button onclick="toggleDislike(this, this.closest(`tr`).querySelector(`.nr`).textContent)" data-item-id="' + item.id + '">Dislike</button><span class="dislikesCount">' + item.Dislikes + '</span></td>';
+        tableHTML += '<td>' + item.Type + '</td>';
+        tableHTML += '</tr>';
+      }
+    });
+    tableHTML += '</table>';
+    tableContainer.innerHTML = tableHTML;
+  }
+  document.getElementById('search').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      checkButton();
+    }
+  });
+
+  function toggleLike(button, name) {
+    console.log("toggle like")
+    var likesCount = button.parentNode.querySelector('.likesCount');
+
+    if (button.classList.contains('liked')) {
+      body = {
+        like: "remove",
+        name: name,
+      }
+    } else {
+      body = {
+        like: "add",
+        name: name,
+      }
+    }
+    const url = 'http://127.0.0.1:8086/api/users/design';
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'DELETE', // Override the method property
+      cache: 'no-cache', // Set the cache property
+      body: JSON.stringify(body)
+    };
+    fetch(url, authOptions)
+      .then(response => {
+        // handle error response from Web API
+        if (!response.ok) {
+          const errorMsg = 'Save error: ' + response.status;
+          console.log(errorMsg);
+          return;
+        } else {
+          window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + "#"
+        }
+      })
+      // catch fetch errors (ie ACCESS to server blocked)
+      .catch(err => {
+        console.log(body);
+        console.error(err);
+      });
+  }
+  function toggleDislike(button, name) {
+    var dislikesCount = button.parentNode.querySelector('.dislikesCount');
+
+    if (button.classList.contains('disliked')) {
+      body = {
+        dislike: "remove",
+        name: name,
+      }
+    } else {
+      body = {
+        dislike: "add",
+        name: name,
+      }
+    }
+    const url = 'http://127.0.0.1:8086/api/users/design';
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'DELETE', // Override the method property
+      cache: 'no-cache', // Set the cache property
+      body: JSON.stringify(body)
+    };
+    fetch(url, authOptions)
+      .then(response => {
+        // handle error response from Web API
+        if (!response.ok) {
+          const errorMsg = 'Save error: ' + response.status;
+          console.log(errorMsg);
+          return;
+        } else {
+          window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + ""
+        }
+      })
+      // catch fetch errors (ie ACCESS to server blocked)
+      .catch(err => {
+        console.log(body);
+        console.error(err);
+      });
+  }
+  function titanic_user() {
+    // Set Authenticate endpoint
+    const url = 'http://127.0.0.1:8086/api/titanic/';
+
+    // Set the body of the request to include login data from the DOM
+    const body = {
+      name: document.getElementById("name").value,
+      pclass: parseInt(document.getElementById("pclass").value),
+      sex: document.getElementById("sex").value,
+      age: parseInt(document.getElementById("age").value),
+      fmem: parseInt(document.getElementById("fmem").value),
+      fare: parseInt(document.getElementById("fare").value),
+      embark: parseInt(document.getElementById("embark").value)
+    };
+
+    if (parseInt(document.getElementById("fmem").value) == 0) {
+      body.alone = true
+    } else {
+      body.alone = false
+    }
+
+    // Change options according to Authentication requirements
+    const authOptions = {
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'include', // include, same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST', // Override the method property
+      cache: 'no-cache', // Set the cache property
+      body: JSON.stringify(body)
+    };
+
+    // Fetch JWT
+    fetch(url, authOptions)
+      .then(response => {
+        // Check if response is successful
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // Parse the JSON content from the response
+        return response.json();
+      })
+      .then(data => {
+        // Now 'data' contains the parsed JSON content
+        console.log(data);
+        document.getElementById("display").innerHTML = "Death Chance: " + data[0] * 100 + "%.";
+      })
+      .catch(error => {
+        // Handle errors here
+        console.error('There was a problem with the fetch operation:', error);
       });
   }
 
@@ -1514,445 +1606,445 @@ updateTime();
   window.titanic_user = titanic_user;
 
   let points = 0;
-    let clickPower = 1;
-    let autoClickEnabled = false;
-    let autoClickInterval;
-    let upgradeClickCount = 0;
-    let autoClickCount = 0;
-    let doubleClickCount = 0;
-    let autoDoubleClickCount = 0;
-    let upgradeClickCost = 25;
-    let autoClickCost = 100;
-    let doubleClickCost = 500;
-    let autoDoubleClickCost = 1000;
+  let clickPower = 1;
+  let autoClickEnabled = false;
+  let autoClickInterval;
+  let upgradeClickCount = 0;
+  let autoClickCount = 0;
+  let doubleClickCount = 0;
+  let autoDoubleClickCount = 0;
+  let upgradeClickCost = 25;
+  let autoClickCost = 100;
+  let doubleClickCost = 500;
+  let autoDoubleClickCost = 1000;
 
-    const pointsDisplay = document.getElementById('points');
-    const upgradeClickCostDisplay = document.getElementById('upgradeClickCost');
-    const autoClickCostDisplay = document.getElementById('autoClickCost');
-    const doubleClickCostDisplay = document.getElementById('doubleClickCost');
-    const autoDoubleClickCostDisplay = document.getElementById('autoDoubleClickCost');
-    const upgradeClickCountDisplay = document.getElementById('upgradeClickCount');
-    const autoClickCountDisplay = document.getElementById('autoClickCount');
-    const doubleClickCountDisplay = document.getElementById('doubleClickCount');
-    const autoDoubleClickCountDisplay = document.getElementById('autoDoubleClickCount');
-    const cookie = document.getElementById('cookieimg');
-    const upgradeClickButton = document.getElementById('upgradeClick');
-    const autoClickButton = document.getElementById('autoClick');
-    const doubleClickButton = document.getElementById('doubleClick');
-    const autoDoubleClickButton = document.getElementById('autoDoubleClick');
-    const miniGamesSection = document.getElementById('miniGamesSection');
+  const pointsDisplay = document.getElementById('points');
+  const upgradeClickCostDisplay = document.getElementById('upgradeClickCost');
+  const autoClickCostDisplay = document.getElementById('autoClickCost');
+  const doubleClickCostDisplay = document.getElementById('doubleClickCost');
+  const autoDoubleClickCostDisplay = document.getElementById('autoDoubleClickCost');
+  const upgradeClickCountDisplay = document.getElementById('upgradeClickCount');
+  const autoClickCountDisplay = document.getElementById('autoClickCount');
+  const doubleClickCountDisplay = document.getElementById('doubleClickCount');
+  const autoDoubleClickCountDisplay = document.getElementById('autoDoubleClickCount');
+  const cookie = document.getElementById('cookieimg');
+  const upgradeClickButton = document.getElementById('upgradeClick');
+  const autoClickButton = document.getElementById('autoClick');
+  const doubleClickButton = document.getElementById('doubleClick');
+  const autoDoubleClickButton = document.getElementById('autoDoubleClick');
+  const miniGamesSection = document.getElementById('miniGamesSection');
 
-    let newSkinCost = 100;
-    let newSkinPurchased = false;
-        
-    const buyNewSkinButton = document.getElementById('buyNewSkin');
-    const newSkinCostDisplay = document.getElementById('newSkinCost');
-    function updatePointsDisplay() {
-            pointsDisplay.textContent = points;
-            buyNewSkinButton.disabled = newSkinPurchased || points < newSkinCost; // Disable new skin button if already purchased or not enough points
-    }
-    function updateShopDisplay() {
-      newSkinCostDisplay.textContent = newSkinCost;
-      // Update other shop item displays as needed
-    }
+  let newSkinCost = 100;
+  let newSkinPurchased = false;
 
-    buyNewSkinButton.addEventListener('click', () => {
-      if (points >= newSkinCost && !newSkinPurchased) {
-        points -= newSkinCost;
-        cookie.src = "https://as2.ftcdn.net/v2/jpg/02/47/71/45/1000_F_247714590_52fGc5te3Duvupq9ztw8S1ncji7z99S5.jpg"; // URL of the new skin
-        cookie.style.maxWidth = "200px"; // Adjust size as needed
-        cookie.style.height = "200px"; // Adjust if a specific height is desired
-        newSkinPurchased = true;
-        updatePointsDisplay();
-      } else {
-        alert('Not enough points or skin already purchased.');
-      }
-    });
+  const buyNewSkinButton = document.getElementById('buyNewSkin');
+  const newSkinCostDisplay = document.getElementById('newSkinCost');
+  function updatePointsDisplay() {
+    pointsDisplay.textContent = points;
+    buyNewSkinButton.disabled = newSkinPurchased || points < newSkinCost; // Disable new skin button if already purchased or not enough points
+  }
+  function updateShopDisplay() {
+    newSkinCostDisplay.textContent = newSkinCost;
+    // Update other shop item displays as needed
+  }
 
-    // Call updateShopDisplay at the end of your script to ensure shop item statuses are correctly initialized
-    updateShopDisplay();
-      
-    cookie.addEventListener('click', () => {
-      points += clickPower;
+  buyNewSkinButton.addEventListener('click', () => {
+    if (points >= newSkinCost && !newSkinPurchased) {
+      points -= newSkinCost;
+      cookie.src = "https://as2.ftcdn.net/v2/jpg/02/47/71/45/1000_F_247714590_52fGc5te3Duvupq9ztw8S1ncji7z99S5.jpg"; // URL of the new skin
+      cookie.style.maxWidth = "200px"; // Adjust size as needed
+      cookie.style.height = "200px"; // Adjust if a specific height is desired
+      newSkinPurchased = true;
       updatePointsDisplay();
-      update_user()
-
-    });
-
-    upgradeClickButton.addEventListener('click', () => {
-      if (points >= upgradeClickCost) {
-        points -= upgradeClickCost;
-        clickPower++;
-        upgradeClickCount++;
-        upgradeClickCost = Math.floor(10 * Math.pow(1.1, upgradeClickCount)); // Exponential increase in cost
-        updateShopDisplay();
-        updatePointsDisplay();
-      } else {
-        alert('Not enough points!');
-      }
-    });
-
-    autoClickButton.addEventListener('click', () => {
-      if (points >= autoClickCost && !autoClickEnabled) {
-        points -= autoClickCost;
-        autoClickEnabled = true;
-        autoClickInterval = setInterval(() => {
-          points += clickPower;
-          updatePointsDisplay();
-        }, 1000);
-        autoClickCount++;
-        autoClickCost = Math.floor(50 * Math.pow(1.1, autoClickCount)); // Exponential increase in cost
-        autoClickButton.disabled = true;
-        updateShopDisplay();
-        updatePointsDisplay();
-      } else if (autoClickEnabled) {
-        alert('Auto Click already enabled!');
-      } else {
-        alert('Not enough points!');
-      }
-    });
-
-    doubleClickButton.addEventListener('click', () => {
-      if (points >= doubleClickCost) {
-        points -= doubleClickCost;
-        clickPower *= 2;
-        doubleClickCount++;
-        doubleClickCost = Math.floor(100 * Math.pow(1.1, doubleClickCount)); // Exponential increase in cost
-        updateShopDisplay();
-        updatePointsDisplay();
-      } else {
-        alert('Not enough points!');
-      }
-    });
-
-    autoDoubleClickButton.addEventListener('click', () => {
-      if (points >= autoDoubleClickCost && !autoClickEnabled) {
-        points -= autoDoubleClickCost;
-        autoClickEnabled = true;
-        autoClickInterval = setInterval(() => {
-          points += clickPower * 2;
-          updatePointsDisplay();
-        }, 500); // Execute every 0.5 seconds for double click
-        autoDoubleClickCount++;
-        autoDoubleClickCost = Math.floor(200000 * Math.pow(1.1, autoDoubleClickCount)); // Exponential increase in cost
-        autoDoubleClickButton.disabled = true;
-        updateShopDisplay();
-        updatePointsDisplay();
-      } else if (autoClickEnabled) {
-        alert('Auto Double Click already enabled!');
-      } else {
-        alert('Not enough points!');
-      }
-    });
-
-    function updatePointsDisplay() {
-      pointsDisplay.textContent = points;
-      if (points >= 200) {
-        miniGamesSection.style.display = 'block'; // Display the mini-games section when the player has at least 200 points
-      }
+    } else {
+      alert('Not enough points or skin already purchased.');
     }
+  });
 
-    function updateShopDisplay() {
-      upgradeClickCostDisplay.textContent = upgradeClickCost;
-      autoClickCostDisplay.textContent = autoClickCost;
-      doubleClickCostDisplay.textContent = doubleClickCost;
-      autoDoubleClickCostDisplay.textContent = autoDoubleClickCost;
-      upgradeClickCountDisplay.textContent = upgradeClickCount;
-      autoClickCountDisplay.textContent = autoClickCount;
-      doubleClickCountDisplay.textContent = doubleClickCount;
-      autoDoubleClickCountDisplay.textContent = autoDoubleClickCount;
+  // Call updateShopDisplay at the end of your script to ensure shop item statuses are correctly initialized
+  updateShopDisplay();
+
+  cookie.addEventListener('click', () => {
+    points += clickPower;
+    updatePointsDisplay();
+    update_user()
+
+  });
+
+  upgradeClickButton.addEventListener('click', () => {
+    if (points >= upgradeClickCost) {
+      points -= upgradeClickCost;
+      clickPower++;
+      upgradeClickCount++;
+      upgradeClickCost = Math.floor(10 * Math.pow(1.1, upgradeClickCount)); // Exponential increase in cost
+      updateShopDisplay();
+      updatePointsDisplay();
+    } else {
+      alert('Not enough points!');
     }
+  });
 
-    function playGuessingGame() {
-      const guessInput = document.getElementById('guessInput');
-      const gameCostInput = document.getElementById('gameCostInput');
-      const guessResult = document.getElementById('guessResult');
+  autoClickButton.addEventListener('click', () => {
+    if (points >= autoClickCost && !autoClickEnabled) {
+      points -= autoClickCost;
+      autoClickEnabled = true;
+      autoClickInterval = setInterval(() => {
+        points += clickPower;
+        updatePointsDisplay();
+      }, 1000);
+      autoClickCount++;
+      autoClickCost = Math.floor(50 * Math.pow(1.1, autoClickCount)); // Exponential increase in cost
+      autoClickButton.disabled = true;
+      updateShopDisplay();
+      updatePointsDisplay();
+    } else if (autoClickEnabled) {
+      alert('Auto Click already enabled!');
+    } else {
+      alert('Not enough points!');
+    }
+  });
 
-      // Check if the player has enough points to play the game
-      if (points >= gameCostInput.value) {
-        points -= gameCostInput.value; // Deduct the chosen points for playing the game
+  doubleClickButton.addEventListener('click', () => {
+    if (points >= doubleClickCost) {
+      points -= doubleClickCost;
+      clickPower *= 2;
+      doubleClickCount++;
+      doubleClickCost = Math.floor(100 * Math.pow(1.1, doubleClickCount)); // Exponential increase in cost
+      updateShopDisplay();
+      updatePointsDisplay();
+    } else {
+      alert('Not enough points!');
+    }
+  });
 
-        const randomNumber = Math.floor(Math.random() * 2) + 1; // Generate a random number between 1 and 2
+  autoDoubleClickButton.addEventListener('click', () => {
+    if (points >= autoDoubleClickCost && !autoClickEnabled) {
+      points -= autoDoubleClickCost;
+      autoClickEnabled = true;
+      autoClickInterval = setInterval(() => {
+        points += clickPower * 2;
+        updatePointsDisplay();
+      }, 500); // Execute every 0.5 seconds for double click
+      autoDoubleClickCount++;
+      autoDoubleClickCost = Math.floor(200000 * Math.pow(1.1, autoDoubleClickCount)); // Exponential increase in cost
+      autoDoubleClickButton.disabled = true;
+      updateShopDisplay();
+      updatePointsDisplay();
+    } else if (autoClickEnabled) {
+      alert('Auto Double Click already enabled!');
+    } else {
+      alert('Not enough points!');
+    }
+  });
 
-        if (parseInt(guessInput.value) === randomNumber) {
-          points += parseInt(gameCostInput.value) * 2; // Double the points if the guess is correct
-          guessResult.textContent = 'Congratulations! You won and doubled your points!';
-        } else {
-          guessResult.textContent = 'Sorry, try again!';
-        }
-        
-        updatePointsDisplay(); // Update the points display after playing the game
+  function updatePointsDisplay() {
+    pointsDisplay.textContent = points;
+    if (points >= 200) {
+      miniGamesSection.style.display = 'block'; // Display the mini-games section when the player has at least 200 points
+    }
+  }
+
+  function updateShopDisplay() {
+    upgradeClickCostDisplay.textContent = upgradeClickCost;
+    autoClickCostDisplay.textContent = autoClickCost;
+    doubleClickCostDisplay.textContent = doubleClickCost;
+    autoDoubleClickCostDisplay.textContent = autoDoubleClickCost;
+    upgradeClickCountDisplay.textContent = upgradeClickCount;
+    autoClickCountDisplay.textContent = autoClickCount;
+    doubleClickCountDisplay.textContent = doubleClickCount;
+    autoDoubleClickCountDisplay.textContent = autoDoubleClickCount;
+  }
+
+  function playGuessingGame() {
+    const guessInput = document.getElementById('guessInput');
+    const gameCostInput = document.getElementById('gameCostInput');
+    const guessResult = document.getElementById('guessResult');
+
+    // Check if the player has enough points to play the game
+    if (points >= gameCostInput.value) {
+      points -= gameCostInput.value; // Deduct the chosen points for playing the game
+
+      const randomNumber = Math.floor(Math.random() * 2) + 1; // Generate a random number between 1 and 2
+
+      if (parseInt(guessInput.value) === randomNumber) {
+        points += parseInt(gameCostInput.value) * 2; // Double the points if the guess is correct
+        guessResult.textContent = 'Congratulations! You won and doubled your points!';
       } else {
-        guessResult.textContent = 'Not enough points to play the game!';
+        guessResult.textContent = 'Sorry, try again!';
       }
+
+      updatePointsDisplay(); // Update the points display after playing the game
+    } else {
+      guessResult.textContent = 'Not enough points to play the game!';
     }
-
-   
-
+  }
 
 
 
-    function update_user(){
 
-      const currentUrl = window.location.href;
+
+
+  function update_user() {
+
+    const currentUrl = window.location.href;
     //  const uid_temp = localStorage.getItem('uid'); // Retrieve the JWT from local storage
-      //if (!uid_temp) {
-      //  console.log('No UID found in local storage.');
-      //  return;
-   // }
-   // console.log(uid_temp)
-// Create a URLSearchParams instance with the query string part of the URL
+    //if (!uid_temp) {
+    //  console.log('No UID found in local storage.');
+    //  return;
+    // }
+    // console.log(uid_temp)
+    // Create a URLSearchParams instance with the query string part of the URL
     const urlParams = new URLSearchParams(window.location.search);
 
-// Retrieve the value of the 'uid' parameter
-      const temp_uid = urlParams.get('uid');
-      const temp_password = urlParams.get('password');
-      console.log(temp_uid+"  "+ temp_password)
+    // Retrieve the value of the 'uid' parameter
+    const temp_uid = urlParams.get('uid');
+    const temp_password = urlParams.get('password');
+    console.log(temp_uid + "  " + temp_password)
 
     if (typeof points === 'number' && !isNaN(points)) {
-        const url = 'http://127.0.0.1:8086/api/users/';
-        const body = {
-            uid: temp_uid,
-            password: temp_password,
-            score: points
-        };
-        const authOptions = {
+      const url = 'http://127.0.0.1:8086/api/users/';
+      const body = {
+        uid: temp_uid,
+        password: temp_password,
+        score: points
+      };
+      const authOptions = {
         mode: 'cors', // no-cors, *cors, same-origin
         credentials: 'include', // include, same-origin, omit
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         method: 'POST', // Override the method property
         cache: 'no-cache', // Set the cache property
         body: JSON.stringify(body)
-    };
-        const requestOptions = {
-            method: 'PUT',
-            mode: 'cors',
-            credentials: 'include',
-            headers: {
-              
-             // 'Authorization': `Bearer ${uid_temp}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        };
+      };
+      const requestOptions = {
+        method: 'PUT',
+        mode: 'cors',
+        credentials: 'include',
+        headers: {
 
-        fetch(url, requestOptions)
-            .then(response => {
-                if (response.status !== 200) {
-                }
+          // 'Authorization': `Bearer ${uid_temp}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+      };
 
-                response.json().then(data => {
-                  console.log(data)
-                    // Handle the response data if needed
-                });
-            })
-            .catch(err => {
-                console.error(err);
-            });
+      fetch(url, requestOptions)
+        .then(response => {
+          if (response.status !== 200) {
+          }
+
+          response.json().then(data => {
+            console.log(data)
+            // Handle the response data if needed
+          });
+        })
+        .catch(err => {
+          console.error(err);
+        });
     } else {
-        console.error('Invalid integer value.');
+      console.error('Invalid integer value.');
     }
-}
+  }
 
-function createTableFromJSON(jsonData) {
+  function createTableFromJSON(jsonData) {
     // Create a table
     var table = document.createElement("table");
     var tr = table.insertRow(-1); // Table Row
     // Add table headers
     var headers = ["Questions"];
-    for(var i = 0; i < headers.length; i++) {
-        var th = document.createElement("th"); // Table Header
-        th.innerHTML = headers[i];
-        tr.appendChild(th);
+    for (var i = 0; i < headers.length; i++) {
+      var th = document.createElement("th"); // Table Header
+      th.innerHTML = headers[i];
+      tr.appendChild(th);
     }
     // Add JSON data to the table as rows
-    for(var i = 0; i < jsonData.length; i++) {
-        tr = table.insertRow(-1);
-        for(var j = 0; j < headers.length; j++) {
-            var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = "<a href='?questionId="+jsonData[i]['id']+"'>"+jsonData[i]['note']+"</a>";
-        }
+    for (var i = 0; i < jsonData.length; i++) {
+      tr = table.insertRow(-1);
+      for (var j = 0; j < headers.length; j++) {
+        var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = "<a href='?questionId=" + jsonData[i]['id'] + "'>" + jsonData[i]['note'] + "</a>";
+      }
     }
     // Finally, add the newly created table with JSON data to a container
     var divContainer = document.getElementById("tableContainer1");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
-}
-function topicSearch() {
+  }
+  function topicSearch() {
     const enteredTopic = document.getElementById("search-input").value;
     console.log(enteredTopic)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
     };
     fetch("http://127.0.0.1:8086/api/post/?searchString=" + enteredTopic, requestOptions)
-        .then(response => {
-            if (response.ok) {
-                console.log(enteredTopic + " has been searched");
-                return response.json(); // Parse the JSON in the response body
-            } else {
-                console.error("Search failed");
-                const errorMessageDiv = document.getElementById('errorMessage');
-                errorMessageDiv.innerHTML = '<label style="color: red;">Search Failed</label>';
-                throw new Error('Search failed');
-            }
-        })
-        .then(data => {
-            // Here 'data' is the parsed JSON object from the response body
-            console.log(data); // You can see your fetched data here
-            createTableFromJSON(data); // Assuming 'createTableFromJSON' expects the JSON data as parameter
-        })
-        .catch(error => {
-            // Handle any errors that occurred during the fetch() or in the promise chain
-            console.error('Error:', error);
-        });
-}
-window.topicSearch = topicSearch;
-function getTodaysDate() {
+      .then(response => {
+        if (response.ok) {
+          console.log(enteredTopic + " has been searched");
+          return response.json(); // Parse the JSON in the response body
+        } else {
+          console.error("Search failed");
+          const errorMessageDiv = document.getElementById('errorMessage');
+          errorMessageDiv.innerHTML = '<label style="color: red;">Search Failed</label>';
+          throw new Error('Search failed');
+        }
+      })
+      .then(data => {
+        // Here 'data' is the parsed JSON object from the response body
+        console.log(data); // You can see your fetched data here
+        createTableFromJSON(data); // Assuming 'createTableFromJSON' expects the JSON data as parameter
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the fetch() or in the promise chain
+        console.error('Error:', error);
+      });
+  }
+  window.topicSearch = topicSearch;
+  function getTodaysDate() {
     const today = new Date();
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
-    const formattedToday = yyyy+ "-" + mm + '-'+ dd;
+    const formattedToday = yyyy + "-" + mm + '-' + dd;
     return formattedToday;
-}
-const formattedToday = getTodaysDate();
-//document.getElementById('post-date').innerHTML = "Posted on: " + formattedToday;
-function createPost() {
+  }
+  const formattedToday = getTodaysDate();
+  //document.getElementById('post-date').innerHTML = "Posted on: " + formattedToday;
+  function createPost() {
     const enteredPost = document.getElementById("ask-question-input").value;
     const enteredDOQ = getTodaysDate()
     const enteredUid = localStorage.getItem("userUid") || "defaultUid"; // Use a default or handle case where uid is not set
     const enteredId = "10" //to be set dynamically (figure out later)
     post_api(enteredId, enteredPost, enteredUid, enteredDOQ)
-}
-function post_api(id, post, uid, doq) {
+  }
+  function post_api(id, post, uid, doq) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
-    "id": id,
-    "note": post,
-    "uid": uid,
-    "doq": doq,
-    "parentPostId": "|"
+      "id": id,
+      "note": post,
+      "uid": uid,
+      "doq": doq,
+      "parentPostId": "|"
     });
     console.log(raw)
     var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
     fetch("http://127.0.0.1:8086/api/post/", requestOptions)
-        .then(response => {
-            if (response.ok) {
-                console.log("Question Received");
-                alert("Question has been sent, you will receive a response soon.");
-              } else {
-                console.error("Question creation failed");
-                // You can handle failed login attempts here
-                const errorMessageDiv = document.getElementById('errorMessage');
-                errorMessageDiv.innerHTML = '<label style="color: red;">Question Creation Failed</label>';
-              }
-          })
-          .then(result => {
-            console.log(result);
-            })
-          .catch(error => console.log('error', error));
-}
-
-function reply_api(){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        const questionId = new URLSearchParams(window.location.search).get('questionId');
-        const replyText = document.getElementById('answer-question-input').value;
-        const uid = localStorage.getItem("userUid") || "defaultUid"; // Use a default UID or handle this case as needed
-        var raw = JSON.stringify({
-            "parentPostId": questionId,
-            "note": replyText,
-            "uid": uid
-            });
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-            };
-              fetch("http://127.0.0.1:8086/api/post/", requestOptions)
-                .then(response => {
-                    if (response.ok) {
-                        console.log("Reply Received");
-                        alert("Your reply has been received.");
-                        window.location.reload();
-                    } else {
-                        console.error("Reply failed");
-                        // You can handle failed login attempts here
-                        const errorMessageDiv = document.getElementById('errorMessage');
-                        errorMessageDiv.innerHTML = '<label style="color: red;">Reply Failed</label>';
-                    }
-                })
-     }
-    async function fetchQuestion(questionId) {
-        try {
-            const response = await fetch(`http://127.0.0.1:8086/api/post?id=${questionId}`);
-            if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
-            }
-            const data = await response.json();
-            return data.note; // Assuming the API returns an object with a 'note' property
-        } catch (error) {
-            console.error('Fetching question failed:', error);
-            return "Question not found or there was an error fetching the question. Try <button onclick=TaskbarIconClick('asksearch') class=button5>searching</button> for one!";
+      .then(response => {
+        if (response.ok) {
+          console.log("Question Received");
+          alert("Question has been sent, you will receive a response soon.");
+        } else {
+          console.error("Question creation failed");
+          // You can handle failed login attempts here
+          const errorMessageDiv = document.getElementById('errorMessage');
+          errorMessageDiv.innerHTML = '<label style="color: red;">Question Creation Failed</label>';
         }
+      })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => console.log('error', error));
+  }
+
+  function reply_api() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const questionId = new URLSearchParams(window.location.search).get('questionId');
+    const replyText = document.getElementById('answer-question-input').value;
+    const uid = localStorage.getItem("userUid") || "defaultUid"; // Use a default UID or handle this case as needed
+    var raw = JSON.stringify({
+      "parentPostId": questionId,
+      "note": replyText,
+      "uid": uid
+    });
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    fetch("http://127.0.0.1:8086/api/post/", requestOptions)
+      .then(response => {
+        if (response.ok) {
+          console.log("Reply Received");
+          alert("Your reply has been received.");
+          window.location.reload();
+        } else {
+          console.error("Reply failed");
+          // You can handle failed login attempts here
+          const errorMessageDiv = document.getElementById('errorMessage');
+          errorMessageDiv.innerHTML = '<label style="color: red;">Reply Failed</label>';
+        }
+      })
+  }
+  async function fetchQuestion(questionId) {
+    try {
+      const response = await fetch(`http://127.0.0.1:8086/api/post?id=${questionId}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const data = await response.json();
+      return data.note; // Assuming the API returns an object with a 'note' property
+    } catch (error) {
+      console.error('Fetching question failed:', error);
+      return "Question not found or there was an error fetching the question. Try <button onclick=TaskbarIconClick('asksearch') class=button5>searching</button> for one!";
     }
-    async function fetchAndDisplayComments(questionId) {
-        const commentsContainer = document.getElementById('comments-container');
-        try {
-            const response = await fetch(`http://127.0.0.1:8086/api/post?parentPostId=${questionId}`);
-            if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
-            }
-            const comments = await response.json();
-            if (comments.length > 0) {
-                const loggedInUid = localStorage.getItem("userUid"); // Get the UID of the logged-in user
-                const commentsHTML = comments.map(comment => {
-                    // Check if the comment UID matches the logged-in UID and set the display name accordingly
-                    const commenterUid = comment.userID === loggedInUid ? "You" : comment.userID;
-                    return `
+  }
+  async function fetchAndDisplayComments(questionId) {
+    const commentsContainer = document.getElementById('comments-container');
+    try {
+      const response = await fetch(`http://127.0.0.1:8086/api/post?parentPostId=${questionId}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const comments = await response.json();
+      if (comments.length > 0) {
+        const loggedInUid = localStorage.getItem("userUid"); // Get the UID of the logged-in user
+        const commentsHTML = comments.map(comment => {
+          // Check if the comment UID matches the logged-in UID and set the display name accordingly
+          const commenterUid = comment.userID === loggedInUid ? "You" : comment.userID;
+          return `
                         <div class="comment">
                             <p>${comment.note}</p>
                             <small>By: ${commenterUid}</small>
                         </div>
                     `;
-                }).join('');
-                commentsContainer.innerHTML = commentsHTML;
-            } else {
-                commentsContainer.innerHTML = '<p>No comments found.</p>';
-            }
-        } catch (error) {
-            console.error('Fetching comments failed:', error);
-            commentsContainer.innerHTML = '<p>Error fetching comments.</p>';
-        }
+        }).join('');
+        commentsContainer.innerHTML = commentsHTML;
+      } else {
+        commentsContainer.innerHTML = '<p>No comments found.</p>';
+      }
+    } catch (error) {
+      console.error('Fetching comments failed:', error);
+      commentsContainer.innerHTML = '<p>Error fetching comments.</p>';
     }
-    async function displayQuestion() {
-        // Extracting questionId from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const questionId = urlParams.get('questionId');
-        if (questionId) {
-          TaskbarIconClick("answer")
-        }
-        // Fetch the question based on questionId and display it
-        const questionText = await fetchQuestion(questionId);
-        document.getElementById('question-container').innerHTML += questionText;
-        // Fetch and display comments for the question
-        await fetchAndDisplayComments(questionId);
+  }
+  async function displayQuestion() {
+    // Extracting questionId from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const questionId = urlParams.get('questionId');
+    if (questionId) {
+      TaskbarIconClick("answer")
     }
-    // Call displayQuestion when the page loads
-    window.onload = displayQuestion;
+    // Fetch the question based on questionId and display it
+    const questionText = await fetchQuestion(questionId);
+    document.getElementById('question-container').innerHTML += questionText;
+    // Fetch and display comments for the question
+    await fetchAndDisplayComments(questionId);
+  }
+  // Call displayQuestion when the page loads
+  window.onload = displayQuestion;
 </script>
