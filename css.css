@@ -1272,4 +1272,180 @@ textarea {
 .preview button:active,
 .preview button:focus {
   background-color: #f2f2f2;
+}
+
+.container2 {
+  margin-left: 13%;
+  max-width: 400px; /* Adjusted max-width for a narrower form */
+  padding: 20px;
+  background-color: rgba(30, 30, 50, 0.9); /* Dark blue background color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease;
+  flex-direction: column; /* Arrange children vertically */
+  align-items: center; /* Center items horizontally */
+  margin-top: 50px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.h16 {
+  color: #fff; /* White text color */
+  text-align: center;
+}
+
+.form6 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label6 {
+  margin-bottom: 5px;
+  color: #fff; /* White text color */
+  opacity: 0;
+  animation: fadeInLabel 0.5s ease forwards;
+}
+
+@keyframes fadeInLabel {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.input2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInInput 0.5s ease forwards;
+}
+
+@keyframes fadeInInput {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInCheckbox 0.5s ease forwards;
+}
+
+@keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.button8 {
+  padding: 10px 20px;
+  background-color: #22269a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInButton 0.5s ease forwards;
+}
+
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.button8:hover {
+  background-color: #09071a;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  display: none;
+}
+
+#result-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#display {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #000; /* Black text color */
+}
+
+#display2 {
+  font-weight: bold;
+  color: #000; /* Black text color */
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake {
+  animation: shake 0.5s;
+}
+
+.copy-paste-box {
+  display: none;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
 }/*# sourceMappingURL=css.css.map */

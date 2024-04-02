@@ -694,6 +694,83 @@
           </div>
           </div>
         </div>
+        </div>
+
+
+        <div class="panel settingsPanel" id="concussions" onmousedown="FocusWindow('concussions')" style="display: none; flex-direction: column; overflow: hidden; height: 675px; width: 650px; overflow-y: auto;">
+          <div class="header noselect">
+            <span class="lightText"><img class="headerTitleIcon" src="https://scitechdaily.com/images/Glowing-Brain-Particles.jpg" width="20" height="20"></img><span class="headerTitleText">Concussions</span></span>
+            <div class="headerIcons">
+                <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('concussions')"></img>
+                <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+                <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('concussions')"></img>
+            </div>
+          </div>
+          <div class="panel-body settingsPanelBody noselect" id="panelBody">
+            <div class="container3">
+              <div class="container2" style="display: flex; flex-direction: column; overflow: hidden; height: 500px; overflow-y: auto;">
+                  <h1 class="h16">Concussion Recovery Prediction</h1>
+                  <form id="concussionForm" class="form6">
+                      <label for="name1" class="label6">Name:</label>
+                      <input type="text" id="name1" name="name1" required class="input2">
+          
+                      <label for="sex" class="label6">Sex:</label>
+                      <select id="sex" name="sex" required class="input2">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                      </select>
+          
+                      <label for="age1" class="label6">Age:</label>
+                      <input type="number" id="age1" name="age1" required class="input2">
+          
+                      <label for="weight" class="label6">Height (cm):</label>
+                      <input type="number" id="weight" name="weight" required class="input2">
+          
+                      <label for="height" class="label6">Weight (kg):</label>
+                      <input type="number" id="height" name="height" required class="input2">
+          
+                      <div class="checkbox-group">
+                          <label for="smoke" class="label6">Smoke:</label>
+                          <input type="checkbox" id="smoke" name="smoke" class="input2">
+                      </div>
+          
+                      <div class="checkbox-group">
+                          <label for="alcohol" class="label6">Alcohol:</label>
+                          <input type="checkbox" id="alcohol" name="alcohol" class="input2">
+                      </div>
+                      <label for="sleepHours" class="label6">Sleep Hours (per night):</label>
+                      <input type="number" id="sleepHours" name="sleepHours" step="0.01" required class="input2">
+                      
+                      <label for="exerciseHours" class="label6">Exercise Hours (per week):</label>
+                      <input type="number" id="exerciseHours" name="exerciseHours" step="0.01" required class="input2">
+                      
+                      <label for="hitbox" class="label6">Size of impact object (kg):</label>
+                      <input type="number" id="hitbox" name="hitbox" step="0.01" required class="input2">
+                      
+                      <label for="age" class="label6">Days since injury:</label>
+                      <input type="number" id="days" name="days" required class="input2">
+          
+                      <button type="button" onclick="concussions_user()" class="button8">Predict Recovery</button>
+                  </form>
+          
+                  <div id="overlay">
+                      <div id="result-container">
+                          <div id="display"></div>
+                          <button onclick="hideOverlay()" class="button8">Close</button>
+                      </div>
+                  </div>
+                  <p id="displayyyy" style="color: white;">
+                      Recovery Time: 
+                      
+                  </p>
+                  <p id="suggestion" style="color: white;">
+          
+                  </p>"
+              </div>
+            </div>
+          </div>
+        </div>
+    
   </div>
   
   <div class="taskbar noselect">
@@ -708,7 +785,7 @@
       <img src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-1024.png" width="35" height="35" class="taskbarItem" alt="Word product icon" />
       <div class="taskbarIconIndicator" style="display:none;" id="settingsTaskbarIndicator"></div>
     </div>
-    <div class="taskbarIconWrapper" id="buttoneditorTaskbarIcon" onClick="TaskbarIconClick('buttoneditor')">
+    <div class="taskbarIconWrapper" id="buttoneditorTaskbarIcon" onClick="openPopup()">
         <img src="./logo.png" width="35" height="35" class="taskbarItem" alt="Button Editor Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="buttoneditorTaskbarIndicator"></div>
       </div>
@@ -735,6 +812,10 @@
     <div class="taskbarIconWrapper" id="spotifyTaskbarIcon" onClick="TaskbarIconClick('spotify')">
         <img src="https://cdn.iconscout.com/icon/free/png-256/free-spotify-11-432546.png?f=webp" width="35" height="35" class="taskbarItem" alt="Spotify Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="spotifyTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="concussionsTaskbarIcon" onClick="TaskbarIconClick('concussions')">
+        <img src="https://scitechdaily.com/images/Glowing-Brain-Particles.jpg" width="35" height="35" class="taskbarItem" alt="Concussions Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="concussionsTaskbarIndicator"></div>
       </div>
     <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
       <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
@@ -834,6 +915,15 @@
     taskbarid: "#spotifyTaskbarIcon",
     taskbarindicator: "#spotifyTaskbarIndicator",
     windowid: "#spotify"
+  },
+  {
+    name: "concussions",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#concussionsTaskbarIcon",
+    taskbarindicator: "#concussionsTaskbarIndicator",
+    windowid: "#concussions"
   },
   {
     name: "weather",
@@ -1227,10 +1317,11 @@ updateTime();
             // Initial canvas setup
             resizeCanvas();
         });
-    const url ='http://127.0.0.1:8086/api/users/design';
+    const url ='http://127.0.0.1:8086/api/users/search';
     // Function to display the popup
     function openPopup() {
         document.getElementById("popup").style.display = "block";
+        TaskbarIconClick("buttoneditor")
     }
 
     // Function to close the popup
@@ -1334,7 +1425,7 @@ updateTime();
     borderWidthSlider.addEventListener('input', updateButtonPreview);
 
     function saveButton(name) { 
-        const url ='http://127.0.0.1:8086/api/users/design';
+        const url ='http://127.0.0.1:8086/api/users/search';
         const body = {
             name: name,
             content: buttonCode.value,
@@ -1489,7 +1580,7 @@ updateTime();
                     name: name,
                 }
             }
-            const url ='http://127.0.0.1:8086/api/users/design';
+            const url ='http://127.0.0.1:8086/api/users/search';
             const authOptions = {
                 mode: 'cors', // no-cors, *cors, same-origin
                 credentials: 'include', // include, same-origin, omit
@@ -1531,7 +1622,7 @@ updateTime();
                     name: name,
                 }
             }
-            const url ='http://127.0.0.1:8086/api/users/design';
+            const url ='http://127.0.0.1:8086/api/users/search';
             const authOptions = {
                 mode: 'cors', // no-cors, *cors, same-origin
                 credentials: 'include', // include, same-origin, omit
@@ -2171,4 +2262,115 @@ function reply_api(){
                 this.textContent = 'Play';
             }
         }
+        function concussions_user() {
+        
+        const url = 'http://127.0.0.1:8086/api/concussion/'; // WE CHANGED THE URL :D
+
+        // Get checkbox values
+        const smokeChecked = document.getElementById("smoke").checked ? 1 : 0;
+        const alcoholChecked = document.getElementById("alcohol").checked ? 1 : 0;
+
+        // Set the body of the request to include login data from the DOM
+        const body = {
+            name: document.getElementById("name1").value,
+            sex: document.getElementById("sex").value,
+           // healTime: parseInt(document.getElementById("healTime").value),
+            age: parseInt(document.getElementById("age1").value), 
+            ht: parseFloat(document.getElementById("height").value),
+            wt: parseFloat(document.getElementById("weight").value),
+            smoke: smokeChecked,
+            alcohol: alcoholChecked,
+            sleephrs: parseFloat(document.getElementById("sleepHours").value),
+            exercisehrs: parseFloat(document.getElementById("exerciseHours").value),
+            hitbox: parseFloat(document.getElementById("hitbox").value),
+            days: parseFloat(document.getElementById("days").value),
+
+        };
+        const hitboxValue = parseFloat(document.getElementById("hitbox").value);
+        if (hitboxValue > 2) {
+            // Display a warning message using a flyout window
+            const warningMessage = "Warning: you probably died. Prediction results may be inaccurate.";
+            alert(warningMessage);
+        }
+
+        // Change options according to Authentication requirements
+        const authOptions = {
+            mode: 'cors', // no-cors, *cors, same-origin
+            credentials: 'include', // include, same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST', // Override the method property
+            cache: 'no-cache', // Set the cache property
+            body: JSON.stringify(body)
+        };
+        console.log('Data:', body);
+
+        // Fetch JWT
+        fetch(url, authOptions)
+        // console.log('hiii')
+            .then(response => {
+                console.log('then1')
+                // Check if response is successful
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                } else {
+                    console.log('response is ok');
+                }
+                // Parse the JSON content from the response
+                console.log(response);
+                console.log('then1-after')
+                return response.json();
+            })
+            .then(data => {
+                console.log("now logging the returned data");
+                // Now 'data' contains the parsed JSON content
+                console.log(data);
+                d = parseFloat(document.getElementById("days").value),
+                blarg = Math.round(data-d).toString();
+                document.getElementById("displayyyy").innerHTML = "Estimated " + blarg + " days left until full recovery";
+                if (blarg < 0) {
+                    document.getElementById("displayyyy").innerHTML = "You should have been healed by now!";
+                };
+                smok = document.getElementById("smoke").checked;
+                alc = document.getElementById("alcohol").checked;
+                if (smok == true) {
+                    document.getElementById("suggestion").innerHTML = "Suggestion: No smoking lil bro"
+                }
+                else if (alc == true) {
+                    document.getElementById("suggestion").innerHTML = "Suggestion: No drinking please, we don't want drunkards in the house"
+                }
+                else {
+                    document.getElementById("suggestion").innerHTML = "Suggestion: Eat more fish oil, get plenty of rest!"
+                }
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error('There was a problem with the fetch operation:', error);
+                console.log(url);
+                console.log(authOptions);
+            });
+    
+        const form = document.getElementById("concussionForm");
+        const inputs = form.querySelectorAll("input, select");
+        let allFilled = true;
+
+        inputs.forEach(input => {
+            if (input.hasAttribute("required") && !input.value) {
+                input.classList.add("shake");
+                allFilled = false;
+            } else {
+                input.classList.remove("shake");
+            }
+        });
+
+        if (!allFilled) {
+            setTimeout(() => {
+                inputs.forEach(input => {
+                    input.classList.remove("shake");
+                });
+            }, 500);
+            alert("Please fill out all required fields.");
+        }
+}
 </script>
