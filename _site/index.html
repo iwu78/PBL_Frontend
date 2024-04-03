@@ -1548,6 +1548,7 @@
   }
   document.addEventListener('DOMContentLoaded', function () {
     window.onload = displayQuestion();
+    getImages();
     const canvas = document.getElementById('resizableCanvas');
     const ctx = canvas.getContext('2d');
     let isDrawing = false;
@@ -1666,7 +1667,6 @@
   // Call openPopup when the page loads
   window.onload = displayQuestion;
   window.onload = getMusic;
-  window.onload = getImages;
   const widthSlider = document.getElementById('widthSlider');
   const heightSlider = document.getElementById('heightSlider');
   const borderWidthSlider = document.getElementById('borderWidthSlider');
