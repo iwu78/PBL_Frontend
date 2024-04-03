@@ -770,7 +770,86 @@
             </div>
           </div>
         </div>
+
+
+        <div class="panel settingsPanel" id="imageeditor" onmousedown="FocusWindow('imageeditor')" style="display: none; flex-direction: column; overflow: hidden; height: 800px; width: 1000px; overflow-y: auto;">
+          <div class="header noselect">
+            <span class="lightText"><img class="headerTitleIcon" src="./edit.png" width="20" height="20"></img><span class="headerTitleText">Image Editor</span></span>
+            <div class="headerIcons">
+                <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('imageeditor')"></img>
+                <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+                <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('imageeditor')"></img>
+            </div>
+          </div>
+          <div class="panel-body settingsPanelBody noselect" id="panelBody">
+            <div class="container4">
+              <div class="editor_container">
+                <canvas id="editor_canvas" width="800" height="600"></canvas>
+                <div>
+                  <button class="editor_button" id="undo_button">Undo</button>
+                  <button class="editor_button" id="paint_button">Paint</button>
+                  <button class="editor_button" id="erase_button">Erase</button>
+                  <input type="color" id="color_picker" class="editor_button" title="Brush Color">
+                  <input type="range" id="brush_size_slider" class="editor_button" min="1" max="50" title="Brush Size">
+                  <button class="editor_button" id="upload_image_button">Upload Image</button>
+                  <button class="editor_button" id="download_button">Download</button>
+                  <button class="editor_button" id="add_shape_button">Add Shape</button>
+            
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+
+
+
+        <div class="panel settingsPanel" id="imageupload" onmousedown="FocusWindow('imageupload')" style="display: none; flex-direction: column; overflow: hidden; height: 800px; width: 1000px; overflow-y: auto;">
+          <div class="header noselect">
+            <span class="lightText"><img class="headerTitleIcon" src="./upload.png" width="20" height="20"></img><span class="headerTitleText">Image Upload</span></span>
+            <div class="headerIcons">
+                <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('imageupload')"></img>
+                <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+                <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('imageupload')"></img>
+            </div>
+          </div>
+          <div class="panel-body settingsPanelBody noselect" id="panelBody">
+            <section class="section">
+              <div id="drop-area">
+                <h3 class="drop-text">Drag & Drop files here</h3>
+                <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                <label class="button9" for="fileElem">Select files</label>
+              </div>
+            </section>
+        </div>
+      </div>
     
+
+
+      <div class="panel settingsPanel" id="imagegallery" onmousedown="FocusWindow('imagegallery')" style="display: none; flex-direction: column; overflow: hidden; height: 800px; width: 1200px; overflow-y: auto;">
+        <div class="header noselect">
+          <span class="lightText"><img class="headerTitleIcon" src="./gallery.png" width="20" height="20"></img><span class="headerTitleText">Image Gallery</span></span>
+          <div class="headerIcons">
+              <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize" aria-hidden="true" onClick="MinimizeWindow('imagegallery')"></img>
+              <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15" aria-hidden="true"></img>
+              <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose" aria-hidden="true" onClick="CloseWindow('imagegallery')"></img>
+          </div>
+        </div>
+        <div class="panel-body settingsPanelBody noselect" id="panelBody">
+          <div class="gallery_page" style="display: flex; flex-direction: column; overflow: hidden; height: 1000px; overflow-y: auto;">
+            <div class="w3-row img_gallery" id="gallery_container">
+            </div>
+            <div id="pagination_container" class="pagination"></div>
+          </div>
+        
+          <div id="lightbox">
+            <span id="closeLightbox">&times;</span>
+            <img id="lightbox_img" src="" alt="Enlarged Image">
+            <button class="download-button">Download</button>
+          </div>
+        
+          <div class="overlay"></div>
+      </div>
+    </div>
   </div>
   
   <div class="taskbar noselect">
@@ -817,6 +896,18 @@
         <img src="./concussion.png" width="35" height="35" class="taskbarItem" alt="Concussions Icon" />
         <div class="taskbarIconIndicator" style="display:none;" id="concussionsTaskbarIndicator"></div>
       </div>
+    <div class="taskbarIconWrapper" id="imageeditorTaskbarIcon" onClick="TaskbarIconClick('imageeditor')">
+        <img src="./edit.png" width="35" height="35" class="taskbarItem" alt="Image Editor Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="imageeditorTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="imageuploadTaskbarIcon" onClick="TaskbarIconClick('imageupload')">
+        <img src="./upload.png" width="35" height="35" class="taskbarItem" alt="Image Editor Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="imageuploadTaskbarIndicator"></div>
+      </div>
+    <div class="taskbarIconWrapper" id="imagegalleryTaskbarIcon" onClick="TaskbarIconClick('imagegallery')">
+        <img src="./gallery.png" width="35" height="35" class="taskbarItem" alt="Image Editor Icon" />
+        <div class="taskbarIconIndicator" style="display:none;" id="imagegalleryTaskbarIndicator"></div>
+      </div>
     <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
       <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon" style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
       <div class="taskbarIconIndicator" id="noteTaskbarIndicator"></div>
@@ -833,6 +924,9 @@
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script>
     var windows = [
   {
@@ -924,6 +1018,33 @@
     taskbarid: "#concussionsTaskbarIcon",
     taskbarindicator: "#concussionsTaskbarIndicator",
     windowid: "#concussions"
+  },
+  {
+    name: "imageeditor",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#imageeditorTaskbarIcon",
+    taskbarindicator: "#imageeditorTaskbarIndicator",
+    windowid: "#imageeditor"
+  },
+  {
+    name: "imageupload",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#imageuploadTaskbarIcon",
+    taskbarindicator: "#imageuploadTaskbarIndicator",
+    windowid: "#imageupload"
+  },
+  {
+    name: "imagegallery",
+    isOpen: false,
+    isMinimized: false,
+    hasFocus: false,
+    taskbarid: "#imagegalleryTaskbarIcon",
+    taskbarindicator: "#imagegalleryTaskbarIndicator",
+    windowid: "#imagegallery"
   },
   {
     name: "weather",
@@ -2374,4 +2495,398 @@ function reply_api(){
         }
 }
 window.onload = displayQuestion;
+
+let canvas1;
+    let ctx;
+    let drawHistory = [];
+    let isDrawing = false;
+    let isPaintMode = false; // Flag to determine if paint mode is on or off
+    let lastX = 0;
+    let lastY = 0;
+    let drawColor = 'black';
+    let brushSize = 2;
+    let brushShape = 'circle';
+    let selectedImage = null;
+
+    $(document).ready(function () {
+      canvas1 = document.getElementById('editor_canvas');
+      ctx = canvas1.getContext('2d');
+
+      canvas1.addEventListener("mousedown", startDrawing);
+      canvas1.addEventListener("mousemove", draw);
+      canvas1.addEventListener("mouseup", stopDrawing);
+      canvas1.addEventListener("mouseout", stopDrawing);
+
+      $("#undo_button").click(undo);
+      $("#paint_button").click(function () {
+        drawColor = 'black';
+        brushShape = 'circle';
+        isPaintMode = true; // Set paint mode to on
+      });
+      $("#erase_button").click(function () {
+        drawColor = 'white';
+        brushShape = 'circle';
+        isPaintMode = false; // Set paint mode to off
+      });
+      $("#color_picker").change(function () {
+        drawColor = this.value;
+      });
+      $("#brush_size_slider").change(function () {
+        brushSize = this.value;
+      });
+      $("#upload_image_button").click(uploadImage);
+      $("#download_button").click(downloadImage);
+    });
+
+    function startDrawing(e) {
+      isDrawing = true;
+      const rect = canvas1.getBoundingClientRect();
+      lastX = e.clientX - rect.left;
+      lastY = e.clientY - rect.top;
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      const rect = canvas1.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      if (isPaintMode) {
+        ctx.fillStyle = drawColor;
+        ctx.beginPath();
+        ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2); // Draw a circle at the current mouse position
+        ctx.fill();
+      } else {
+        drawShape(x, y); // Draw shapes as before if paint mode is off
+      }
+    }
+
+
+
+    function drawShape(x, y) {
+      if (brushShape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(x, y, brushSize / 2, 0, Math.PI * 2); // Use arc method for circular brush
+        ctx.fillStyle = drawColor;
+        ctx.fill();
+      } else {
+        ctx.fillRect(x - brushSize / 2, y - brushSize / 2, brushSize, brushSize); // Use rect method for square brush
+      }
+    }
+
+    function stopDrawing() {
+      if (!isDrawing) return;
+      isDrawing = false;
+      drawHistory.push(canvas1.toDataURL()); // Store current state
+    }
+
+    function undo() {
+      if (drawHistory.length < 2) return;
+      drawHistory.pop(); // Remove current state
+      const img = new Image();
+      img.onload = function () {
+        ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = drawHistory[drawHistory.length - 1]; // Set the source to the previous state
+    }
+
+    function uploadImage() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = function (e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          selectedImage = new Image();
+          selectedImage.onload = function () {
+            ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+            ctx.drawImage(selectedImage, 0, 0, canvas1.width, canvas1.height); // Draw the image to fit the canvas
+          };
+          selectedImage.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      };
+      input.click();
+    }
+
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.download = 'image.png';
+      link.href = canvas1.toDataURL();
+      link.click();
+    }
+    // Function to add shapes to the canvas
+    // Function to add shapes to the canvas
+    function addShape(shapeType) {
+      if (!canvas1) return;
+
+      const rect = canvas1.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const size = 50; // Default size of the shape
+
+      ctx.beginPath();
+
+      if (shapeType === 'circle') {
+        ctx.arc(x, y, size / 2, 0, Math.PI * 2);
+      } else if (shapeType === 'square') {
+        ctx.rect(x - size / 2, y - size / 2, size, size);
+      } else if (shapeType === 'triangle') {
+        ctx.moveTo(x, y - size / 2);
+        ctx.lineTo(x + size / 2, y + size / 2);
+        ctx.lineTo(x - size / 2, y + size / 2);
+        ctx.closePath();
+      }
+
+      ctx.fillStyle = drawColor;
+      ctx.fill();
+
+      // Add event listener for keydown to enable resizing and moving
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab') {
+          const newSize = parseInt(prompt('Enter new size for the shape:'));
+          if (!isNaN(newSize)) {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+
+            // Redraw all shapes with updated size
+            drawHistory.forEach(function (dataUrl) {
+              const img = new Image();
+              img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+              };
+              img.src = dataUrl;
+            });
+
+            // Redraw the clicked shape with the new size
+            ctx.beginPath();
+            if (shapeType === 'circle') {
+              ctx.arc(x, y, newSize / 2, 0, Math.PI * 2);
+            } else if (shapeType === 'square') {
+              ctx.rect(x - newSize / 2, y - newSize / 2, newSize, newSize);
+            } else if (shapeType === 'triangle') {
+              ctx.moveTo(x, y - newSize / 2);
+              ctx.lineTo(x + newSize / 2, y + newSize / 2);
+              ctx.lineTo(x - newSize / 2, y + newSize / 2);
+              ctx.closePath();
+            }
+            ctx.fillStyle = drawColor;
+            ctx.fill();
+          }
+        } else if (e.key === 'p') {
+          const newX = parseInt(prompt('Enter new X position for the shape:'));
+          const newY = parseInt(prompt('Enter new Y position for the shape:'));
+          if (!isNaN(newX) && !isNaN(newY)) {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+
+            // Redraw all shapes with updated position
+            drawHistory.forEach(function (dataUrl) {
+              const img = new Image();
+              img.onload = function () {
+                ctx.drawImage(img, newX, newY); // Adjusting position
+              };
+              img.src = dataUrl;
+            });
+
+            // Redraw the clicked shape with the new position
+            ctx.beginPath();
+            if (shapeType === 'circle') {
+              ctx.arc(newX, newY, size / 2, 0, Math.PI * 2);
+            } else if (shapeType === 'square') {
+              ctx.rect(newX - size / 2, newY - size / 2, size, size);
+            } else if (shapeType === 'triangle') {
+              ctx.moveTo(newX, newY - size / 2);
+              ctx.lineTo(newX + size / 2, newY + size / 2);
+              ctx.lineTo(newX - size / 2, newY + size / 2);
+              ctx.closePath();
+            }
+            ctx.fillStyle = drawColor;
+            ctx.fill();
+          }
+        }
+      });
+    }
+
+    // Example of adding a shape when the button is clicked
+    document.getElementById("add_shape_button").addEventListener("click", function () {
+      const shapeType = prompt('Enter shape type (circle, square, triangle):');
+      if (shapeType && ['circle', 'square', 'triangle'].includes(shapeType.toLowerCase())) {
+        addShape(shapeType.toLowerCase());
+      } else {
+        alert('Invalid shape type!');
+      }
+    });
+
+    function handleFiles(files) {
+      // const myHeaders = new Headers();
+      // myHeaders.append("Content-Type", "application/json");
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.match('image.*')) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            const fileName = file.name;
+            const base64String = event.target.result.split(',')[1];
+            console.log(base64String); // Log base64 representation
+            
+            // Send base64String to server
+            fetch('http://localhost:8086/api/images/upload', {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ 
+                base64_string : base64String,
+                name: fileName, 
+              })
+            })
+            .then(response => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error('Upload failed');
+              }
+            })
+            .then(data => {
+              // Handle successful upload
+              console.log(data);
+              alert('Image uploaded successfully');
+            })
+            .catch(error => {
+              // Handle errors
+              console.error(error);
+              alert('Upload failed. Please try again.');
+            });
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert('Please select an image file.');
+        }
+      }
+    }
+
+    const apiUrl = 'http://127.0.0.1:8086/api/images/'; // Update this URL
+
+function downloadImage(imageUrl) {
+  // Create a temporary anchor element
+  var a = document.createElement('a');
+  a.href = imageUrl;
+  a.download = 'image.jpg';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// Get token from cookies
+const token = getCookies()['token'];
+
+if (token) {
+  fetch(apiUrl, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Token validation failed');
+    }
+  })
+  .then(data => {
+    const galleryContainer = $('#gallery_container');
+    const imagesPerPage = 4; // Change this value to the desired number of images per page
+
+    // Calculate the total number of pages
+    const totalPages = Math.ceil(data.length / imagesPerPage);
+
+    data.forEach((item, index) => {
+      if (index % imagesPerPage === 0) {
+        // Create a new page when needed
+        const pageNum = index / imagesPerPage + 1;
+        const pageLink = $(`<a href="#" data-page="${pageNum}">${pageNum}</a>`);
+        pageLink.appendTo('#pagination_container');
+      }
+
+      var card = $('<div class="card"></div>'); // Create a card container
+      var image = $('<img class="img">'); // Create an image element
+
+      image.attr("src", "data:image/jpeg;base64," + item.imageData); // Set image source
+      image.appendTo(card); // Append image to card
+
+      // Adding click event listener to each image for enlarging
+      image.on('click', function() {
+        $('#lightbox_img').attr('src', this.src);
+        $('#lightbox').fadeIn();
+        $('.overlay').fadeIn();
+        $('.download-button').fadeIn(); // Show download button
+      });
+
+      // Adding click event listener to download button
+      $('.download-button').on('click', function() {
+        downloadImage($('#lightbox_img').attr('src')); // Call downloadImage function with image source
+      });
+
+      card.appendTo(galleryContainer); // Append card to gallery container
+    });
+
+    // Add event listener for pagination
+    $('#pagination_container a').on('click', function(e) {
+      e.preventDefault();
+      const pageNum = parseInt($(this).attr('data-page'));
+      showPage(pageNum);
+    });
+
+    // Function to display the images for the selected page
+    function showPage(pageNum) {
+      galleryContainer.children('.card').hide(); // Hide all images
+      galleryContainer.children(`.card:nth-child(n+${(pageNum - 1) * imagesPerPage + 1}):nth-child(-n+${pageNum * imagesPerPage})`).show(); // Show images for the selected page
+    }
+
+    // Initially show the first page
+    showPage(1);
+  })
+  .catch(error => console.error('Error fetching images:', error));
+} else {
+  // Handle case when token is not available
+  console.log('Token not available. Please login.');
+}
+
+// Function to get cookies
+function getCookies() {
+  var cookies = {};
+  document.cookie.split(';').forEach(function(cookie) {
+    var parts = cookie.split('=');
+    cookies[parts.shift().trim()] = decodeURI(parts.join('='));
+  });
+  return cookies;
+}
+
+// Close lightbox when close button is clicked
+$('#closeLightbox').on('click', function() {
+  $('#lightbox').fadeOut();
+  $('.overlay').fadeOut();
+  $('.download-button').fadeOut(); // Hide download button
+});
+$(".owl-carousel").owlCarousel({
+  loop: true,
+  margin: 0,
+  navText: [],
+  center: true,
+  autoplay: true,
+  autoplayHoverPause: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    1000: {
+      items: 3
+    }
+  }
+});
+
 </script>
