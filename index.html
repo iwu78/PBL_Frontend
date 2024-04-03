@@ -602,11 +602,11 @@
                 <h3>Comments:</h3>
                 <!-- Comments will be inserted here -->
             </div>   
-          <form action= "javascript:reply_api()">
+          <form>
               <div id="answer-question-box">
                   <span>Answer this Question</span><br>
                   <input type="text" id="answer-question-input" placeholder="Enter your response here">
-                  <button id="response-button" style="background-color: #C5000C; color: white;" >Reply</button>
+                  <button id="response-button" style="background-color: #C5000C; color: white;" onclick="reply_api()">Reply</button>
               </div>     
         </div>
       </div>
@@ -841,7 +841,7 @@
           </div>
         </div>
         <div class="panel-body settingsPanelBody noselect" id="panelBody">
-          <div class="gallery_page" style="display: flex; flex-direction: column; overflow: hidden; height: 1000px; overflow-y: auto;">
+          <div class="gallery_page" style="display: flex; flex-direction: column; overflow: hidden; height: 750px; overflow-y: auto;">
             <div class="w3-row img_gallery" id="gallery_container">
             </div>
             <div id="pagination_container" class="pagination"></div>
@@ -930,7 +930,7 @@
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
@@ -2302,12 +2302,12 @@ function reply_api(){
   
   
         // Load data when the page is loaded
-        window.onload = function () {
-            fetchData();
-            document.getElementById("albumList").addEventListener("click", redirectToSongPageContainer);
-            const playButton = document.getElementById("playButton");
-            playButton.addEventListener("click", togglePlayPause);
-        };
+function getMusic() {
+    fetchData();
+    document.getElementById("albumList").addEventListener("click", redirectToSongPageContainer);
+    const playButton = document.getElementById("playButton");
+    playButton.addEventListener("click", togglePlayPause);
+};
   
         function createItemBlock(data) {
             const item = document.createElement("div");
@@ -2501,6 +2501,8 @@ function reply_api(){
         }
 }
 window.onload = displayQuestion;
+window.onload = getMusic;
+window.onload = getImages;
 
 let canvas1;
     let ctx;
@@ -2787,79 +2789,78 @@ function downloadImage(imageUrl) {
   document.body.removeChild(a);
 }
 
-// Get token from cookies
-const token = getCookies()['token'];
+function getImages() {
+  // Get token from cookies
+  const token = getCookies()['jwt'];
 
-if (token) {
-  fetch(apiUrl, {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Token validation failed');
-    }
-  })
-  .then(data => {
-    const galleryContainer = $('#gallery_container');
-    const imagesPerPage = 4; // Change this value to the desired number of images per page
+  if (token || true) {
+    fetch(apiUrl)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Token validation failed');
+      }
+    })
+    .then(data => {
+      const galleryContainer = $('#gallery_container');
+      const imagesPerPage = 4; // Change this value to the desired number of images per page
 
-    // Calculate the total number of pages
-    const totalPages = Math.ceil(data.length / imagesPerPage);
+      // Calculate the total number of pages
+      const totalPages = Math.ceil(data.length / imagesPerPage);
 
-    data.forEach((item, index) => {
-      if (index % imagesPerPage === 0) {
-        // Create a new page when needed
-        const pageNum = index / imagesPerPage + 1;
-        const pageLink = $(`<a href="#" data-page="${pageNum}">${pageNum}</a>`);
-        pageLink.appendTo('#pagination_container');
+      data.forEach((item, index) => {
+        if (index % imagesPerPage === 0) {
+          // Create a new page when needed
+          const pageNum = index / imagesPerPage + 1;
+          const pageLink = $(`<a href="#" data-page="${pageNum}">${pageNum}</a>`);
+          pageLink.appendTo('#pagination_container');
+        }
+
+        var card = $('<div class="card"></div>'); // Create a card container
+        var image = $('<img class="img">'); // Create an image element
+
+        image.attr("src", "data:image/jpeg;base64," + item.imageData); // Set image source
+        image.appendTo(card); // Append image to card
+
+        // Adding click event listener to each image for enlarging
+        image.on('click', function() {
+          $('#lightbox_img').attr('src', this.src);
+          $('#lightbox').fadeIn();
+          $('.overlay').fadeIn();
+          $('.download-button').fadeIn(); // Show download button
+        });
+
+        // Adding click event listener to download button
+        $('.download-button').on('click', function() {
+          downloadImage($('#lightbox_img').attr('src')); // Call downloadImage function with image source
+        });
+
+        card.appendTo(galleryContainer); // Append card to gallery container
+      });
+
+      // Add event listener for pagination
+      $('#pagination_container a').on('click', function(e) {
+        e.preventDefault();
+        const pageNum = parseInt($(this).attr('data-page'));
+        showPage(pageNum);
+      });
+
+      // Function to display the images for the selected page
+      function showPage(pageNum) {
+        galleryContainer.children('.card').hide(); // Hide all images
+        galleryContainer.children(`.card:nth-child(n+${(pageNum - 1) * imagesPerPage + 1}):nth-child(-n+${pageNum * imagesPerPage})`).show(); // Show images for the selected page
       }
 
-      var card = $('<div class="card"></div>'); // Create a card container
-      var image = $('<img class="img">'); // Create an image element
-
-      image.attr("src", "data:image/jpeg;base64," + item.imageData); // Set image source
-      image.appendTo(card); // Append image to card
-
-      // Adding click event listener to each image for enlarging
-      image.on('click', function() {
-        $('#lightbox_img').attr('src', this.src);
-        $('#lightbox').fadeIn();
-        $('.overlay').fadeIn();
-        $('.download-button').fadeIn(); // Show download button
-      });
-
-      // Adding click event listener to download button
-      $('.download-button').on('click', function() {
-        downloadImage($('#lightbox_img').attr('src')); // Call downloadImage function with image source
-      });
-
-      card.appendTo(galleryContainer); // Append card to gallery container
-    });
-
-    // Add event listener for pagination
-    $('#pagination_container a').on('click', function(e) {
-      e.preventDefault();
-      const pageNum = parseInt($(this).attr('data-page'));
-      showPage(pageNum);
-    });
-
-    // Function to display the images for the selected page
-    function showPage(pageNum) {
-      galleryContainer.children('.card').hide(); // Hide all images
-      galleryContainer.children(`.card:nth-child(n+${(pageNum - 1) * imagesPerPage + 1}):nth-child(-n+${pageNum * imagesPerPage})`).show(); // Show images for the selected page
-    }
-
-    // Initially show the first page
-    showPage(1);
-  })
-  .catch(error => console.error('Error fetching images:', error));
-} else {
-  // Handle case when token is not available
-  console.log('Token not available. Please login.');
+      // Initially show the first page
+      showPage(1);
+    })
+    .catch(error => console.error('Error fetching images:', error));
+  } else {
+    // Handle case when token is not available
+    console.log('Token not available. Please login.');
+    alert('Token not available. Please login.');
+  }
 }
 
 // Function to get cookies
@@ -2869,6 +2870,8 @@ function getCookies() {
     var parts = cookie.split('=');
     cookies[parts.shift().trim()] = decodeURI(parts.join('='));
   });
+  console.log("Cookies")
+  console.log(cookies)
   return cookies;
 }
 
