@@ -2137,6 +2137,7 @@ function reply_api(){
     async function displayQuestion() {
         // Extracting questionId from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams)
         const questionId = urlParams.get('questionId');
         if (questionId) {
           TaskbarIconClick("answer")
@@ -2148,7 +2149,6 @@ function reply_api(){
         await fetchAndDisplayComments(questionId);
     }
     // Call displayQuestion when the page loads
-    window.onload = displayQuestion;
 
     let currentSongUrl = null; // Track the current song URL
         let audio = null; // Track the audio element
@@ -2373,4 +2373,5 @@ function reply_api(){
             alert("Please fill out all required fields.");
         }
 }
+window.onload = displayQuestion;
 </script>
