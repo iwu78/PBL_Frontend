@@ -7,7 +7,7 @@ body{
 }
 
 .container{
-  background-image:url('https://cdn.wallpaperhub.app/cloudcache/6/7/6/7/2/e/67672e59d11736a6035042a23791af5e5dcc9645.jpg');
+  background-image:url('https://wallpapercave.com/wp/wp10128604.jpg');
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -789,4 +789,999 @@ transform: translateY(.125rem);
 .toggle-buttons .button2.active {
     background-color: #007bff;
     color: white;
+}
+
+.cookie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+.cookie {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #7f2d74; /* Added border */
+  transition: transform 0.2s;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 39%;
+  top: 225px;
+}
+
+.cookie:hover {
+  transform: scale(1.1);
+}
+
+.points {
+  font-size: 1.5em;
+  color: #000000;
+  margin: auto;
+  text-align: center;
+}
+
+.shop {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: absolute;
+  top: 530px;
+}
+
+.shop {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: #575757;
+}
+
+.shop-item {
+  margin: 15px 0;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.shop-item,
+.shop-item .button3 {
+  margin: 10px 0;
+  color: #575757;
+}
+
+.shop-item .button3 {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shop-item .button3:hover {
+  background-color: #45a049;
+}
+
+.shop-item .button3:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+.container1 {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a max-width for larger screens */
+  margin: auto;
+}
+.search-input, .ask-question-input {
+  width: 100%; /* Make the input take the full width of its parent */
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* Include padding in the width calculation */
+  margin-bottom: 10px; /* Adds some space below the input */
+}
+.search-button, .submit-button {
+  width: 100%; /* Align the button width with the input */
+  background-color: #C5000C;
+  color: white;
+  padding: 10px 0; /* Adjust padding as needed */
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px; /* Adds some space below the button */
+}
+.tableContainer1 {
+  list-style-type: none;
+  padding: 0;
+}
+.question-box, #ask-question-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left; /* Aligns text to the left inside the centered container */
+}
+.question-box .user-info, .date {
+  margin-bottom: 10px;
+}
+/* This is for the "Want to ask a question?" text */
+.ask-question-label {
+  text-align: left; /* Center the label text */
+  display: block; /* Make the label a block element to take full width */
+  margin-bottom: 5px; /* Space before the input box */
+}
+/* Login and Sign Up links */
+.auth-links {
+  text-align: right; /* Aligns the links to the right */
+  padding: 10px 20px; /* Padding to position the links */
+  background: none;
+}
+
+.question-container, #answer-question-box {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#answer-question-input {
+  width: 100%; /* Adjusted to 100% for consistency */
+  height: 100px;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+#comments-container {
+  margin: 20px;
+  padding: 20px;
+}
+.comment {
+  background-color: #F0F8FF; /* Soft Alice Blue */
+  border-left: 5px solid #6495ED; /* Cornflower Blue for contrast */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.comment {
+  margin: 0;
+  color: #333; /* Darker text for readability */
+}
+.comment {
+  display: block;
+  margin-top: 10px;
+  color: #666; /* Lighter text for metadata */
+}
+#question-container {
+  font-size: 1.5em; /* Increase the size */
+  font-weight: bold; /* Make the text bold */
+}
+.button5 {
+  padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;
+}
+
+.global-styles {
+  padding: 0;
+  margin: 0;
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Adjust specific styles targeting the body */
+.global-styles .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+
+.global-styles .main-container {
+  margin-left: 245px;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+
+.sidebar .logo img {
+  width: 130px;
+}
+
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+}
+
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #b3b3b3;
+}
+
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+
+.sidebar .policies ul {
+  list-style: none;
+}
+
+.sidebar .policies ul li {
+  padding-bottom: 5px;
+}
+
+.sidebar .policies ul li a {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+.main-container {
+  margin-left: 245px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  padding: 14px 30px;
+}
+
+.topbar .prev-next-buttons button {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  font-size: 18px;
+  border: 0px;
+  background-color: #090909;
+  margin-right: 10px;
+}
+
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+}
+
+.topbar .navbar ul {
+  list-style: none;
+}
+
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 0px 8px;
+  width: 70px;
+}
+
+.topbar .navbar ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.topbar .navbar ul li.divider {
+  color: #ffffff;
+  font-size: 26px;
+  margin: 0px 20px;
+  width: auto;
+}
+
+.topbar .navbar button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #f2f2f2;
+}
+
+.spotify-playlists {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.spotify-playlists h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.spotify-playlists .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding-left: 5px; /* Add padding to the entire list */
+}
+
+.spotify-playlists .list .item {
+  min-width: 75px;
+  width: 75px;
+  padding: 15px;
+  background-color: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+
+/* Reset padding for items in the second and subsequent rows */
+.spotify-playlists .list br + .item {
+  padding-left: 0;
+}
+
+.spotify-playlists .list .item:not(:first-child) {
+  margin-left: 20px; /* Add left margin to all items except the first item */
+}
+
+.spotify-playlists .list .item:hover {
+  background-color: #252525;
+}
+
+.spotify-playlists .list .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.spotify-playlists .list .item .play {
+  position: relative;
+}
+
+.spotify-playlists .list .item .play .fa {
+  position: absolute;
+  right: 10px;
+  top: -60px;
+  padding: 18px;
+  background-color: #1db954;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+
+.spotify-playlists .list .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+.spotify-playlists .list .item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-playlists .list .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.spotify-playlists hr {
+  margin: 70px 0px 0px;
+  border-color: #636363;
+}
+
+.preview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #32a852, #00FF00); /* Green gradient */
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.preview h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.preview p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.preview button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.preview button:hover,
+.preview button:active,
+.preview button:focus {
+  background-color: #f2f2f2;
+}
+
+.container2 {
+  margin-left: 13%;
+  max-width: 400px; /* Adjusted max-width for a narrower form */
+  padding: 20px;
+  background-color: rgba(30, 30, 50, 0.9); /* Dark blue background color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2.0s ease;
+  flex-direction: column; /* Arrange children vertically */
+  align-items: center; /* Center items horizontally */
+  margin-top: 50px;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.h16 {
+  color: #fff; /* White text color */
+  text-align: center;
+}
+
+.form6 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label6 {
+  margin-bottom: 5px;
+  color: #fff; /* White text color */
+  opacity: 0;
+  animation: fadeInLabel 0.5s ease forwards;
+}
+
+@keyframes fadeInLabel {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.input2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInInput 0.5s ease forwards;
+}
+
+@keyframes fadeInInput {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInCheckbox 0.5s ease forwards;
+}
+
+@keyframes fadeInCheckbox {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.button8 {
+  padding: 10px 20px;
+  background-color: #22269a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInButton 0.5s ease forwards;
+}
+
+@keyframes fadeInButton {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.button8:hover {
+  background-color: #09071a;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  display: none;
+}
+
+#result-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#display {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #000; /* Black text color */
+}
+
+#display2 {
+  font-weight: bold;
+  color: #000; /* Black text color */
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+.copy-paste-box {
+  display: none;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.section {
+  background-color: #000000;
+  padding: 18vh;
+  text-align: center;
+}
+
+#drop-area {
+  border: 2px dashed #ffffff;
+  border-radius: 10px;
+  padding: 70px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.drop-text {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.button9 {
+  display: inline-block;
+  background-color: #860000;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#fileElem {
+  display: none;
+}
+
+.container4 {
+  background-color: #000000;
+}
+
+.editor_container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#editor_canvas {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  cursor: crosshair;
+}
+
+.editor_button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color: rgb(110, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.editor_button:hover {
+  background-color: #ff0000;
+}
+
+.gallery_page {
+  margin: 0 10%;
+}
+
+.img_hold {
+  height: 256px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: all .25s;
+  background-position: center;
+}
+
+.img_box {
+  height: 256px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.img {
+  height: 256px;
+  width: 100%;
+  cursor: zoom-in;
+  background-position: center;
+  background-size: cover;
+  transition: all .5s;
+  filter: saturate(25%) brightness(50%);
+}
+
+.img:hover {
+  transform: scale(1.3);
+  filter: saturate(100%) brightness(100%);
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(0, 0, 0, .8);
+  z-index: 9999;
+  padding: 20px;
+}
+
+#lightbox img {
+  max-height: 70vh;
+  max-width: 70vw;
+}
+
+#closeLightbox {
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  display: none;
+}
+
+.download-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hide initially */
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.pagination a.active {
+  background-color: red;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+.login-box .user-box {
+  position: relative;
+}
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #afaaff;
+  font-size: 12px;
+}
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #afaaff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+.login-box a:hover {
+  background: #afaaff;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #afaaff, 0 0 25px #afaaff, 0 0 50px #afaaff, 0 0 100px #afaaff;
+}
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #afaaff);
+  animation: btn-anim1 1s linear infinite;
+}
+@keyframes btn-anim1 {
+  0% {
+      left: -100%;
+  }
+  50%,100% {
+      left: 100%;
+  }
+}
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #afaaff);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+@keyframes btn-anim2 {
+  0% {
+      top: -100%;
+  }
+  50%,100% {
+      top: 100%;
+  }
+}
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #afaaff);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+@keyframes btn-anim3 {
+  0% {
+      right: -100%;
+  }
+  50%,100% {
+      right: 100%;
+  }
+}
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #afaaff);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+@keyframes btn-anim4 {
+  0% {
+      bottom: -100%;
+  }
+  50%,100% {
+      bottom: 100%;
+  }
+}
+#resultContainer {
+  margin-top: 40px; /* Adjust margin as needed */
+  text-align: center; /* Center align the result */
+  color: #fff; /* Match text color to theme */
+}
+
+#resultContainer h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#resultContainer p {
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+/* Button styles */
+#downloadButton {
+  display: block;
+  margin-top: 20px; /* Adjust margin as needed */
+  padding: 10px 20px;
+  color: #afaaff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #afaaff;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#downloadButton:hover {
+  background-color: #afaaff;
+  color: #fff;
+}
+
+/* Image styles */
+#inputImage {
+  max-width: 100%; /* Ensure image fits within container */
+  margin-top: 20px; /* Adjust margin as needed */
 }
