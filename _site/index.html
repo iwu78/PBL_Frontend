@@ -345,38 +345,7 @@
           &nbsp;Data Structures Project
         </div>
       </div>
-      <div class="noteBodyText">
-        <p>Welcome to a combination of all of our projects from last trimester!</p>
-        <p>Here are some things you can explore:</p>
-        <ul>
-          <li>
-            Login! Most features won't work without logging in!
-          </li>
-          <li>
-            Create, upload, and browser buttons for your website!
-          </li>
-          <li>
-            Play a fun game involving cookies!
-          </li>
-          <li>
-            Upload, Edit, and Browse images!
-          </li>
-          <li>
-            Play some songs!
-          </li>
-          <li>
-            Predict how long it will take till your concussion heals!
-          </li>
-          <li>
-            Ask and answer questions on the forum!
-          </li>
-          <li>
-            Locate your pictures!
-          </li>
-          <li>
-            Predict whether you will survive the titanic or not!
-          </li>
-        </ul>
+      <div class="noteBodyText" id="welcome">
       </div>
     </div>
   </div>
@@ -1097,6 +1066,15 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
+function loadWelcome() {
+  console.log("test")
+  $("#welcome").load("welcome.html"); 
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  loadWelcome();
+})
+
   var windows = [
     {
       name: "welcome",
