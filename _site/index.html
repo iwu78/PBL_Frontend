@@ -979,6 +979,26 @@
       </div>
     </div>
   </div>
+
+  <div class="panel settingsPanel" id="steg" onmousedown="FocusWindow('steg')"
+    style="display: none; flex-direction: column; overflow: hidden; height: 800px; width: 1200px; overflow-y: auto;">
+    <div class="header noselect">
+      <span class="lightText"><img class="headerTitleIcon" src="./places.png" width="20" height="20"></img><span
+          class="headerTitleText">Steganography</span></span>
+      <div class="headerIcons">
+        <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
+          aria-hidden="true" onClick="MinimizeWindow('steg')"></img>
+        <img src="https://www.svgrepo.com/show/435283/chrome-maximize.svg" width="15" height="15"
+          aria-hidden="true"></img>
+        <img src="https://www.svgrepo.com/show/361066/chrome-close.svg" width="15" height="15" id="welcomeClose"
+          aria-hidden="true" onClick="CloseWindow('steg')"></img>
+      </div>
+    </div>
+    <div class="panel-body settingsPanelBody noselect" id="panelBody">
+      <div id="stegcontent">
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="taskbar noselect">
@@ -1045,6 +1065,10 @@
     <img src="./places.png" width="35" height="35" class="taskbarItem" alt="Places Icon" />
     <div class="taskbarIconIndicator" style="display:none;" id="placesTaskbarIndicator"></div>
   </div>
+  <div class="taskbarIconWrapper" id="stegTaskbarIcon" onClick="TaskbarIconClick('steg')">
+    <img src="./places.png" width="35" height="35" class="taskbarItem" alt="Steg Icon" />
+    <div class="taskbarIconIndicator" style="display:none;" id="stegTaskbarIndicator"></div>
+  </div>
   <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
     <i class="ms-Icon ms-Icon--QuickNoteSolid taskbarIcon taskbarItem taskbarNoteIcon"
       style="font-size:1.8rem;position:relative;top:3px;" aria-hidden="true"></i>
@@ -1067,12 +1091,16 @@
 <script src="js/bootstrap.js"></script>
 <script>
 function loadWelcome() {
-  console.log("test")
   $("#welcome").load("welcome.html"); 
+}
+
+function loadSteg() {
+  $("#stegcontent").load("steg.html"); 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   loadWelcome();
+  loadSteg();
 })
 
   var windows = [
@@ -1201,6 +1229,15 @@ document.addEventListener('DOMContentLoaded', function () {
       taskbarid: "#placesTaskbarIcon",
       taskbarindicator: "#placesTaskbarIndicator",
       windowid: "#places"
+    },
+    {
+      name: "steg",
+      isOpen: false,
+      isMinimized: false,
+      hasFocus: false,
+      taskbarid: "#stegTaskbarIcon",
+      taskbarindicator: "#stegTaskbarIndicator",
+      windowid: "#steg"
     },
     {
       name: "weather",
@@ -3080,5 +3117,151 @@ document.addEventListener('DOMContentLoaded', function () {
     resultContainer.style.display = 'block';
   }
 
+  function hideMessage(event) {
+            const encodedImageContainer = document.getElementById('encodedImageContainer')
+            event.preventDefault(); // Prevent the form from submitting the traditional way
 
+            // Get the message from the textarea
+            hmessage = document.getElementById('hiddenMessage').value;
+
+            // Get the file input element and the selected file
+            himageInput = document.getElementById('hideImage');
+            hfile = himageInput.files[0];
+            const hfileExtension = hfile.name.split('.').pop();
+
+            if (hfile) {
+                // Create a FileReader to read the file as a data URL (Base64)
+                hreader = new FileReader();
+                
+                hreader.onloadend = function() {
+                    hbase64Image = hreader.result;
+                    
+                    console.log('Message:', hmessage);
+                    console.log('Base64 Image:', hbase64Image.split(',')[1]);
+                    const data = {
+                      "message": hmessage,
+                      "image": hbase64Image.split(',')[1],
+                      "num_bits": document.getElementById('bitnum').value
+                    };
+                    // fetch the API
+                    const hpost_options = {
+                        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'cors', // no-cors, *cors, same-origin
+                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: 'omit', // include, *same-origin, omit
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                    };
+                    const himage_options = {...hpost_options, method: 'POST', body: JSON.stringify(data)};
+                    fetch("http://127.0.0.1:8086/api/steg/", himage_options)
+                    .then(response => {
+                        // check for response errors
+                        if (response.status !== 200) {
+                            error('GET API response failure: ' + response.status);
+                            return;
+                        }
+
+                        // valid response will have JSON data
+                        response.json().then(data => {
+                            console.log(data)
+                                encodedImage = new Image();
+                                encodedImage.src = 'data:image/' + hfileExtension + ';base64,' + data['image'];
+
+                                // Set a max-height for the image to fit within the text box
+                                encodedImage.style.maxHeight = '100%';
+
+                                encodedImageContainer.src = encodedImage.src;
+                                encodedImageContainer.style.display = 'block';
+                                document.getElementById('hdownloadButton').style.display = 'block';
+
+                                document.getElementById('imageInfo').innerHTML = 'Bits Modifield per RGB Value: ' + data['bits_used'] + ' \n RGB Values Modified: ' + data['values_modified'];
+                        })
+                    })
+                };
+
+                hreader.readAsDataURL(hfile);
+            } else {
+                console.log('No file selected');
+            }
+        }
+
+  function decryptMessage(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Get the file input element and the selected file
+            himageInput = document.getElementById('decryptImage');
+            hfile = himageInput.files[0];
+
+            if (hfile) {
+                // Create a FileReader to read the file as a data URL (Base64)
+                hreader = new FileReader();
+                
+                hreader.onloadend = function() {
+                    hbase64Image = hreader.result;
+                    
+                    const data = {
+                      "image": hbase64Image.split(',')[1]
+                    };
+                    // fetch the API
+                    const hpost_options = {
+                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'cors', // no-cors, *cors, same-origin
+                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: 'omit', // include, *same-origin, omit
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                    };
+                    const himage_options = {...hpost_options, method: 'PUT', body: JSON.stringify(data)};
+                    fetch("http://127.0.0.1:8086/api/steg/", himage_options)
+                    .then(response => {
+                        // check for response errors
+                        if (response.status !== 200) {
+                            error('GET API response failure: ' + response.status);
+                            return;
+                        }
+
+                        // valid response will have JSON data
+                        response.json().then(data => {
+                          document.getElementById('decodedMessage').innerHTML = data['message']
+                        })
+                    })
+                };
+
+                hreader.readAsDataURL(hfile);
+            } else {
+                console.log('No file selected');
+            }
+        }
+
+  function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('hidetab').click();
+  })
+
+  function downloadImage() {
+        const encodedImageContainer = document.getElementById('encodedImageContainer');
+        const link = document.createElement('a');
+        link.href = encodedImageContainer.src;
+        link.download = 'encoded_image.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 </script>
