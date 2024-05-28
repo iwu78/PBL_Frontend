@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concussion Recovery Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #060636;
+            background-image: url('https://scitechdaily.com/images/Glowing-Brain-Particles.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 1000px;
+            padding: 20px;
+            background-color: rgba(30, 30, 50, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2.0s ease;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #93f299;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #22269a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #09071a;
+        }
+
+        #result-container {
+            width: 1000px;
+            padding: 20px;
+            background-color: rgba(30, 30, 50, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2.0s ease;
+            margin-top: 20px;
+        }
+
+        #result {
+            color: #fff;
+        }
+
+        .result-heading {
+            font-size: 18px;
+            color: #93f299;
+            margin-bottom: 10px;
+        }
+
+        .recommendations {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(50, 50, 70, 0.8);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Recovery Recommendations</h2>
+        <h3>Please indicate your symptom severities here!</h3>
+        <div class="columns">
+            <div class="column">
+                <div id="column1"></div>
+            </div>
+            <div class="column">
+                <div id="column2"></div>
+            </div>
+            <div class="column">
+                <div id="column3"></div>
+            </div>
+        </div>
+        <button onclick="login_user()">Submit</button>
+    </div>
+    <div id="result-container">
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Define your quiz questions and options
+        var questions = {
+            "Headache": ["None", "Mild", "Moderate", "Severe"],
+            "Neck Pain": ["None", "Mild", "Moderate", "Severe"],
+            "Nausea": ["None", "Mild", "Moderate", "Severe"],
+            "Dizziness": ["None", "Mild", "Moderate", "Severe"],
+            "Blurred Vision": ["None", "Mild", "Moderate", "Severe"],
+            "Sensitivity to Noise": ["None", "Mild", "Moderate", "Severe"],
+            "Sensitivity to Light": ["None", "Mild", "Moderate", "Severe"],
+            "Memory Loss": ["None", "Mild", "Moderate", "Severe"],
+            "Lack of Concentration": ["None", "Mild", "Moderate", "Severe"],
+            "Fatigue": ["None", "Mild", "Moderate", "Severe"],
+            "Confusion": ["None", "Mild", "Moderate", "Severe"],
+            "Drowsiness": ["None", "Mild", "Moderate", "Severe"],
+            "Insomnia": ["None", "Mild", "Moderate", "Severe"],
+            "Irritability": ["None", "Mild", "Moderate", "Severe"],
+            "Nervousness/Anxiety": ["None", "Mild", "Moderate", "Severe"]
+        };
+
+        // Function to generate quiz form
+        function generateQuizForm() {
+            var column1 = document.getElementById('column1');
+            var column2 = document.getElementById('column2');
+            var column3 = document.getElementById('column3');
+            
+            var thirdLength = 5;
+            var count = 0;
+
+            for (var question in questions) {
+                var label = document.createElement('label');
+                label.innerHTML = question;
+
+                var select = document.createElement('select');
+                select.name = question;
+
+                for (var i = 0; i < questions[question].length; i++) {
+                    var option = document.createElement('option');
+                    option.value = questions[question][i];
+                    option.text = questions[question][i];
+                    select.appendChild(option);
+                }
+
+                if (count < thirdLength) {
+                    column1.appendChild(label);
+                    column1.appendChild(select);
+                } else if (count < 2 * thirdLength) {
+                    column2.appendChild(label);
+                    column2.appendChild(select);
+                } else {
+                    column3.appendChild(label);
+                    column3.appendChild(select);
+                }
+
+                count++;
+            }
+        }
+
+        // Function to submit quiz
+        function login_user() {
+            var body = {};
+            var selects = document.querySelectorAll('select');
+            selects.forEach(function(select) {
+                body[select.name] = select.value;
+            });
+
+            console.log(body);
+            // answers are now in JSON format!! now need to do api stuff
+            const url = 'http://127.0.0.1:8086/api/recovery/'; // Update the URL to match your API endpoint
+            // Change options according to Authentication requirements
+            const authOptions = {
+                mode: 'cors', // no-cors, *cors, same-origin
+                credentials: 'include', // include, same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST', // Override the method property
+                cache: 'no-cache', // Set the cache property
+                body: JSON.stringify(body)
+            };
+
+            fetch(url, authOptions)
+                .then(response => {
+                    // Check if response is successful
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    // Parse the JSON content from the response
+                    return response.json();
+                })
+                .then(data => {
+                    // Now 'data' contains the parsed JSON content
+                    console.log(data);
+                    displayResult(data); // Call the function to display the result
+                })
+                .catch(error => {
+                    // Handle errors here
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        // Function to display the result
+        function displayResult(data) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Clear previous results
+            
+            // Display the total score
+            var totalScore = document.createElement('p');
+            totalScore.className = 'result-heading';
+            totalScore.innerHTML = '<strong>Severity Score:</strong> ' + data[0] + ' out of 580';
+            resultDiv.appendChild(totalScore);
+
+            // Display the recommendations
+            if (data[1].length > 0) {
+                var recommendations = document.createElement('ul');
+                recommendations.className = 'recommendations';
+                data[1].forEach(function(rec) {
+                    var listItem = document.createElement('li');
+                    listItem.innerText = rec;
+                    recommendations.appendChild(listItem);
+                });
+                resultDiv.appendChild(recommendations);
+            } else {
+                var noRecommendations = document.createElement('p');
+                noRecommendations.className = 'result-heading';
+                noRecommendations.innerText = 'No specific recommendations at this time.';
+                resultDiv.appendChild(noRecommendations);
+            }
+        }
+
+        // Generate quiz form when the page loads
+        window.onload = function() {
+            generateQuizForm();
+        };
+    </script>
+</body>
+</html>

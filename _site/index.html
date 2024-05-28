@@ -983,7 +983,7 @@
   <div class="panel settingsPanel" id="steg" onmousedown="FocusWindow('steg')"
     style="display: none; flex-direction: column; overflow: hidden; height: 800px; width: 1200px; overflow-y: auto;">
     <div class="header noselect">
-      <span class="lightText"><img class="headerTitleIcon" src="./places.png" width="20" height="20"></img><span
+      <span class="lightText"><img class="headerTitleIcon" src="./grid.png" width="20" height="20"></img><span
           class="headerTitleText">Steganography</span></span>
       <div class="headerIcons">
         <img src="https://www.svgrepo.com/show/361069/chrome-minimize.svg" width="15" height="15" id="welcomeMinimize"
@@ -1066,7 +1066,7 @@
     <div class="taskbarIconIndicator" style="display:none;" id="placesTaskbarIndicator"></div>
   </div>
   <div class="taskbarIconWrapper" id="stegTaskbarIcon" onClick="TaskbarIconClick('steg')">
-    <img src="./places.png" width="35" height="35" class="taskbarItem" alt="Steg Icon" />
+    <img src="./grid.png" width="35" height="35" class="taskbarItem" alt="Steg Icon" />
     <div class="taskbarIconIndicator" style="display:none;" id="stegTaskbarIndicator"></div>
   </div>
   <div class="taskbarIconWrapper active focused" id="noteTaskbarIcon" onClick="TaskbarIconClick('welcome')">
@@ -1089,6 +1089,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/consts.js"></script>
 <script>
 function loadWelcome() {
   $("#welcome").load("welcome.html"); 
@@ -1487,7 +1488,7 @@ document.addEventListener('DOMContentLoaded', function () {
   updateTime();
   function login_user() {
     // Set Authenticate endpoint
-    const url = 'http://127.0.0.1:8086/api/users/authenticate';
+    const url = baseurl + 'users/authenticate';
 
     // Set the body of the request to include login data from the DOM
     const body = {
@@ -1633,7 +1634,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial canvas setup
     resizeCanvas();
   });
-  const url = 'http://127.0.0.1:8086/api/users/search';
+  const url = baseurl + 'users/search';
   // Function to display the popup
   function openPopup() {
     document.getElementById("popup").style.display = "block";
@@ -1742,7 +1743,7 @@ document.addEventListener('DOMContentLoaded', function () {
   borderWidthSlider.addEventListener('input', updateButtonPreview);
 
   function saveButton(name) {
-    const url = 'http://127.0.0.1:8086/api/users/search';
+    const url = baseurl + 'users/search';
     const body = {
       name: name,
       content: buttonCode.value,
@@ -1809,7 +1810,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   function getPublic() {
-    fetch('http://127.0.0.1:8086/api/users/search')
+    fetch(baseurl + 'users/search')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -1838,7 +1839,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       method: 'PUT', // Override the method property
     };
-    fetch('http://127.0.0.1:8086/api/users/search', authOptions)
+    fetch(baseurl + 'users/search', authOptions)
       .then(response => {
         if (!response.ok) {
           alert("Error: Please Login First!")
@@ -1896,7 +1897,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: name,
       }
     }
-    const url = 'http://127.0.0.1:8086/api/users/search';
+    const url = baseurl + 'users/search';
     const authOptions = {
       mode: 'cors', // no-cors, *cors, same-origin
       credentials: 'include', // include, same-origin, omit
@@ -1915,7 +1916,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log(errorMsg);
           return;
         } else {
-          window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + "#"
+          window.location.href = websiteurl + "?search=" + document.getElementById("search").value + "#"
         }
       })
       // catch fetch errors (ie ACCESS to server blocked)
@@ -1938,7 +1939,7 @@ document.addEventListener('DOMContentLoaded', function () {
         name: name,
       }
     }
-    const url = 'http://127.0.0.1:8086/api/users/search';
+    const url = baseurl + 'users/search';
     const authOptions = {
       mode: 'cors', // no-cors, *cors, same-origin
       credentials: 'include', // include, same-origin, omit
@@ -1957,7 +1958,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log(errorMsg);
           return;
         } else {
-          window.location.href = "http://127.0.0.1:4000/?search=" + document.getElementById("search").value + ""
+          window.location.href = websiteurl + "?search=" + document.getElementById("search").value + ""
         }
       })
       // catch fetch errors (ie ACCESS to server blocked)
@@ -1968,7 +1969,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function titanic_user() {
     // Set Authenticate endpoint
-    const url = 'http://127.0.0.1:8086/api/titanic/';
+    const url = baseurl + 'titanic/';
 
     // Set the body of the request to include login data from the DOM
     const body = {
@@ -2220,7 +2221,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(temp_uid + "  " + temp_password)
 
     if (typeof points === 'number' && !isNaN(points)) {
-      const url = 'http://127.0.0.1:8086/api/users/';
+      const url = baseurl + 'users/';
       const body = {
         uid: temp_uid,
         password: temp_password,
@@ -2300,7 +2301,7 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: myHeaders,
       redirect: 'follow'
     };
-    fetch("http://127.0.0.1:8086/api/post/?searchString=" + enteredTopic, requestOptions)
+    fetch(baseurl + "post/?searchString=" + enteredTopic, requestOptions)
       .then(response => {
         if (response.ok) {
           console.log(enteredTopic + " has been searched");
@@ -2359,7 +2360,7 @@ document.addEventListener('DOMContentLoaded', function () {
       body: raw,
       redirect: 'follow'
     };
-    fetch("http://127.0.0.1:8086/api/post/", requestOptions)
+    fetch(baseurl + "post/", requestOptions)
       .then(response => {
         if (response.ok) {
           console.log("Question Received");
@@ -2394,7 +2395,7 @@ document.addEventListener('DOMContentLoaded', function () {
       body: raw,
       redirect: 'follow'
     };
-    fetch("http://127.0.0.1:8086/api/post/", requestOptions)
+    fetch(baseurl + "post/", requestOptions)
       .then(response => {
         if (response.ok) {
           console.log("Reply Received");
@@ -2410,7 +2411,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   async function fetchQuestion(questionId) {
     try {
-      const response = await fetch(`http://127.0.0.1:8086/api/post?id=${questionId}`);
+      const response = await fetch(baseurl + `post?id=${questionId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
@@ -2424,7 +2425,7 @@ document.addEventListener('DOMContentLoaded', function () {
   async function fetchAndDisplayComments(questionId) {
     const commentsContainer = document.getElementById('comments-container');
     try {
-      const response = await fetch(`http://127.0.0.1:8086/api/post?parentPostId=${questionId}`);
+      const response = await fetch(baseurl + `post?parentPostId=${questionId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
@@ -2543,7 +2544,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Fetch data from Flask backend
   async function fetchData() {
     try {
-      const response = await fetch('http://127.0.0.1:8086/api/song/all');
+      const response = await fetch(baseurl + 'song/all');
       const songsData = await response.json();
 
       const container = document.getElementById("albumList");
@@ -2581,7 +2582,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function concussions_user() {
 
-    const url = 'http://127.0.0.1:8086/api/concussion/'; // WE CHANGED THE URL :D
+    const url = baseurl + 'concussion/'; // WE CHANGED THE URL :D
 
     // Get checkbox values
     const smokeChecked = document.getElementById("smoke").checked ? 1 : 0;
@@ -2964,7 +2965,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  const apiUrl = 'http://127.0.0.1:8086/api/images/'; // Update this URL
+  const apiUrl = baseurl + 'images/'; // Update this URL
 
   function downloadImage(imageUrl) {
     // Create a temporary anchor element
@@ -3093,7 +3094,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function fetchPrediction(imageUrl) {
 
-    fetch('http://127.0.0.1:8086/api/places/predict', {
+    fetch(baseurl + 'places/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -3155,7 +3156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                     };
                     const himage_options = {...hpost_options, method: 'POST', body: JSON.stringify(data)};
-                    fetch("http://127.0.0.1:8086/api/steg/", himage_options)
+                    fetch(baseurl + "steg/", himage_options)
                     .then(response => {
                         // check for response errors
                         if (response.status !== 200) {
@@ -3176,7 +3177,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 encodedImageContainer.style.display = 'block';
                                 document.getElementById('hdownloadButton').style.display = 'block';
 
-                                document.getElementById('imageInfo').innerHTML = 'Bits Modifield per RGB Value: ' + data['bits_used'] + ' \n RGB Values Modified: ' + data['values_modified'];
+                                document.getElementById('imageInfo').innerHTML = 'Bits Modifield per RGB Value: ' + data['bits_used'];
+                                document.getElementById('imageInfo2').innerHTML = 'RGB Values Modified: ' + data['values_modified'];
                         })
                     })
                 };
@@ -3216,7 +3218,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                     };
                     const himage_options = {...hpost_options, method: 'PUT', body: JSON.stringify(data)};
-                    fetch("http://127.0.0.1:8086/api/steg/", himage_options)
+                    fetch(baseurl + "steg/", himage_options)
                     .then(response => {
                         // check for response errors
                         if (response.status !== 200) {
