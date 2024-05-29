@@ -19,7 +19,14 @@
     </form>
 
     <div id="stegDisplayContainer">
-        <img id="encodedImageContainer"></img>
+        <div class="image-container">
+            <p>Original Image: </p>
+            <img id="originalImageContainer" class="clickable-image" onclick="expandImage(this)">
+        </div>
+        <div class="image-container">
+            <p>Encoded Image: </p>
+            <img id="encodedImageContainer" class="clickable-image" onclick="expandImage(this)">
+        </div>
         <p id="imageInfo"></p>
         <p id="imageInfo2"></p>
         <button id="hdownloadButton" onclick="downloadImage()" style="display:none;">Download Image</button>
@@ -39,6 +46,12 @@
     </form>
 
     <div id="decodedMessageContainer">
-        <p id="decodedMessage"></p>
+        <p id="decodedMessage" style="display: none;"></p>
     </div>
+</div>
+
+<!-- Modal for expanded images -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="expandedImage">
 </div>

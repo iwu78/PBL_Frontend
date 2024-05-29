@@ -3119,150 +3119,187 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function hideMessage(event) {
-            const encodedImageContainer = document.getElementById('encodedImageContainer')
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-
-            // Get the message from the textarea
-            hmessage = document.getElementById('hiddenMessage').value;
-
-            // Get the file input element and the selected file
-            himageInput = document.getElementById('hideImage');
-            hfile = himageInput.files[0];
-            const hfileExtension = hfile.name.split('.').pop();
-
-            if (hfile) {
-                // Create a FileReader to read the file as a data URL (Base64)
-                hreader = new FileReader();
-                
-                hreader.onloadend = function() {
-                    hbase64Image = hreader.result;
-                    
-                    console.log('Message:', hmessage);
-                    console.log('Base64 Image:', hbase64Image.split(',')[1]);
-                    const data = {
-                      "message": hmessage,
-                      "image": hbase64Image.split(',')[1],
-                    };
-                    // fetch the API
-                    const hpost_options = {
-                        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                        mode: 'cors', // no-cors, *cors, same-origin
-                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: 'omit', // include, *same-origin, omit
-                        headers: {
-                            'Content-Type': 'application/json',
-                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                    };
-                    const himage_options = {...hpost_options, method: 'POST', body: JSON.stringify(data)};
-                    fetch(baseurl + "steg/", himage_options)
-                    .then(response => {
-                        // check for response errors
-                        if (response.status !== 200) {
-                            error('GET API response failure: ' + response.status);
-                            return;
-                        }
-
-                        // valid response will have JSON data
-                        response.json().then(data => {
-                            console.log(data)
-                                encodedImage = new Image();
-                                encodedImage.src = 'data:image/' + hfileExtension + ';base64,' + data['image'];
-
-                                // Set a max-height for the image to fit within the text box
-                                encodedImage.style.maxHeight = '100%';
-
-                                encodedImageContainer.src = encodedImage.src;
-                                encodedImageContainer.style.display = 'block';
-                                document.getElementById('hdownloadButton').style.display = 'block';
-
-                                document.getElementById('imageInfo').innerHTML = 'Bits Modifield per RGB Value: ' + data['bits_used'];
-                                document.getElementById('imageInfo2').innerHTML = 'RGB Values Modified: ' + data['values_modified'];
-                        })
-                    })
-                };
-
-                hreader.readAsDataURL(hfile);
-            } else {
-                console.log('No file selected');
-            }
-        }
-
-  function decryptMessage(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-
-            // Get the file input element and the selected file
-            himageInput = document.getElementById('decryptImage');
-            hfile = himageInput.files[0];
-
-            if (hfile) {
-                // Create a FileReader to read the file as a data URL (Base64)
-                hreader = new FileReader();
-                
-                hreader.onloadend = function() {
-                    hbase64Image = hreader.result;
-                    
-                    const data = {
-                      "image": hbase64Image.split(',')[1]
-                    };
-                    // fetch the API
-                    const hpost_options = {
-                        method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-                        mode: 'cors', // no-cors, *cors, same-origin
-                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: 'omit', // include, *same-origin, omit
-                        headers: {
-                            'Content-Type': 'application/json',
-                            // 'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                    };
-                    const himage_options = {...hpost_options, method: 'PUT', body: JSON.stringify(data)};
-                    fetch(baseurl + "steg/", himage_options)
-                    .then(response => {
-                        // check for response errors
-                        if (response.status !== 200) {
-                            error('GET API response failure: ' + response.status);
-                            return;
-                        }
-
-                        // valid response will have JSON data
-                        response.json().then(data => {
-                          document.getElementById('decodedMessage').innerHTML = data['message']
-                        })
-                    })
-                };
-
-                hreader.readAsDataURL(hfile);
-            } else {
-                console.log('No file selected');
-            }
-        }
-
-  function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tab-content");
-      for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
+    const stegDisplayContainer = document.getElementById('stegDisplayContainer');
+    const encodedImageContainer = document.getElementById('encodedImageContainer');
+    const originalImageContainer = document.getElementById('originalImageContainer');
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+    elements = document.getElementsByClassName("image-container");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.display = "block";
     }
 
-  document.addEventListener('DOMContentLoaded', function () {
+    // Get the message from the textarea
+    const hmessage = document.getElementById('hiddenMessage').value;
+
+    // Get the file input element and the selected file
+    const himageInput = document.getElementById('hideImage');
+    const hfile = himageInput.files[0];
+    const hfileExtension = hfile.name.split('.').pop();
+
+    if (hfile) {
+        // Create a FileReader to read the file as a data URL (Base64)
+        const hreader = new FileReader();
+        
+        hreader.onloadend = function() {
+            const hbase64Image = hreader.result;
+
+            originalImageContainer.src = hbase64Image;
+            originalImageContainer.style.display = 'block';
+
+            const data = {
+                "message": hmessage,
+                "image": hbase64Image.split(',')[1],
+            };
+            // fetch the API
+            const hpost_options = {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'omit', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            };
+            const himage_options = {...hpost_options, method: 'POST', body: JSON.stringify(data)};
+            fetch(baseurl + "steg/", himage_options)
+            .then(response => {
+                // check for response errors
+                if (response.status !== 200) {
+                    console.error('GET API response failure:', response.status);
+                    return;
+                }
+
+                // valid response will have JSON data
+                response.json().then(data => {
+                    const encodedImage = new Image();
+                    encodedImage.src = 'data:image/' + hfileExtension + ';base64,' + data['image'];
+
+                    // Set a max-height for the image to fit within the text box
+                    encodedImage.style.maxHeight = '100%';
+
+                    encodedImageContainer.src = encodedImage.src;
+                    encodedImageContainer.style.display = 'block';
+                    document.getElementById('hdownloadButton').style.display = 'block';
+
+                    document.getElementById('imageInfo').innerHTML = 'Bits Modified per RGB Value: ' + data['bits_used'];
+                    document.getElementById('imageInfo2').innerHTML = 'RGB Values Modified: ' + data['values_modified'];
+
+                    stegDisplayContainer.style.display = 'block';
+                });
+            });
+        };
+
+        hreader.readAsDataURL(hfile);
+    } else {
+        console.log('No file selected');
+    }
+}
+
+function decryptMessage(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Get the file input element and the selected file
+    const himageInput = document.getElementById('decryptImage');
+    const hfile = himageInput.files[0];
+
+    if (hfile) {
+        // Create a FileReader to read the file as a data URL (Base64)
+        const hreader = new FileReader();
+        
+        hreader.onloadend = function() {
+            const hbase64Image = hreader.result;
+            
+            const data = {
+                "image": hbase64Image.split(',')[1]
+            };
+            // fetch the API
+            const hpost_options = {
+                method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'omit', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            };
+            const himage_options = {...hpost_options, method: 'PUT', body: JSON.stringify(data)};
+            fetch(baseurl + "steg/", himage_options)
+            .then(response => {
+                // check for response errors
+                if (response.status !== 200) {
+                    console.error('GET API response failure:', response.status);
+                    return;
+                }
+
+                // valid response will have JSON data
+                response.json().then(data => {
+                    document.getElementById('decodedMessage').innerHTML = data['message'];
+                    document.getElementById('decodedMessage').style.display = "block";
+                });
+            });
+        };
+
+        hreader.readAsDataURL(hfile);
+    } else {
+        console.log('No file selected');
+    }
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('hidetab').click();
-  })
+});
 
-  function downloadImage() {
-        const encodedImageContainer = document.getElementById('encodedImageContainer');
-        const link = document.createElement('a');
-        link.href = encodedImageContainer.src;
-        link.download = 'encoded_image.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+function downloadImage() {
+    const encodedImageContainer = document.getElementById('encodedImageContainer');
+    const link = document.createElement('a');
+    link.href = encodedImageContainer.src;
+    link.download = 'encoded_image.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function expandImage(img) {
+    const modal = document.getElementById("imageModal");
+    const expandedImage = document.getElementById("expandedImage");
+    modal.style.display = "block";
+    expandedImage.src = img.src;
+
+    // Remove zoom class if it exists
+    expandedImage.classList.remove("zoomed");
+
+    // Add event listener for zoom effect
+    expandedImage.onclick = function() {
+        if (expandedImage.classList.contains("zoomed")) {
+            expandedImage.classList.remove("zoomed");
+        } else {
+            expandedImage.classList.add("zoomed");
+        }
     }
+}
+
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    const expandedImage = document.getElementById("expandedImage");
+
+    // Remove zoom class when closing the modal
+    expandedImage.classList.remove("zoomed");
+    modal.style.display = "none";
+}
 </script>
