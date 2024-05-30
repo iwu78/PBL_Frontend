@@ -2,7 +2,7 @@
     <button class="tablink" id="hidetab" onclick="openTab(event, 'Hide')">Hide Message</button>
     <button class="tablink" onclick="openTab(event, 'Decrypt')">Decrypt Message</button>
 </div>
-
+<br>
 <div id="Hide" class="tab-content tab">
     <h2>Hide Message</h2>
     <form onsubmit="hideMessage(event)" class="form9">
@@ -11,8 +11,9 @@
         
         <label for="hideImage">Image:</label><br>
         <div class="file-upload-wrapper">
-          <input type="file" id="hideImage" name="hideImage" accept="image/*">
+          <input type="file" id="hideImage" name="hideImage" accept="image/*" onchange="displayFileName(this)">
           <label for="hideImage" class="file-upload-label">Upload Image</label>
+          <p id="hideImageFileName" class="file-name"></p>
         </div><br><br>
         
         <input type="submit" value="Submit">
@@ -38,8 +39,9 @@
     <form onsubmit="decryptMessage(event)" class="form9">
         <label for="decryptImage">Image:</label><br>
         <div class="file-upload-wrapper">
-          <input type="file" id="decryptImage" name="decryptImage" accept="image/*">
+          <input type="file" id="decryptImage" name="decryptImage" accept="image/*" onchange="displayFileName(this)">
           <label for="decryptImage" class="file-upload-label">Upload Image</label>
+          <p id="decryptImageFileName" class="file-name"></p>
         </div><br><br>
         
         <input type="submit" value="Decrypt">
@@ -53,5 +55,5 @@
 <!-- Modal for expanded images -->
 <div id="imageModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="expandedImage">
+  <img class="modal-content" id="expandedImage" onclick="expandImage(this)">
 </div>
