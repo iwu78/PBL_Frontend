@@ -3261,9 +3261,16 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('hidetab').click();
-});
+document.getElementById("hidetab").click();
+
+function displayFileName(input) {
+    var fileName = input.files[0].name;
+    if (input.id === "hideImage") {
+        document.getElementById("hideImageFileName").innerText = fileName;
+    } else if (input.id === "decryptImage") {
+        document.getElementById("decryptImageFileName").innerText = fileName;
+    }
+}
 
 function downloadImage() {
     const encodedImageContainer = document.getElementById('encodedImageContainer');
